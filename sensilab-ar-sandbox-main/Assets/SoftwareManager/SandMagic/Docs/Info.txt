@@ -1,0 +1,12 @@
+OK	Mudar a cor da água geral
+OK	Mudar a viscosidade da água separadamente
+OK	Permitir colocar uma cachoeira na qual a água é adicionado naquele ponto
+OK 	Controle da velocidade do fluxo da cachoeira (quantidade de particulas a ser emitida)
+OK	Configurar a velocidade de absorção do solo e de evaporação da água
+•	Funçao de fazer chover quando coloca a mão espalmada sobre uma região( a mão fica tipo uma nuvem)
+
+
+Legenda:
+OK - Funcionando e testado
+•  - Fazendo
+o  - A Fazer

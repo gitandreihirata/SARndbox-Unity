@@ -1,0 +1,1144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: LocalizationTables_pt
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pt
+  m_SharedData: {fileID: 11400000, guid: 5bdaebdf04e6ba843af15126c9e1e5de, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 29061496832
+    m_Localized: Menu Principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 508399140864
+    m_Localized: "Configura\xE7\xE3o da SARndbox"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644865015808
+    m_Localized: Compartilhar Dados
+    m_Metadata:
+      m_Items: []
+  - m_Id: 693468610560
+    m_Localized: Desenvolvido por Lachlan Smith com
+    m_Metadata:
+      m_Items: []
+  - m_Id: 744769142784
+    m_Localized: 'Em parceria com:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 820094648320
+    m_Localized: 'Modificado por:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 868127817728
+    m_Localized: "Algum problema ou quest\xE3o?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2001927880704
+    m_Localized: "Sinta-se \xE0 vontade para contactar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2004201193472
+    m_Localized: "Sair da Simula\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2005954412544
+    m_Localized: Modos da SARndbox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2195536953344
+    m_Localized: "Simula\xE7\xF5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2202088456192
+    m_Localized: Fluido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2204386934784
+    m_Localized: "Inc\xEAndio"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2209092943872
+    m_Localized: Geologia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13016983879680
+    m_Localized: "Emiss\xF5es Atmosf\xE9ricas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13019521433600
+    m_Localized: Ferramentas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13023657017344
+    m_Localized: Construtor de Topografia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13476197253120
+    m_Localized: "Op\xE7\xF5es de Vento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13482048307200
+    m_Localized: Ativar Vento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13634171518976
+    m_Localized: Ativar Efeito Coriolis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13635710828544
+    m_Localized: "Hemisf\xE9rio Terrestre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13638403571712
+    m_Localized: "Hemisf\xE9rio Sul"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16003143778304
+    m_Localized: "Hemisf\xE9rio Norte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16004787945472
+    m_Localized: Multiplicador de Velocidade do Vento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16005958156288
+    m_Localized: Lento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16170899161088
+    m_Localized: 'Valor: 100.0%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16172195201024
+    m_Localized: "R\xE1pido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16336364453888
+    m_Localized: "Op\xE7\xF5es de \xC1gua"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16337597579264
+    m_Localized: "Exibir Part\xEDculas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16339174637568
+    m_Localized: "Limpar Flu\xEDdo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16485123833856
+    m_Localized: "Op\xE7\xF5es de Fogo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16487447478272
+    m_Localized: "Op\xE7\xF5es de Vento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16489016147968
+    m_Localized: Vento Soprando para
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17368951767040
+    m_Localized: Velocidade do Vento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17370906312704
+    m_Localized: Abaixar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17372214935552
+    m_Localized: m/s
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17831705133056
+    m_Localized: Aumentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17832866955264
+    m_Localized: 'Valor: 0.00 m/s'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17834393681920
+    m_Localized: "Op\xE7\xF5es de Paisagem"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19449301385216
+    m_Localized: Zoom da Paisagem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19451088158720
+    m_Localized: Distante
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19452514222080
+    m_Localized: Porcentagem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19454049337344
+    m_Localized: "Pr\xF3ximo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19455672532992
+    m_Localized: 'Valor: 100%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19457228619776
+    m_Localized: Randomizar Flora
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19458935701504
+    m_Localized: "Pausar Simula\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19460684726272
+    m_Localized: "Continuar Simula\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19462429556736
+    m_Localized: "Reiniciar Simula\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20624306290688
+    m_Localized: Leitos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20767709544448
+    m_Localized: "Ordem Geol\xF3gico do leito"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20772541382656
+    m_Localized: "Basalto - \xCDgnea Eruptiva"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20774399459328
+    m_Localized: "Gabro - \xCDgnea Intrusiva"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20776647606272
+    m_Localized: "Granodiorito - \xCDgnea Plut\xF4nica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20778367270912
+    m_Localized: "Riolito - \xCDgnea Vulc\xE2nica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20780246319104
+    m_Localized: Arenito - Sedimentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20782070841344
+    m_Localized: Argila
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20783853420544
+    m_Localized: Conglomerado - Sedimentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20785715691520
+    m_Localized: "Calc\xE1rio - Sedimentar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20787460521984
+    m_Localized: "Carv\xE3o - Sedimentar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20789083717632
+    m_Localized: "Brecha \u2013 Sedimentar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20791264755712
+    m_Localized: "Ard\xF3sia \u2013 Metam\xF3rfica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792925700096
+    m_Localized: Xisto - Sedimentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794804748288
+    m_Localized: "Gneisse - Metam\xF3rfica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20796818014208
+    m_Localized: "Corneana\_\u2013\_Metam\xF3rfica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20798705451008
+    m_Localized: "M\xE1rmore - Metam\xF3rfica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20800454475776
+    m_Localized: "Quartzito \u2013 Metam\xF3rfica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20802283192320
+    m_Localized: Deslocamento da Rocha do Leito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20803877027840
+    m_Localized: 'Valor: 0.0 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20805563138048
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20807165362176
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20808780169216
+    m_Localized: Adicionar Leito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20810348838912
+    m_Localized: "Menu de Adi\xE7\xE3o de Leito"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20811871371264
+    m_Localized: "Menu de Edi\xE7\xE3o de Leito"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20813502955520
+    m_Localized: "Sele\xE7\xE3o do Leito"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20814945796096
+    m_Localized: Espessura do Leito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20816539631616
+    m_Localized: 'Valor: 0.0 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20818078941184
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20819832160256
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20821518270464
+    m_Localized: Textura do Leito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20823019831296
+    m_Localized: Resumo do Leito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20824496226304
+    m_Localized: "Transforma\xE7\xF5es"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20825884540928
+    m_Localized: "Hist\xF3ria Geol\xF3gica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20827386101760
+    m_Localized: "Adicionar Tranforma\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20829017686016
+    m_Localized: "Menu de Adi\xE7\xE3o de Tranforma\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20830758322176
+    m_Localized: "Menu de Edi\xE7\xE3o de Tranforma\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20832377323520
+    m_Localized: "Selecione a Transforma\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20833874690048
+    m_Localized: Declive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20835153952768
+    m_Localized: Dobra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20836634542080
+    m_Localized: Falha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20837943164928
+    m_Localized: "Transforma\xE7\xE3o Declive"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20839465697280
+    m_Localized: "Transforma\xE7\xE3o Dobra"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20842280075264
+    m_Localized: "Transforma\xE7\xE3o Falha"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20843437703168
+    m_Localized: "Transforma\xE7\xE3o Desconhecida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20844452724736
+    m_Localized: "Op\xE7\xE3o de Transforma\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20845329334272
+    m_Localized: "Dire\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20846461796352
+    m_Localized: "Inclina\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20847439069184
+    m_Localized: Mergulho
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20848475062272
+    m_Localized: Arraste
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20849515249664
+    m_Localized: "Op\xE7\xE3o Extra"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20850513494016
+    m_Localized: Amplitude
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20851746619392
+    m_Localized: 'Valor: 25 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20852749058048
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20853898297344
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20854980427776
+    m_Localized: "Per\xEDodo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20855961894912
+    m_Localized: 'Valor: 50 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20857236963328
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20858289733632
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20859661271040
+    m_Localized: Desvio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20860747595776
+    m_Localized: 'Valor: 0 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20862022664192
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20863138349056
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20864426000384
+    m_Localized: Cor da Linha de Charneira Sinclinal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20865566851072
+    m_Localized: Cor da Linha de Charneira Anticlinal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20866896445440
+    m_Localized: Deslizamento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20868154736640
+    m_Localized: 'Valor: 25 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20869413027840
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20870813925376
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20872193851392
+    m_Localized: "Posi\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20873477308416
+    m_Localized: 'Valor: 0 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141414653706240
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141416750858240
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141418285973504
+    m_Localized: Cor da Falha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141420345376768
+    m_Localized: "Resumo da Transforma\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141421079379968
+    m_Localized: Salvar/Carregar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141421754662912
+    m_Localized: Arquivo Atual de Geologia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141422438334464
+    m_Localized: Nenhum Arquivo Selecionado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141423088451584
+    m_Localized: Lista de Arquivos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141423776317440
+    m_Localized: Salvar como Novo Arquivo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141424430628864
+    m_Localized: Sobrescrever Arquivo Atual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141425118494720
+    m_Localized: "Op\xE7\xF5es do Construtor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141425793777664
+    m_Localized: Topografia Carregada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141426364203008
+    m_Localized: Topografia para Renomear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141427031097344
+    m_Localized: Topografias Salvas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142420418445312
+    m_Localized: Salvar Nova Topografia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142467763748864
+    m_Localized: Deslocamento de Altura da Topografia Carregada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142475988779008
+    m_Localized: 'Valor: 0 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142499820814336
+    m_Localized: Mais baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142735477784576
+    m_Localized: Mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142785033486336
+    m_Localized: mm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142786883174400
+    m_Localized: "Faixa deAceita\xE7\xE3o de Altura"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142788569284608
+    m_Localized: 'Valor: 25 mm'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142933880946688
+    m_Localized: 'Nome da Topografia:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142985269559296
+    m_Localized: Nenhuma Topografia selecionada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143030966501376
+    m_Localized: Renomeie a Topografia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143085093994496
+    m_Localized: "Calibra\xE7\xE3o de Canto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143086989819904
+    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de canto:\r\n\r\nArraste os
+      cantos CYAN ao redor da forma da \xE1rea restrita na imagem de profundidade.\r\n\r\nArraste
+      os cantos VERMELHOS para os cantos reais projetados na \xE1rea restrita (Veja
+      a proje\xE7\xE3o)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143088579461120
+    m_Localized: "Calibra\xE7\xE3o de Profundidade"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143223535386624
+    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de profundidade:\r\n\r\nToque
+      na parte MAIS BAIXA da imagem de profundidade e depois na MAIS ALTA.\r\n\r\nA
+      faixa de profundidade pode ser ajustada com os controles deslizantes \xE0 direita."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143224378441728
+    m_Localized: "Calibra\xE7\xE3o de\r\nMudan\xE7a de lente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143225137610752
+    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de mudan\xE7a de lente:\r\n\r\nUse
+      a op\xE7\xE3o Lens Shift para alinhar os picos e calhas na proje\xE7\xE3o.
+      Observe que voc\xEA provavelmente ter\xE1 que usar a Tradu\xE7\xE3o Horizontal
+      depois para alinhar a proje\xE7\xE3o corretamente.\r\n\r\nUse as outras op\xE7\xF5es
+      para ajustar a calibra\xE7\xE3o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143225829670912
+    m_Localized: "Mudan\xE7a de Lente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143226622394368
+    m_Localized: "Tradu\xE7\xE3o Horizontal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143227142488064
+    m_Localized: "Tradu\xE7\xE3o Vertical"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143227851325440
+    m_Localized: Escala Horizontal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143715116204032
+    m_Localized: Escala Vertical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143717024612352
+    m_Localized: "Iniciar Calibra\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143717989302272
+    m_Localized: Toque no Ponto mais Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143857009508352
+    m_Localized: Toque no Ponto mais Baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143857735122944
+    m_Localized: "Profundidade M\xE1xima"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143858511069184
+    m_Localized: "Profundidade M\xEDnima"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143859224100864
+    m_Localized: Calibragem de Profundidade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143859865829376
+    m_Localized: "Pr\xF3ximo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143860532723712
+    m_Localized: Voltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143861182840832
+    m_Localized: Menos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143861862318080
+    m_Localized: Mais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143862541795328
+    m_Localized: Encolher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143863229661184
+    m_Localized: Crescer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143863883972608
+    m_Localized: "Cancelar Calibra\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143864513118208
+    m_Localized: "Voltar para Calibra\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143865310035968
+    m_Localized: "Salvar Calibra\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143866006290432
+    m_Localized: "Redefinir Par\xE2metros"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143866736099328
+    m_Localized: Geral
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143868040527872
+    m_Localized: "Resolu\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143868841639936
+    m_Localized: Baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143869600808960
+    m_Localized: Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143870339006464
+    m_Localized: 'Qualidade:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143871056232448
+    m_Localized: 'Qualidade: Alto'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143871769264128
+    m_Localized: "Dados n\xE3o Tratados"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143872494878720
+    m_Localized: Baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143873207910400
+    m_Localized: "M\xE9dia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143873946107904
+    m_Localized: Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143874667528192
+    m_Localized: Muito Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143875367976960
+    m_Localized: "Espa\xE7amento de Contorno"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143876097785856
+    m_Localized: Baixo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143876773068800
+    m_Localized: Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143877481906176
+    m_Localized: Contornos Menores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143878186549248
+    m_Localized: Menos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143878979272704
+    m_Localized: Mais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143879696498688
+    m_Localized: Espessura do Contorno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143880422113280
+    m_Localized: 'Contornos:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143881202253824
+    m_Localized: Nenhum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143881894313984
+    m_Localized: Espesso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143882615734272
+    m_Localized: Marcadores de Contorno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143883391680512
+    m_Localized: Mostrar Marcadores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143884347981824
+    m_Localized: "Modo de Espa\xE7amento"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143885312671744
+    m_Localized: "Etapa de Espa\xE7amento Constante"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143886222835712
+    m_Localized: "Finalizando na Eleva\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143887145582592
+    m_Localized: "Eleva\xE7\xE3o Inicial / Eleva\xE7\xE3o Final"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143888164798464
+    m_Localized: "Eleva\xE7\xE3o Inicial/Tamanho do Passo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143889196597248
+    m_Localized: "Densidade do R\xF3tulo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143890165481472
+    m_Localized: Escasso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143891125977088
+    m_Localized: 'Valor: 0.50'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143892208107520
+    m_Localized: Denso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143893327986688
+    m_Localized: "Colora\xE7\xE3o Din\xE2mica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143894351396864
+    m_Localized: Fechar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143895446110208
+    m_Localized: Quadro Capturado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143896557600768
+    m_Localized: Capturar novo Quadro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143897732005888
+    m_Localized: Usar Quadro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143898977714176
+    m_Localized: Fechar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151769723387904
+    m_Localized: Nome da Captura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151771170422784
+    m_Localized: Topografia da Caixa de Areia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151772281913344
+    m_Localized: Anexos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151773347266560
+    m_Localized: Imagem Atual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151774349705216
+    m_Localized: Dados .CSV
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151775209537536
+    m_Localized: "Imagem Topogr\xE1fica (Preto/Branco)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151775960317952
+    m_Localized: Compartilhar com
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151776673349632
+    m_Localized: "Endere\xE7o de Email"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151777482850304
+    m_Localized: Veja em ARSandboxData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151778132967424
+    m_Localized: Digite o e-mail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151778833416192
+    m_Localized: Digite o e-mail aqui
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153733689458688
+    m_Localized: Enviar email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153889574961152
+    m_Localized: "\xC1rea de Trabalho"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153894327107584
+    m_Localized: "Pasta da \xE1rea de trabalho"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153896176795648
+    m_Localized: Google Drive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154044021817344
+    m_Localized: Voltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154125986906112
+    m_Localized: Confirma?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154162527682560
+    m_Localized: Aceita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154165086208000
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154165874737152
+    m_Localized: Abrir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154166680043520
+    m_Localized: Salvar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154167384686592
+    m_Localized: Deletar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154168185798656
+    m_Localized: Enviar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154168907218944
+    m_Localized: Cancelar Envio do Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154169678970880
+    m_Localized: "Tem certeza de que deseja cancelar esta calibra\xE7\xE3o atual?
+      \\n (A calibra\xE7\xE3o anterior ser\xE1 usada)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154170475888640
+    m_Localized: "Tem certeza de que deseja excluir\\n esta topografia salva?\\n
+      (Essa a\xE7\xE3o n\xE3o pode ser desfeita)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154171264417792
+    m_Localized: "Tem certeza de que deseja excluir o arquivo geol\xF3gico: \\\"{0}\\\"?\\n
+      (Esta a\xE7\xE3o n\xE3o pode ser desfeita)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154172027781120
+    m_Localized: "Tem certeza de que deseja abrir o arquivo de geologia: \\\"{0}\\\"?\\n
+      (Todo o progresso n\xE3o salvo ser\xE1 perdido)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154172896002048
+    m_Localized: 'Tem certeza de que deseja salvar o arquivo de geologia: \"{0}\"?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154173684531200
+    m_Localized: 'Confirme o envio da captura: \n\"{0}\"\Para: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154174456283136
+    m_Localized: Enviando Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154175379030016
+    m_Localized: \nEnvio de Email Cancelado.\n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154176129810432
+    m_Localized: "Confirme o salvamento da captura:\\n\\\"{0}\\\"\\n na \xC1rea de
+      Trabalho?\\n(Veja a pasta \\\"/{1}\\\")"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154992525918208
+    m_Localized: \nCaptura salva!\n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154999362633728
+    m_Localized: "N\xE3o foi poss\xEDvel salvar a captura.\\nTente iniciar o software
+      no modo de administrador."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155002848100352
+    m_Localized: Digite o Nome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155243005558784
+    m_Localized: Shift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155247233417216
+    m_Localized: Backspace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155250005852160
+    m_Localized: Aceitar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155253403238400
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155254535700480
+    m_Localized: Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155255420698624
+    m_Localized: "Eleva\xE7\xE3o Inicial:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155256234393600
+    m_Localized: Aceitar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155256926453760
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155257584959488
+    m_Localized: 'Valor:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155675689959424
+    m_Localized: "Necess\xE1rio Sensor Kinect"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155717167431680
+    m_Localized: "N\xE3o h\xE1 sensores Kinect conectados no momento.\r\nConecte
+      um sensor para come\xE7ar a usar este aplicativo.\r\nTente detectar\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 900414445928448
+    m_Localized: Fechar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1081512731820032
+    m_Localized: "Email n\xE3o p\xF4de ser enviado!\\nPor favor, verifique sua conex\xE3o
+      com a internet\\ne tente novamente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1184357471932416
+    m_Localized: \nE-mail enviado!\n
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1359105834041344
+    m_Localized: Nome do arquivo de Geologia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1361217506721792
+    m_Localized: Renomear Arquivo de Geologia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101299127861248
+    m_Localized: Cor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101359462924288
+    m_Localized: "\xC1gua"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101361631379456
+    m_Localized: "Lava\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101362956779520
+    m_Localized: "\xC1cido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101364185710592
+    m_Localized: "\xD3leo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101365251063808
+    m_Localized: "Gelo\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101366349971456
+    m_Localized: "Escoamento\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101367385964544
+    m_Localized: "Ponto de origem\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101368778473472
+    m_Localized: Viscosidade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101369713803264
+    m_Localized: "Infiltra\xE7\xE3o\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101371261501440
+    m_Localized: "Evapora\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189664931479764992
+    m_Localized: "Tamanho da M\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189664952031854592
+    m_Localized: "Altura da M\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189665836618956800
+    m_Localized: Gestos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 196166899144540160
+    m_Localized: Usar Media Pipe
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

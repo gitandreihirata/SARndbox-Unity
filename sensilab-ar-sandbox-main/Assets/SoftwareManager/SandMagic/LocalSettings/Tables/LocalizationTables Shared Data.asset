@@ -1,0 +1,1137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: LocalizationTables Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: LocalizationTables
+  m_TableCollectionNameGuidString: 5bdaebdf04e6ba843af15126c9e1e5de
+  m_Entries:
+  - m_Id: 29061496832
+    m_Key: MainMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 508399140864
+    m_Key: SandboxSettings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644865015808
+    m_Key: ShareData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 693468610560
+    m_Key: DevelopedBy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 744769142784
+    m_Key: InConjuctionWith
+    m_Metadata:
+      m_Items: []
+  - m_Id: 820094648320
+    m_Key: ModifiedBy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 868127817728
+    m_Key: AnyProblemsOrQuetions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2001927880704
+    m_Key: FeelFreeToContact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2004201193472
+    m_Key: ExitSimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2005954412544
+    m_Key: SandboxModes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2195536953344
+    m_Key: Simulations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2202088456192
+    m_Key: Simulations_WaterSimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2204386934784
+    m_Key: Simulations_FireSimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2209092943872
+    m_Key: Simulations_GeologySimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13016983879680
+    m_Key: Simulations_WindSimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13019521433600
+    m_Key: Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13023657017344
+    m_Key: TopographyBuilder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13476197253120
+    m_Key: Wind_WindOptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13482048307200
+    m_Key: Wind_EnableWind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13634171518976
+    m_Key: Wind_EnableCoriolisEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13635710828544
+    m_Key: Wind_EarthHemisphere
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13638403571712
+    m_Key: Wind_Southern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16003143778304
+    m_Key: Wind_Northern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16004787945472
+    m_Key: Wind_WindSpeedMultiplier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16005958156288
+    m_Key: Wind_Slow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16170899161088
+    m_Key: Wind_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16172195201024
+    m_Key: Wind_Fast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16336364453888
+    m_Key: Water_WaterOptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16337597579264
+    m_Key: Water_ShowParticles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16339174637568
+    m_Key: Water_ClearWater
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16485123833856
+    m_Key: Fire_FireOptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16487447478272
+    m_Key: Fire_WindOption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16489016147968
+    m_Key: Fire_WindBlowingTo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17368951767040
+    m_Key: Fire_WindSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17370906312704
+    m_Key: Fire_WindSpeed_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17372214935552
+    m_Key: Fire_WindSpeed_Ms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17831705133056
+    m_Key: Fire_WindSpeed_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17832866955264
+    m_Key: Fire_WindSpeed_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17834393681920
+    m_Key: Fire_LandscapeOtions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19449301385216
+    m_Key: Fire_LandscapeZoom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19451088158720
+    m_Key: Fire_LandscapeOptions_Far
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19452514222080
+    m_Key: Fire_LandscapeOptions_Porcentage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19454049337344
+    m_Key: Fire_LandscapeOptions_Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19455672532992
+    m_Key: Fire_LandscapeOptions_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19457228619776
+    m_Key: Fire_RandomiseFlora
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19458935701504
+    m_Key: Fire_PauseSimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19460684726272
+    m_Key: Fire_ResumeSimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19462429556736
+    m_Key: Fire_ResetSimulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20624306290688
+    m_Key: Geology_Beds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20767709544448
+    m_Key: Geology_Beds_GeologicalBedOrder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20772541382656
+    m_Key: Geology_Beds_GeologicalLayer_Basalt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20774399459328
+    m_Key: Geology_Beds_GeologicalLayer_Gabbro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20776647606272
+    m_Key: Geology_Beds_GeologicalLayer_Granodiorite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20778367270912
+    m_Key: Geology_Beds_GeologicalLayer_Rhyolite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20780246319104
+    m_Key: Geology_Beds_GeologicalLayer_Sandstone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20782070841344
+    m_Key: Geology_Beds_GeologicalLayer_Mudstone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20783853420544
+    m_Key: Geology_Beds_GeologicalLayer_Conglomerate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20785715691520
+    m_Key: Geology_Beds_GeologicalLayer_Limestone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20787460521984
+    m_Key: Geology_Beds_GeologicalLayer_Coal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20789083717632
+    m_Key: Geology_Beds_GeologicalLayer_Breccia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20791264755712
+    m_Key: Geology_Beds_GeologicalLayer_Slate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20792925700096
+    m_Key: Geology_Beds_GeologicalLayer_Schist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20794804748288
+    m_Key: Geology_Beds_GeologicalLayer_Gneiss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20796818014208
+    m_Key: Geology_Beds_GeologicalLayer_Hornfels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20798705451008
+    m_Key: Geology_Beds_GeologicalLayer_Marble
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20800454475776
+    m_Key: Geology_Beds_GeologicalLayer_Quartzite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20802283192320
+    m_Key: Geology_Beds_BedRockOffset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20803877027840
+    m_Key: Geology_Beds_BedRockOffset_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20805563138048
+    m_Key: Geology_Beds_BedRockOffset_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20807165362176
+    m_Key: Geology_Beds_BedRockOffset_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20808780169216
+    m_Key: Geology_Beds_AddBed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20810348838912
+    m_Key: Geology_Beds_AddBed_AddBedMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20811871371264
+    m_Key: Geology_Beds_AddBed_EditBedMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20813502955520
+    m_Key: Geology_Beds_BedSelection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20814945796096
+    m_Key: Geology_Beds_Thickness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20816539631616
+    m_Key: Geology_Beds_Thickness_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20818078941184
+    m_Key: Geology_Beds_Thickness_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20819832160256
+    m_Key: Geology_Beds_Thickness_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20821518270464
+    m_Key: Geology_Beds_Texture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20823019831296
+    m_Key: Geology_Beds_Summary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20824496226304
+    m_Key: Geology_Transforms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20825884540928
+    m_Key: Geology_Transforms_GeologicalHistory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20827386101760
+    m_Key: Geology_Transforms_AddTransform
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20829017686016
+    m_Key: Geology_Transforms_AddTransformMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20830758322176
+    m_Key: Geology_Transforms_EditTransformMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20832377323520
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20833874690048
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform_Tilt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20835153952768
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform_Fold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20836634542080
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform_Fault
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20837943164928
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform_TiltTransform
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20839465697280
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform_FoldTransform
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20842280075264
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform_FaultTransform
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20843437703168
+    m_Key: Geology_Transforms_EditTransformMenu_SelectTransform_UnknownTransform
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20844452724736
+    m_Key: Geology_Transforms_EditTransformMenu_TransformOptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20845329334272
+    m_Key: Geology_Transforms_EditTransformMenu_TransformOptions_Strike
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20846461796352
+    m_Key: Geology_Transforms_EditTransformMenu_TransformOptions_Dip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20847439069184
+    m_Key: Geology_Transforms_EditTransformMenu_TransformOptions_Plunge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20848475062272
+    m_Key: Geology_Transforms_EditTransformMenu_TransformOptions_Rake
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20849515249664
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20850513494016
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20851746619392
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20852749058048
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20853898297344
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20854980427776
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Period
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20855961894912
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Period_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20857236963328
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Period_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20858289733632
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Period_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20859661271040
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Offset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20860747595776
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Offset_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20862022664192
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Offset_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20863138349056
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Offset_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20864426000384
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Syncline_Hinge_Colour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20865566851072
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Anticline_Hinge_Colour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20866896445440
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Slip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20868154736640
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Slip_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20869413027840
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Slip_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20870813925376
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Slip_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20872193851392
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Position
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20873477308416
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Position_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141414653706240
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Position_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141416750858240
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_Position_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141418285973504
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_FaultColour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141419636539392
+    m_Key: Geology_Transforms_EditTransformMenu_ExtraOptions_FaultColour_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141420345376768
+    m_Key: Geology_Transforms_EditTransformMenu_TransformSummary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141421079379968
+    m_Key: Geology_SaveLoad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141421754662912
+    m_Key: Geology_SaveLoad_CurrentGeologyFile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141422438334464
+    m_Key: Geology_SaveLoad_NoFileSelected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141423088451584
+    m_Key: Geology_SaveLoad_GeologyFileList
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141423776317440
+    m_Key: Geology_SaveLoad_SaveAsNewGeology
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141424430628864
+    m_Key: Geology_SaveLoad_SaveOverCurrentGeology
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141425118494720
+    m_Key: Topography_BuilderOptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141425793777664
+    m_Key: Topography_LoadedTopography
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141426364203008
+    m_Key: Topography_TopographyToRename
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141427031097344
+    m_Key: Topography_SavedTopographies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142420418445312
+    m_Key: Topography_SaveNewTopography
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142467763748864
+    m_Key: Topography_LoadedTopographyHeightOffset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142475988779008
+    m_Key: Topography_LoadedTopographyHeightOffset_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142499820814336
+    m_Key: Topography_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142735477784576
+    m_Key: Topography_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142785033486336
+    m_Key: Topography_Mm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142786883174400
+    m_Key: Topography_HeightAcceptanceRange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142788569284608
+    m_Key: Topography_HeightAcceptanceRange_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142933880946688
+    m_Key: Topography_TopographyName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142985269559296
+    m_Key: Topography_NoTopographySelected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143030966501376
+    m_Key: Topography_RenameTopography
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143085093994496
+    m_Key: Calibration_CornerCalibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143086989819904
+    m_Key: Calibration_CornerCalibration_Instruction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143088579461120
+    m_Key: Calibration_DepthCalibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143223535386624
+    m_Key: Calibration_DepthCalibration_Instruction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143224378441728
+    m_Key: Calibration_Lens Shift_Calibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143225137610752
+    m_Key: Calibration_Lens Shift_Instruction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143225829670912
+    m_Key: Calibration_Lens Shift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143226622394368
+    m_Key: Calibration_Lens Shift_HorizontalTranslation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143227142488064
+    m_Key: Calibration_Lens Shift_VerticalTranslation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143227851325440
+    m_Key: Calibration_Lens Shift_HorizontalScale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143715116204032
+    m_Key: Calibration_Lens Shift_VerticalScale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143717024612352
+    m_Key: Calibration_Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143717989302272
+    m_Key: Calibration_TouchHighestPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143857009508352
+    m_Key: Calibration_TouchLowestPoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143857735122944
+    m_Key: Calibration_MaxDepth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143858511069184
+    m_Key: Calibration_MinDepth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143859224100864
+    m_Key: xxxxxxx
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143859865829376
+    m_Key: Calibration_Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143860532723712
+    m_Key: Calibration_Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143861182840832
+    m_Key: Calibration_Less
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143861862318080
+    m_Key: Calibration_More
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143862541795328
+    m_Key: Calibration_Shrink
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143863229661184
+    m_Key: Calibration_Grow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143863883972608
+    m_Key: Calibration_CancelCalibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143864513118208
+    m_Key: Calibration_BackCalibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143865310035968
+    m_Key: Calibration_SaveCalibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143866006290432
+    m_Key: Calibration_ResetParameters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143866736099328
+    m_Key: SandboxSettings_General
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143868040527872
+    m_Key: SandboxSettings_Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143868841639936
+    m_Key: SandboxSettings_Resolution_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143869600808960
+    m_Key: SandboxSettings_Resolution_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143870339006464
+    m_Key: SandboxSettings_Resolution_Quality
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143871056232448
+    m_Key: SandboxSettings_Resolution_Quality_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143871769264128
+    m_Key: SandboxSettings_Resolution_Quality_Value_RawData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143872494878720
+    m_Key: SSandboxSettings_Resolution_Quality_Value_Low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143873207910400
+    m_Key: SandboxSettings_Resolution_Quality_Value_Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143873946107904
+    m_Key: SandboxSettings_Resolution_Quality_Value_High
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143874667528192
+    m_Key: SandboxSettings_Resolution_Quality_Value_Highest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143875367976960
+    m_Key: SandboxSettings_ContourSpacing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143876097785856
+    m_Key: SandboxSettings_ContourSpacing_Lower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143876773068800
+    m_Key: SandboxSettings_ContourSpacing_Higher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143877481906176
+    m_Key: SandboxSettings_MinorContours
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143878186549248
+    m_Key: SandboxSettings_MinorContours_Less
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143878979272704
+    m_Key: SandboxSettings_MinorContours_More
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143879696498688
+    m_Key: SandboxSettings_ContourThickness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143880422113280
+    m_Key: SandboxSettings_ContourThickness_Slider_Contours
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143881202253824
+    m_Key: SandboxSettings_ContourThickness_None
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143881894313984
+    m_Key: SandboxSettings_ContourThickness_Thick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143882615734272
+    m_Key: SandboxSettings_ContourLabels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143883391680512
+    m_Key: SandboxSettings_ShowLabels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143884347981824
+    m_Key: SandboxSettings_SpacingMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143885312671744
+    m_Key: SandboxSettings_ConstSpacingStep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143886222835712
+    m_Key: SandboxSettings_EndingElevation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143887145582592
+    m_Key: SandboxSettings_StartingElevationEndingElevation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143888164798464
+    m_Key: SandboxSettings_StartingElevationStepSize
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143889196597248
+    m_Key: SandboxSettings_LabelDensity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143890165481472
+    m_Key: SandboxSettings_Sparse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143891125977088
+    m_Key: SandboxSettings_LabelDensity_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143892208107520
+    m_Key: SandboxSettings_Dense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143893327986688
+    m_Key: SandboxSettings_DynamicColouring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143894351396864
+    m_Key: SandboxSettings_Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143895446110208
+    m_Key: ShareData_CapturedFrame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143896557600768
+    m_Key: ShareData_CaptureNewFrame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143897732005888
+    m_Key: ShareData_UseFrame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143898977714176
+    m_Key: ShareData_Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151769723387904
+    m_Key: ShareData_CaptureName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151771170422784
+    m_Key: ShareData_Sandbox Topography
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151772281913344
+    m_Key: ShareData_Attachments
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151773347266560
+    m_Key: ShareData_CurrentImage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151774349705216
+    m_Key: ShareData_CSVData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151775209537536
+    m_Key: ShareData_B/WTopographyImage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151775960317952
+    m_Key: ShareData_ShareTo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151776673349632
+    m_Key: ShareData_ShareTo_Email
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151777482850304
+    m_Key: ShareData_ShareTo_Email_LookInARSandboxData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151778132967424
+    m_Key: ShareData_ShareTo_Email_EnterEmail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151778833416192
+    m_Key: ShareData_ShareTo_Email_EnterEmailHere
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153733689458688
+    m_Key: ShareData_ShareTo_Email_SendEmail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153889574961152
+    m_Key: ShareData_ShareTo_Desktop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153894327107584
+    m_Key: ShareData_ShareTo_Desktop_DesktopFolder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 153896176795648
+    m_Key: ShareData_ShareTo_GoogleDrive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154044021817344
+    m_Key: ShareData_Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154125986906112
+    m_Key: ConfirmationPanel_AreYouSure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154162527682560
+    m_Key: ConfirmationPanel_Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154165086208000
+    m_Key: ConfirmationPanel_Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154165874737152
+    m_Key: ConfirmationPanel_Open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154166680043520
+    m_Key: ConfirmationPanel_Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154167384686592
+    m_Key: ConfirmationPanel_Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154168185798656
+    m_Key: ConfirmationPanel_Send
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154168907218944
+    m_Key: ConfirmationPanel_Email_CancelSendingEmail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154169678970880
+    m_Key: ConfirmationPanel_Calibration_CancelCurrentCalibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154170475888640
+    m_Key: ConfirmationPanel_Topography_Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154171264417792
+    m_Key: ConfirmationPanel_Geology_Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154172027781120
+    m_Key: ConfirmationPanel_Geology_Open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154172896002048
+    m_Key: ConfirmationPanel_Geology_Saved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154173684531200
+    m_Key: ConfirmationPanel_Email_SendingCapture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154174456283136
+    m_Key: ConfirmationPanel_Email_SendingEmail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154175379030016
+    m_Key: ConfirmationPanel_Email_SendingEmailCancelled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154176129810432
+    m_Key: ConfirmationPanel_SavingCapture
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154992525918208
+    m_Key: ConfirmationPanel_CaptureSaved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154999362633728
+    m_Key: ConfirmationPanel_couldntBeSaved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155002848100352
+    m_Key: OnScreenKeyboard_EnterName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155243005558784
+    m_Key: OnScreenKeyboard_Shift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155247233417216
+    m_Key: OnScreenKeyboard_Backspace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155250005852160
+    m_Key: OnScreenKeyboard_Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155253403238400
+    m_Key: OnScreenKeyboard_Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155254535700480
+    m_Key: OnScreenKeyboard_Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155255420698624
+    m_Key: OnScreenNumPad_StartingElevation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155256234393600
+    m_Key: OnScreenNumPad_Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155256926453760
+    m_Key: OnScreenNumPad_Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155257584959488
+    m_Key: Standard_Value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155675689959424
+    m_Key: Standard_Kinect_Required
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155717167431680
+    m_Key: Standard_Kinect_Connected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 900414445928448
+    m_Key: ConfirmationPanel_Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1081512731820032
+    m_Key: ConfirmationPanel_Email_CouldNotbeSent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1184357471932416
+    m_Key: ConfirmationPanel_Email_Sent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1359105834041344
+    m_Key: OnScreenKeyboard_GeologyFileName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1361217506721792
+    m_Key: OnScreenKeyboard_RenameGeologyFile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101299127861248
+    m_Key: "Water_Color\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101359462924288
+    m_Key: Water_Color_Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101361631379456
+    m_Key: Water_Color_Lava
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101362956779520
+    m_Key: Water_Color_Acid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101364185710592
+    m_Key: Water_Color_Oil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101365251063808
+    m_Key: "Water_Color_Ice\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101366349971456
+    m_Key: Water_Waterfall_Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101367385964544
+    m_Key: Water_Add_Waterfall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101368778473472
+    m_Key: Water_Viscosity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101369713803264
+    m_Key: Water_AbsorptionSpeed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46101371261501440
+    m_Key: Water_EvaporationTime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189664931479764992
+    m_Key: SandboxSettings_Gestures_HandSize
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189664952031854592
+    m_Key: SandboxSettings_Gestures_Hand_Height
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189665836618956800
+    m_Key: SandboxSettings_Gestures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 196166899144540160
+    m_Key: SandboxSettings_Gestures_UseMediaPipe
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6393988330631462936
+  references:
+    version: 2
+    RefIds:
+    - rid: 6393988330631462936
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1719252747569

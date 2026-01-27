@@ -1,0 +1,108 @@
+//------------------------------------------------01/03/2025 - 30/03/2025--------------------------------------------------//
+SOFTWARE
+->Atualizado para a versão 2022.3.59
+->Removido arquivos da pasta Library, Logs
+
+//------------------------------------------------06/11/2024--------------------------------------------------//
+CONFIG
+
+->Mudança de tradução do recurso de água
+//------------------------------------------------04/11/2024--------------------------------------------------//
+FUNCIONALIDADE
+->Mudar a cor da água geral
+->Mudar a viscosidade da água separadamente
+->Configurar a velocidade de absorção do solo e de evaporação da água
+->Controle da velocidade do fluxo da cachoeira (quantidade de partículas a ser emitida)
+
+CONFIG
+
+->Tradução do Recurso Absorção e Evaporação
+
+SOFTWARE
+->Atualizado para a versão 2022.3.45
+
+//------------------------------------------------19/09/2024--------------------------------------------------//
+FUNCIONALIDADE
+->Mudar a cor da água geral
+->Mudar a viscosidade da água separadamente
+//-------------------------------------------------------------------------------------------------------------//
+UI
+
+-> Adicionado logo da UTFPR
+
+->Alguns componentes foram configurados, redimensionados para suportar traduções evitando quebra de textos e tamanhos que
+sejam maior que o layout usado.
+
+//-------------------------------------------------------------------------------------------------------------//
+
+//-------------------------------------------------------------------------------------------------------------//
+CONFIG
+
+->Adicionado tradução automática em Ingles e
+portugues
+
+->Adicionado arquivo excell para importação e organização das traduções
+
+->Adicionado tradução em textos dinamicos que eram alterados via código
+
+
+//-------------------------------------------------------------------------------------------------------------//
+
+//-------------------------------------------------------------------------------------------------------------//
+FUNCIONALIDADE
+->Adicionado validação na qual caso o kinect
+não seja detectado aparece um texto informando
+que ele não foi conectado. e assim que for
+conectado, aparece a interface geral
+
+
+
+//-------------------------------------------------------------------------------------------------------------//
+
+UI_EditTransformMenu
+UI_BedMenu
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_SandboxResolutionSlider.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_SandboxResolutionSlider.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\UI\UI_EditBedMenu.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\Calibration\CalibrationManager.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\FireSimulation\FireSimulation.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\Calibration\UI_LensShiftParameters.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\FireSimulation\FireSimulationCSHelper.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\FireSimulation\UI_FireSimulationMenu.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\TopographyLabelManager.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\TopographyBuilder\TopographyBuilder.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\UI\UI_ColorTransformMenuHandler.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_SliderValueText.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_SliderText.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\UI\UI_GeologyFileMenu.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\GeologicalTransforms.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\FoldTransform.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\FaultTransform.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\GeologyCSHelper.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_SharingMenu.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_MajorContourSlider.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_SandboxSettings.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_MenuManager.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\TopographyBuilder\UI_TopographyBuilderMenu.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_MinorContourSlider.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_ConfirmationPanel.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_DepthModeTextbox.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_NumpadInput.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\UI\UI_NumpadInput.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\GeologicalLayerDefinitions.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\GeologicalTransformHandler.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\GeologyFileManager.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\Sandbox.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\GeologySimulation\TiltTransform.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\SandboxDataCamera.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\KinectManager.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\ContourLineProcessor.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\ContourLineProcessor.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\SandboxContourCamera.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\SharingManager.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\TopographyBuilder\UI_TopographyRename.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\SandboxBase\HandInput.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\TopographyBuilder\LoadedTopography.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\TopographyBuilder\LoadedTopography.cs
+C:\Users\andre\OneDrive\Documentos\games_sandbox\trunk\sensilab-ar-sandbox-main\Assets\Sandbox\Scripts\TopographyBuilder\UI_SaveTopographyBtn.cs
+
