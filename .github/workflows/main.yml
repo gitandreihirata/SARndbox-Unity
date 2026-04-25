@@ -1,0 +1,18 @@
+name: Enviar Issue para o Trello
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create_trello_card:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Criar cartão automático
+        uses: adriano-pinaffo/trello-card-action@v1.0.0
+        with:
+          trello-api-key: ${{ secrets.TRELLO_KEY }}
+          trello-auth-token: ${{ secrets.TRELLO_TOKEN }}
+          trello-list-id: ${{ secrets.TRELLO_LIST_ID }}
+          card-name: "${{ github.event.issue.title }}"
+          card-desc: "Link direto para a Issue: ${{ github.event.issue.html_url }}"
