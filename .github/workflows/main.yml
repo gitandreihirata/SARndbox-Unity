@@ -8,11 +8,13 @@ jobs:
   create_trello_card:
     runs-on: ubuntu-latest
     steps:
-      - name: Criar cartão automático
-        uses: adriano-pinaffo/trello-card-action@v1.0.0
-        with:
-          trello-api-key: ${{ secrets.TRELLO_KEY }}
-          trello-auth-token: ${{ secrets.TRELLO_TOKEN }}
-          trello-list-id: ${{ secrets.TRELLO_LIST_ID }}
-          card-name: "${{ github.event.issue.title }}"
-          card-desc: "Link direto para a Issue: ${{ github.event.issue.html_url }}"
+      - name: Criar cartao no Trello via API
+        run: |
+          curl --request POST \
+            --url "https://api.trello.com/1/cards" \
+            --header "Accept: application/json" \
+            --data-urlencode "key=${{ secrets.TRELLO_KEY }}" \
+            --data-urlencode "token=${{ secrets.TRELLO_TOKEN }}" \
+            --data-urlencode "idList=${{ secrets.TRELLO_LIST_ID }}" \
+            --data-urlencode "name=${{ github.event.issue.title }}" \
+            --data-urlencode "desc=Link direto para o GitHub: ${{ github.event.issue.html_url }}"
