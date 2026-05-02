@@ -20,16 +20,16 @@ namespace ARSandbox
         private DepthFrameReader depthFrameReader;
         private ushort[] depthData;
 
-        // --- Leitura de Corpos (Mantido) ---
+        // --- Leitura de Corpos ---
         private BodyFrameReader bodyFrameReader;
         private Body[] bodies;
 
-        // --- Leitura de Cor (NOVO - Para MediaPipe) ---
-        private ColorFrameReader colorFrameReader;
-        private byte[] colorData;
-        private Texture2D colorTexture;
+        // --- Leitura de Infravermelho Colorizado (A MÁGICA ACONTECE AQUI) ---
+        private InfraredFrameReader irFrameReader;
+        private ushort[] irData;
+        private byte[] colorizedIrData;
+        private Texture2D irColorizedTexture;
 
-        // Mapper para converter posição 3D do esqueleto para 2D da tela de profundidade
         public CoordinateMapper CoordinateMapper { get; private set; }
 
         private bool dataReady = false;
@@ -74,48 +74,52 @@ namespace ARSandbox
                     }
                 }
 
-                // --- 2. Leitura de Corpos / Mãos ---
+                // --- 2. Leitura de Corpos ---
                 if (bodyFrameReader != null)
                 {
                     BodyFrame bodyFrame = bodyFrameReader.AcquireLatestFrame();
                     if (bodyFrame != null)
                     {
-                        if (bodies == null)
-                        {
-                            bodies = new Body[bodyFrame.BodyCount];
-                        }
+                        if (bodies == null) bodies = new Body[bodyFrame.BodyCount];
                         bodyFrame.GetAndRefreshBodyData(bodies);
-
                         bodyFrame.Dispose();
                         bodyFrame = null;
                     }
                 }
 
-                // --- 3. Leitura de Cor (NOVO - ADICIONADO AQUI) ---
-                if (colorFrameReader != null)
+                // --- 3. Leitura de IR e "Banho de Cor de Pele" ---
+                if (irFrameReader != null)
                 {
-                    // Usamos 'using' para garantir o Dispose automático do frame de cor
-                    using (ColorFrame colorFrame = colorFrameReader.AcquireLatestFrame())
+                    using (InfraredFrame irFrame = irFrameReader.AcquireLatestFrame())
                     {
-                        if (colorFrame != null)
+                        if (irFrame != null)
                         {
-                            // Converte para RGBA (formato que Unity e MediaPipe gostam)
-                            colorFrame.CopyConvertedFrameDataToArray(colorData, ColorImageFormat.Rgba);
+                            irFrame.CopyFrameDataToArray(irData);
                             
-                            if (colorTexture != null)
+                            for (int i = 0; i < irData.Length; i++)
                             {
-                                colorTexture.LoadRawTextureData(colorData);
-                                colorTexture.Apply();
+                                // Kinect IR vai de 0 a ~65000, mas o brilho útil fica baixo.
+                                // Dividir por 32 (>> 5) ajuda a mapear para a escala de cores.
+                                int irValue = irData[i] >> 5; 
+                                float intensity = Mathf.Clamp01((float)irValue / 255f);
+
+                                // Filtro Cor de Pele (Engana o MediaPipe)
+                                colorizedIrData[i * 4] = (byte)(240 * intensity);     // R (Vermelho alto)
+                                colorizedIrData[i * 4 + 1] = (byte)(180 * intensity); // G (Verde médio)
+                                colorizedIrData[i * 4 + 2] = (byte)(150 * intensity); // B (Azul baixo)
+                                colorizedIrData[i * 4 + 3] = 255;                     // Alpha (Sólido)
+                            }
+                            
+                            if (irColorizedTexture != null)
+                            {
+                                irColorizedTexture.LoadRawTextureData(colorizedIrData);
+                                irColorizedTexture.Apply();
                             }
                         }
                     }
                 }
 
-                // --- 4. Funcionalidade de Debug ---
-                if (Input.GetKeyUp(KeyCode.S))
-                {
-                    SaveDepthData();
-                }
+                if (Input.GetKeyUp(KeyCode.S)) SaveDepthData();
             }
         }
 
@@ -123,34 +127,13 @@ namespace ARSandbox
         {
             if (!UseSavedData)
             {
-                // Limpeza do Depth Reader
-                if (depthFrameReader != null)
-                {
-                    depthFrameReader.Dispose();
-                    depthFrameReader = null;
-                }
-
-                // Limpeza do Body Reader
-                if (bodyFrameReader != null)
-                {
-                    bodyFrameReader.Dispose();
-                    bodyFrameReader = null;
-                }
-
-                // Limpeza do Color Reader (NOVO)
-                if (colorFrameReader != null)
-                {
-                    colorFrameReader.Dispose();
-                    colorFrameReader = null;
-                }
+                if (depthFrameReader != null) { depthFrameReader.Dispose(); depthFrameReader = null; }
+                if (bodyFrameReader != null) { bodyFrameReader.Dispose(); bodyFrameReader = null; }
+                if (irFrameReader != null) { irFrameReader.Dispose(); irFrameReader = null; }
 
                 if (kinectSensor != null)
                 {
-                    if (kinectSensor.IsOpen)
-                    {
-                        kinectSensor.Close();
-                    }
-
+                    if (kinectSensor.IsOpen) kinectSensor.Close();
                     kinectSensor = null;
                 }
             }
@@ -162,19 +145,11 @@ namespace ARSandbox
             {
                 newData = true;
                 yield return new WaitForSeconds(1 / 30.0f);
-
-                if (!dataReady)
-                {
-                    dataReady = true;
-                    if (OnDataStarted != null) OnDataStarted();
-                }
+                if (!dataReady) { dataReady = true; if (OnDataStarted != null) OnDataStarted(); }
             }
         }
         
-        public FrameDescription GetKinectFrameDescriptor()
-        {
-            return kinectFrameDesc;
-        }
+        public FrameDescription GetKinectFrameDescriptor() { return kinectFrameDesc; }
         
         public Point GetKinectFrameSize()
         {
@@ -182,35 +157,13 @@ namespace ARSandbox
             return new Point(kinectFrameDesc.Width, kinectFrameDesc.Height);
         }
         
-        public ushort[] GetCurrentData()
-        {
-            newData = false;
-            return depthData;
-        }
+        public ushort[] GetCurrentData() { newData = false; return depthData; }
+        public Body[] GetBodies() { return bodies; }
 
-        public Body[] GetBodies()
-        {
-            return bodies;
-        }
-
-        // --- MÉTODO PÚBLICO NOVO PARA PEGAR A TEXTURA ---
-        public Texture2D GetColorTexture()
-        {
-            return colorTexture;
-        }
-
-        public bool StreamStarted()
-        {
-            if (UseSavedData)
-                return true;
-
-            return dataReady;
-        }
-
-        public bool NewDataReady()
-        {
-            return newData;
-        }
+        // Manda a textura falsa colorida pro MediaPipe
+        public Texture2D GetIRColorizedTexture() { return irColorizedTexture; }
+        public bool StreamStarted() { return UseSavedData || dataReady; }
+        public bool NewDataReady() { return newData; }
 
         private bool GetFrameDescriptor()
         {
@@ -221,40 +174,26 @@ namespace ARSandbox
                 kinectFrameDesc = kinectSensor.DepthFrameSource.FrameDescription;
                 return true;
             }
-            else
-            {
-                print("Error: KinectSensor not found. Make sure Kinect has been installed correctly");
-                return false;
-            }
+            return false;
         }
 
         private void SetUpKinectBuffer()
         {
             if (kinectSensor != null)
             {
-                if (!kinectSensor.IsOpen)
-                {
-                    kinectSensor.Open();
-                }
+                if (!kinectSensor.IsOpen) kinectSensor.Open();
 
-                // Configura Depth
                 depthFrameReader = kinectSensor.DepthFrameSource.OpenReader();
                 depthData = new ushort[kinectSensor.DepthFrameSource.FrameDescription.LengthInPixels];
-
-                // Configura Body
                 bodyFrameReader = kinectSensor.BodyFrameSource.OpenReader();
 
-                // Configura Color (NOVO - ADICIONADO AQUI)
-                colorFrameReader = kinectSensor.ColorFrameSource.OpenReader();
+                // Inicializa o sensor IR em vez do Color
+                irFrameReader = kinectSensor.InfraredFrameSource.OpenReader();
+                var irDesc = kinectSensor.InfraredFrameSource.FrameDescription;
                 
-                // Cria a descrição do frame colorido (RGBA)
-                var colorDesc = kinectSensor.ColorFrameSource.CreateFrameDescription(ColorImageFormat.Rgba);
-                
-                // Aloca o buffer de bytes (Largura * Altura * 4 bytes por pixel)
-                colorData = new byte[colorDesc.LengthInPixels * 4];
-                
-                // Cria a textura Unity (RGBA32)
-                colorTexture = new Texture2D(colorDesc.Width, colorDesc.Height, TextureFormat.RGBA32, false);
+                irData = new ushort[irDesc.LengthInPixels];
+                colorizedIrData = new byte[irDesc.LengthInPixels * 4]; // RGBA
+                irColorizedTexture = new Texture2D(irDesc.Width, irDesc.Height, TextureFormat.RGBA32, false);
             }
         }
 
@@ -266,10 +205,7 @@ namespace ARSandbox
                 {
                     int length = br.ReadInt32();
                     depthData = new ushort[length];
-                    for (int i = 0; i < length; i++)
-                    {
-                        depthData[i] = br.ReadUInt16();
-                    }
+                    for (int i = 0; i < length; i++) depthData[i] = br.ReadUInt16();
                 }
             }
         }
@@ -281,10 +217,7 @@ namespace ARSandbox
                 using (BinaryWriter bw = new BinaryWriter(fs))
                 {
                     bw.Write(depthData.Length);
-                    foreach (ushort value in depthData)
-                    {
-                        bw.Write(value);
-                    }
+                    foreach (ushort value in depthData) bw.Write(value);
                 }
             }
         }

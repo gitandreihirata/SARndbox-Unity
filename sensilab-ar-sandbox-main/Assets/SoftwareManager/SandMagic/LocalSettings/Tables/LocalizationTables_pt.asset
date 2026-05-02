@@ -187,7 +187,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19454049337344
-    m_Localized: "Pr\xF3ximo"
+    m_Localized: Fechar
     m_Metadata:
       m_Items: []
   - m_Id: 19455672532992
@@ -1136,7 +1136,63 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 196166899144540160
+    m_Localized: Usar Gestures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219770597460361216
     m_Localized: Usar Media Pipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219770613440659456
+    m_Localized: Nuvem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219804602746486784
+    m_Localized: Usar Nuvem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219808992123371520
+    m_Localized: Tamanho
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219809645885341696
+    m_Localized: Som
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219809648825548800
+    m_Localized: Ativar Som
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219810281712467968
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222524901900369920
+    m_Localized: Debugs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525628609675264
+    m_Localized: Debugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525631294029824
+    m_Localized: Performance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525759719424000
+    m_Localized: "Calibra\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525761061601280
+    m_Localized: Gestos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222526055342358528
+    m_Localized: "\xC1gua"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225211907096920064
+    m_Localized: "Zona de Altura de Intera\xE7\xE3o"
     m_Metadata:
       m_Items: []
   references:

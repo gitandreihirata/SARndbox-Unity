@@ -1163,7 +1163,63 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 196166899144540160
+    m_Localized: Use Gestures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219770597460361216
     m_Localized: Use Media Pipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219770613440659456
+    m_Localized: Clouds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219804602746486784
+    m_Localized: Use Clouds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219808992123371520
+    m_Localized: Size
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219809645885341696
+    m_Localized: Sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219809648825548800
+    m_Localized: Active Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219810281712467968
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222524901900369920
+    m_Localized: Debugs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525628609675264
+    m_Localized: Show Debug
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525631294029824
+    m_Localized: Performance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525759719424000
+    m_Localized: Calibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222525761061601280
+    m_Localized: Gestures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222526055342358528
+    m_Localized: Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 225211907096920064
+    m_Localized: Interaction Zone Height
     m_Metadata:
       m_Items: []
   references:

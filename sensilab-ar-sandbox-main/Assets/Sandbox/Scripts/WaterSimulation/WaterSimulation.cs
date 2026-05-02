@@ -16,37 +16,54 @@ namespace ARSandbox.WaterSimulation
         public Shader MetaballShader;
         public ComputeShader WaterSurfaceComputeShader;
         
-        //Controle Cor da Textura
-        public Texture2D[] WaterColorTextures; // Array para armazenar 5 texturas diferentes
-        public TMP_Dropdown textureDropdown; // Dropdown para escolher a textura
-        private int selectedTextureIndex = 0; // Índice da textura selecionada
-        private Color selectedColor = Color.white; // Cor padrão selecionada
+        // --- TEXTURA ---
+        [Header("Controle de Textura")]
+        public Texture2D[] WaterColorTextures;
+        public TMP_Dropdown textureDropdown;
+        private int selectedTextureIndex = 0;
+        private Color selectedColor = Color.white;
         
         // --- AUDIO SETTINGS ---
         [Header("Audio Settings")]
+        public bool EnableSounds = true;
+        public float SoundVolume = 0.5f;
         public AudioClip RainSoundClip;
         public AudioClip WaterfallSoundClip;
         private AudioSource rainAudioSource;
         private AudioSource waterfallAudioSource;
 
+        // --- CLOUD SETTINGS ---
+        [Header("Cloud Settings")]
+        public bool EnableClouds = true;
+        public GameObject CloudPrefab;
+        public float MinCloudParticleSize = 1.0f;
+        public float MaxCloudParticleSize = 3.0f;
+        public Color CloudColor = Color.white;
+        private float lastCloudSpawnTime = 0f;
+
         // --- WETNESS SETTINGS ---
         [Header("Wet Terrain Settings")]
         [Range(0.0001f, 0.01f)]
-        public float DryingSpeed = 0.001f; // Velocidade que a terra seca
-        private RenderTexture wetnessRT; // Textura que guarda onde está molhado
+        public float DryingSpeed = 0.001f;
+        private RenderTexture wetnessRT;
 
-        //Controle Viscosidade
-        public Slider viscositySlider;  // Referência ao slider de viscosidade
-        private float selectedViscosity = 0f; // Valor padrão de viscosidade
+        // --- FISICA DA ÁGUA ---
+        [Header("Física da Água")]
+        public Slider viscositySlider;  
+        private float selectedViscosity = 0f; 
         public Slider absorptionSlider;
         private float absorptionSpeed = 0.5f;
         public Slider evaporationSlider;
         private float evaporationTime = 10.0f;
 
-        // Controle de Cascata
+        // --- CONTROLE DE CASCATA ---
+        [Header("Configuração de Cascata")]
         public Toggle waterfallToggle;
         public Slider emissionRateSlider;
         public GameObject WaterfallEmitterPrefab;
+        public int MaxWaterfalls = 3;
+        public float MinWaterfallDistance = 150.0f;
+        
         private List<GameObject> activeWaterfallEmitters = new List<GameObject>();
         private bool isWaterfallActive = false;
         private float emissionRate = 1.0f;
@@ -63,141 +80,224 @@ namespace ARSandbox.WaterSimulation
 
         private IEnumerator RunSimulationCoroutine;
         private bool initialised;
-
         private const int MaxMetaballs = 2000;
-
 
         void Awake()
         {
-            // Configura o TMP_Dropdown da Textura
-            ConfigureDropdown();
-            // Configura Slides Viscosidade
-            ConfigureViscositySlider();
-            // Configura Slides Absorção e Evaporação
-            ConfigureAbsorptionEvaporationSlider();
-            // Configura Waterfall
-            ConfigureWaterfallControls();
-            // Inicializar Áudio
-            SetupAudio();
+            // CARREGAMENTO SEGURO DA MEMÓRIA
+            if (PlayerPrefs.HasKey("EnableSounds")) EnableSounds = PlayerPrefs.GetInt("EnableSounds") == 1;
+            if (PlayerPrefs.HasKey("EnableClouds")) EnableClouds = PlayerPrefs.GetInt("EnableClouds") == 1;
+            if (PlayerPrefs.HasKey("SoundVolume")) SoundVolume = PlayerPrefs.GetFloat("SoundVolume");
+            if (PlayerPrefs.HasKey("MinCloudParticleSize")) MinCloudParticleSize = PlayerPrefs.GetFloat("MinCloudParticleSize");
+            if (PlayerPrefs.HasKey("MaxCloudParticleSize")) MaxCloudParticleSize = PlayerPrefs.GetFloat("MaxCloudParticleSize");
 
+            ConfigureDropdown();
+            ConfigureViscositySlider();
+            ConfigureAbsorptionEvaporationSlider();
+            ConfigureWaterfallControls();
+            SetupAudio();
         }
         
         void SetupAudio()
         {
-            // Cria os componentes de áudio via código para não precisar arrastar no editor
             rainAudioSource = gameObject.AddComponent<AudioSource>();
             rainAudioSource.clip = RainSoundClip;
             rainAudioSource.loop = true;
-            rainAudioSource.volume = 0.5f;
+            rainAudioSource.volume = EnableSounds ? SoundVolume : 0f;
             rainAudioSource.playOnAwake = false;
 
             waterfallAudioSource = gameObject.AddComponent<AudioSource>();
             waterfallAudioSource.clip = WaterfallSoundClip;
             waterfallAudioSource.loop = true;
-            waterfallAudioSource.volume = 0.7f;
+            waterfallAudioSource.volume = EnableSounds ? (SoundVolume + 0.2f) : 0f;
             waterfallAudioSource.playOnAwake = false;
         }
 
+        // =========================================================
+        // FUNÇÕES DA UI (PARA OS CHECKBOXES / SLIDERS NOVOS)
+        // =========================================================
+        public void UI_SetEnableSounds(bool isOn)
+        {
+            EnableSounds = isOn;
+            PlayerPrefs.SetInt("EnableSounds", isOn ? 1 : 0);
+            PlayerPrefs.Save();
+            
+            // Trava de segurança para evitar NullReference caso o áudio ainda não tenha "nascido"
+            if (rainAudioSource != null) rainAudioSource.volume = EnableSounds ? SoundVolume : 0f;
+            if (waterfallAudioSource != null) waterfallAudioSource.volume = EnableSounds ? (SoundVolume + 0.2f) : 0f;
+        }
+
+        // NOVO: Função para o Slider de Volume
+        public void UI_SetSoundVolume(float volume)
+        {
+            SoundVolume = volume;
+            PlayerPrefs.SetFloat("SoundVolume", volume);
+            PlayerPrefs.Save();
+            
+            if (EnableSounds)
+            {
+                if (rainAudioSource != null) rainAudioSource.volume = SoundVolume;
+                if (waterfallAudioSource != null) waterfallAudioSource.volume = SoundVolume + 0.2f;
+            }
+        }
+
+        public void UI_SetEnableClouds(bool isOn)
+        {
+            EnableClouds = isOn;
+            PlayerPrefs.SetInt("EnableClouds", isOn ? 1 : 0);
+            PlayerPrefs.Save();
+        }
+
+        public void UI_SetCloudMinSize(float size) 
+        { 
+            MinCloudParticleSize = size; 
+            PlayerPrefs.SetFloat("MinCloudParticleSize", size);
+            PlayerPrefs.Save();
+        }
+
+        public void UI_SetCloudMaxSize(float size) 
+        { 
+            MaxCloudParticleSize = size; 
+            PlayerPrefs.SetFloat("MaxCloudParticleSize", size);
+            PlayerPrefs.Save();
+        }
+        
+        // =========================================================
+        // GERADORES GLOBAIS (NUVENS E CACHOEIRAS)
+        // =========================================================
+        public void SpawnCloud(Vector3 position)
+        {
+            if (!EnableClouds || CloudPrefab == null) return;
+            if (Time.time - lastCloudSpawnTime < 2.0f) return; 
+            
+            lastCloudSpawnTime = Time.time;
+            Vector3 spawnPos = new Vector3(position.x, position.y, position.z - 150f);
+            GameObject newCloud = Instantiate(CloudPrefab, spawnPos, Quaternion.identity);
+            
+            SimpleCloudBehavior cloudBehavior = newCloud.GetComponent<SimpleCloudBehavior>();
+            if (cloudBehavior != null && cloudBehavior.CloudParts != null)
+            {
+                var main = cloudBehavior.CloudParts.main;
+                main.startSize = new ParticleSystem.MinMaxCurve(MinCloudParticleSize, MaxCloudParticleSize);
+                main.startColor = CloudColor;
+            }
+        }
+
+        public void SpawnWaterfall(Vector3 position, bool checkDistance = true)
+        {
+            activeWaterfallEmitters.RemoveAll(item => item == null);
+
+            if (checkDistance && activeWaterfallEmitters.Count > 0)
+            {
+                GameObject lastWaterfall = activeWaterfallEmitters[activeWaterfallEmitters.Count - 1];
+                if (Vector3.Distance(position, lastWaterfall.transform.position) < MinWaterfallDistance) return;
+            }
+
+            GameObject newEmitter = Instantiate(WaterfallEmitterPrefab, new Vector3(position.x, position.y, position.z - 50f), Quaternion.identity);
+            var emitterScript = newEmitter.GetComponent<S_WaterfallEmitter>();
+            if (emitterScript != null)
+            {
+                emitterScript.Initialize(WaterDroplet, selectedViscosity, absorptionSpeed, evaporationTime, WaterColorTextures[selectedTextureIndex]);
+                emitterScript.SetEmissionRate(emissionRate);
+                emitterScript.SetShowMesh(showParticles);
+            }
+
+            if (EnableClouds && CloudPrefab != null)
+            {
+                GameObject cloudInstance = Instantiate(CloudPrefab, new Vector3(position.x, position.y, position.z - 150f), Quaternion.identity, newEmitter.transform);
+                
+                SimpleCloudBehavior cloudBehavior = cloudInstance.GetComponent<SimpleCloudBehavior>();
+                if (cloudBehavior != null && cloudBehavior.CloudParts != null)
+                {
+                    var main = cloudBehavior.CloudParts.main;
+                    // Ao instanciar, ele lê o tamanho ATUAL do slider. A velha nuvem não muda!
+                    main.startSize = new ParticleSystem.MinMaxCurve(MinCloudParticleSize, MaxCloudParticleSize);
+                    main.startColor = CloudColor;
+                }
+
+                if (cloudBehavior != null) Destroy(cloudBehavior);
+                CloudLifeCycle cloudLifeCycle = cloudInstance.GetComponent<CloudLifeCycle>();
+                if (cloudLifeCycle != null) Destroy(cloudLifeCycle);
+            }
+
+            activeWaterfallEmitters.Add(newEmitter);
+
+            if (activeWaterfallEmitters.Count > MaxWaterfalls)
+            {
+                Destroy(activeWaterfallEmitters[0]);
+                activeWaterfallEmitters.RemoveAt(0);
+            }
+        }
+
+        // =========================================================
+        // CONFIGURAÇÕES PADRÕES
+        // =========================================================
         void ConfigureDropdown()
         {
-            // Cria uma lista com os nomes das texturas
             string[] textureNames = { "Água", "Lava", "Ácido", "Óleo", "Gelo" }; 
-
-            // Configura o TMP_Dropdown com opções de texturas
             List<string> options = new List<string>();
-            // Adiciona os nomes predefinidos ao dropdown
-            for (int i = 0; i < WaterColorTextures.Length; i++)
-            {
-                options.Add(textureNames[i]);
-            }
+            for (int i = 0; i < WaterColorTextures.Length; i++) options.Add(textureNames[i]);
             textureDropdown.ClearOptions();
             textureDropdown.AddOptions(options);
             textureDropdown.onValueChanged.AddListener(delegate { OnTextureSelected(textureDropdown); });
         }
 
-
         void OnTextureSelected(TMP_Dropdown dropdown)
         {
             selectedTextureIndex = dropdown.value;
-            // Muda a textura global para o que foi selecionado
             Sandbox.SetShaderTexture("_WaterColorTex", WaterColorTextures[selectedTextureIndex]);
-            //Debug.Log("Textura selecionada: " + WaterColorTextures[selectedTextureIndex].name);
         }
 
         void ConfigureViscositySlider()
         {
-            viscositySlider.minValue = 0.0f;  // Defina o valor mínimo da viscosidade
-            viscositySlider.maxValue = 1.0f; // Defina o valor máximo da viscosidade
-            viscositySlider.value = selectedViscosity; // Defina o valor inicial do slider
-            viscositySlider.onValueChanged.AddListener(OnViscosityChanged); // Associa o método ao evento de alteração
+            if(viscositySlider == null) return;
+            viscositySlider.minValue = 0.0f;  
+            viscositySlider.maxValue = 1.0f; 
+            viscositySlider.value = selectedViscosity; 
+            viscositySlider.onValueChanged.AddListener(OnViscosityChanged); 
         }
 
-        // Método chamado quando o valor do slider é alterado
-        public void OnViscosityChanged(float value)
-        {
-            selectedViscosity = value; // Atualiza a viscosidade selecionada
-            //Debug.Log("Viscosidade alterada para: " + selectedViscosity);
-        }
+        public void OnViscosityChanged(float value) { selectedViscosity = value; }
 
         void ConfigureAbsorptionEvaporationSlider()
         {
-            // Configuração do slider de absorção
             if (absorptionSlider != null)
             {
-                absorptionSlider.minValue = 1.0f; // Valor mínimo da velocidade de absorção
-                absorptionSlider.maxValue = 100.0f; // Valor máximo da velocidade de absorção
-                absorptionSlider.value = absorptionSpeed; // Valor inicial
+                absorptionSlider.minValue = 1.0f; 
+                absorptionSlider.maxValue = 100.0f; 
+                absorptionSlider.value = absorptionSpeed; 
                 absorptionSlider.onValueChanged.AddListener(OnAbsorptionChanged);
             }
-
-            // Configuração do slider de evaporação
             if (evaporationSlider != null)
             {
-                evaporationSlider.minValue = 1.0f; // Valor mínimo do tempo de evaporação
-                evaporationSlider.maxValue = 100.0f; // Valor máximo do tempo de evaporação
-                evaporationSlider.value = evaporationTime; // Valor inicial
+                evaporationSlider.minValue = 1.0f; 
+                evaporationSlider.maxValue = 100.0f; 
+                evaporationSlider.value = evaporationTime; 
                 evaporationSlider.onValueChanged.AddListener(OnEvaporationChanged);
             }
         }
 
-        // Método chamado quando o slider de absorção é alterado
-        public void OnAbsorptionChanged(float value)
-        {
-            absorptionSpeed = value; // Atualiza a velocidade de absorção
-            //Debug.Log("Velocidade de absorção alterada para: " + absorptionSpeed);
-        }
-
-        // Método chamado quando o slider de evaporação é alterado
-        public void OnEvaporationChanged(float value)
-        {
-            evaporationTime = value; // Atualiza o tempo de evaporação
-            //Debug.Log("Tempo de evaporação alterado para: " + evaporationTime);
-        }
+        public void OnAbsorptionChanged(float value) { absorptionSpeed = value; }
+        public void OnEvaporationChanged(float value) { evaporationTime = value; }
 
         void ConfigureWaterfallControls()
         {
-            waterfallToggle.onValueChanged.AddListener(OnWaterfallToggleChanged);
-            emissionRateSlider.minValue = 0.5f;
-            emissionRateSlider.maxValue = 5.0f;
-            emissionRateSlider.value = emissionRate;
-            emissionRateSlider.onValueChanged.AddListener(OnEmissionRateChanged);
+            if(waterfallToggle != null) waterfallToggle.onValueChanged.AddListener(OnWaterfallToggleChanged);
+            if(emissionRateSlider != null)
+            {
+                emissionRateSlider.minValue = 0.5f;
+                emissionRateSlider.maxValue = 5.0f;
+                emissionRateSlider.value = emissionRate;
+                emissionRateSlider.onValueChanged.AddListener(OnEmissionRateChanged);
+            }
         }
 
-        //ta errado
-        public void OnWaterfallToggleChanged(bool isOn)
-        {
-            Debug.Log("OnWaterfallToggleChanged");
-            isWaterfallActive = isOn;
+        public void OnWaterfallToggleChanged(bool isOn) { isWaterfallActive = isOn; }
+        private void OnEmissionRateChanged(float value) { emissionRate = value; }
 
-    
-        }
-
-        private void OnEmissionRateChanged(float value)
-        {
-            Debug.Log("OnEmissionRateChanged");
-            emissionRate = value;
-        }
-
+        // =========================================================
+        // SIMULAÇÃO CORE
+        // =========================================================
         void InitialiseSimulation()
         {
             if (!initialised)
@@ -205,7 +305,6 @@ namespace ARSandbox.WaterSimulation
                 waterDroplets = new List<WaterDroplet>();
                 currSubsection = 0;
                 showParticles = false;
-
                 CreateWaterSurfaceRenderTextures();
                 swapBuffers = false;
             }
@@ -219,63 +318,53 @@ namespace ARSandbox.WaterSimulation
                 CullStrayMetaballs();
                 KeepMetaballsAboveSandbox();
                 StepWaterSurfaceSimulation();
-                
-                // --- ATUALIZAÇÃO DO AUDIO ---
                 UpdateAudio();
-
-                // --- ATUALIZAÇÃO DA UMIDADE (WETNESS) ---
                 UpdateWetnessMap();
                 
-                if (Random.value < 2 / 60.0f)
-                {
-                    DisturbWaterSurfaceSimulation();
-                }
+                if (Random.value < 2 / 60.0f) DisturbWaterSurfaceSimulation();
                 yield return new WaitForSeconds(1 / 60.0f);
             }
         }
         
         private void UpdateAudio()
         {
-            // 1. Som de Chuva (Mão Aberta)
-            // Se tivermos gestos da mão detectados pelo HandInput, toca o som
-            if (HandInput.GetCurrentGestures().Count > 0)
+            if (!EnableSounds) 
             {
-                if (!rainAudioSource.isPlaying) rainAudioSource.Play();
-            }
-            else
-            {
-                if (rainAudioSource.isPlaying) rainAudioSource.Stop();
+                if(rainAudioSource != null && rainAudioSource.isPlaying) rainAudioSource.Stop();
+                if(waterfallAudioSource != null && waterfallAudioSource.isPlaying) waterfallAudioSource.Stop();
+                return;
             }
 
-            // 2. Som de Cascata (Waterfall)
-            // Se tiver emissores de cascata ativos
-            if (activeWaterfallEmitters.Count > 0)
+            if (HandInput != null && HandInput.GetCurrentGestures().Count > 0)
             {
-                if (!waterfallAudioSource.isPlaying) waterfallAudioSource.Play();
+                if (rainAudioSource != null && !rainAudioSource.isPlaying) rainAudioSource.Play();
             }
             else
             {
-                if (waterfallAudioSource.isPlaying) waterfallAudioSource.Stop();
+                if (rainAudioSource != null && rainAudioSource.isPlaying) rainAudioSource.Stop();
+            }
+
+            activeWaterfallEmitters.RemoveAll(item => item == null);
+            if (activeWaterfallEmitters.Count > 0)
+            {
+                if (waterfallAudioSource != null && !waterfallAudioSource.isPlaying) waterfallAudioSource.Play();
+            }
+            else
+            {
+                if (waterfallAudioSource != null && waterfallAudioSource.isPlaying) waterfallAudioSource.Stop();
             }
         }
 
         private void UpdateWetnessMap()
         {
-            // Define qual textura de água usar (a atual do buffer swap)
             RenderTexture currentWater = swapBuffers ? waterBufferRT0 : waterBufferRT1;
-            
-            // Roda o Compute Shader para calcular onde está molhado
             WaterSurfaceCSHelper.Run_UpdateWetness(WaterSurfaceComputeShader, wetnessRT, currentWater, DryingSpeed);
-
-            // Envia essa textura para o Shader do Terreno (Sandbox)
-            // O nome "_WetnessTex" deve existir no Shader do terreno para funcionar visualmente
             Sandbox.SetShaderTexture("_WetnessTex", wetnessRT);
         }
 
         void OnEnable()
         {
             InitialiseSimulation();
-
             HandInput.OnGesturesReady += OnGesturesReady;
             CalibrationManager.OnCalibration += OnCalibration;
             Sandbox.OnSandboxReady += OnSandboxReady;
@@ -283,7 +372,6 @@ namespace ARSandbox.WaterSimulation
 
             SetUpMetaballCamera();
             MetaballCamera.gameObject.SetActive(true);
-
             StartCoroutine(RunSimulationCoroutine = RunSimulation());
         }
 
@@ -296,10 +384,8 @@ namespace ARSandbox.WaterSimulation
             MetaballCamera.gameObject.SetActive(false);
 
             DestroyWaterDroplets();
-
-            StopCoroutine(RunSimulationCoroutine);
+            if (RunSimulationCoroutine != null) StopCoroutine(RunSimulationCoroutine);
             
-            // Para os sons
             if(rainAudioSource) rainAudioSource.Stop();
             if(waterfallAudioSource) waterfallAudioSource.Stop();
         }
@@ -310,18 +396,15 @@ namespace ARSandbox.WaterSimulation
             MetaballCamera.gameObject.SetActive(false);
             DestroyWaterDroplets();
             Sandbox.SetDefaultShader();
-
-            StopCoroutine(RunSimulationCoroutine);
+            if (RunSimulationCoroutine != null) StopCoroutine(RunSimulationCoroutine);
         }
 
         private void OnSandboxReady()
         {
             InitialiseSimulation();
-
             HandInput.OnGesturesReady += OnGesturesReady;
             SetUpMetaballCamera();
             sandboxDescriptor = Sandbox.GetSandboxDescriptor();
-
             StartCoroutine(RunSimulationCoroutine = RunSimulation());
         }
 
@@ -332,7 +415,6 @@ namespace ARSandbox.WaterSimulation
             waterBufferRT0.wrapMode = TextureWrapMode.Repeat;
             waterBufferRT0.enableRandomWrite = true;
             waterBufferRT0.Create();
-
             WaterSurfaceCSHelper.Run_FillRenderTexture(WaterSurfaceComputeShader, waterBufferRT0, 0.5f);
 
             waterBufferRT1 = new RenderTexture(256, 256, 0, RenderTextureFormat.RHalf, RenderTextureReadWrite.Linear);
@@ -340,16 +422,13 @@ namespace ARSandbox.WaterSimulation
             waterBufferRT1.wrapMode = TextureWrapMode.Repeat;
             waterBufferRT1.enableRandomWrite = true;
             waterBufferRT1.Create();
-
             WaterSurfaceCSHelper.Run_FillRenderTexture(WaterSurfaceComputeShader, waterBufferRT1, 0.5f);
             
-            // Criar textura de Molhado (Wetness)
             wetnessRT = new RenderTexture(256, 256, 0, RenderTextureFormat.RHalf, RenderTextureReadWrite.Linear);
             wetnessRT.filterMode = FilterMode.Bilinear;
             wetnessRT.enableRandomWrite = true;
             wetnessRT.Create();
-            WaterSurfaceCSHelper.Run_FillRenderTexture(WaterSurfaceComputeShader, wetnessRT, 0.0f); // Começa seco
-            
+            WaterSurfaceCSHelper.Run_FillRenderTexture(WaterSurfaceComputeShader, wetnessRT, 0.0f); 
         }
 
         private void StepWaterSurfaceSimulation()
@@ -390,13 +469,9 @@ namespace ARSandbox.WaterSimulation
                     foreach (WaterDroplet droplet in waterDroplets)
                     {
                         float sandboxDepth = Sandbox.GetDepthFromWorldPos(droplet.transform.position);
-                        if (droplet.transform.position.z > sandboxDepth)
-                        {
-                            droplet.SetZPosition(sandboxDepth - WaterDroplet.DROPLET_RADIUS * 1.25f);
-                        }
+                        if (droplet.transform.position.z > sandboxDepth) droplet.SetZPosition(sandboxDepth - WaterDroplet.DROPLET_RADIUS * 1.25f);
                     }
                 }
-
                 currSubsection = 0;
             }
             else
@@ -410,7 +485,6 @@ namespace ARSandbox.WaterSimulation
                         {
                             WaterDroplet droplet = waterDroplets[i];
                             float sandboxDepth = Sandbox.GetDepthFromWorldPos(droplet.transform.position);
-                            // Constant of 10 is a small buffer to allow stacked water to rest.
                             if (droplet.transform.position.z > sandboxDepth - WaterDroplet.DROPLET_RADIUS + 10)
                             {
                                 droplet.SetZPosition(sandboxDepth - WaterDroplet.DROPLET_RADIUS);
@@ -432,7 +506,6 @@ namespace ARSandbox.WaterSimulation
 
             for (int i = waterDroplets.Count - 1; i >= 0; i--)
             {
-                // Checa se o droplet ainda existe antes de continuar
                 if (waterDroplets[i] == null)
                 {
                     waterDroplets.RemoveAt(i);
@@ -444,7 +517,6 @@ namespace ARSandbox.WaterSimulation
                 if (position.x < minX || position.y < minY || position.x > maxX || position.y > maxY)
                 {
                     Destroy(droplet.gameObject);
-                    Destroy(droplet);
                     waterDroplets.RemoveAt(i);
                 } else
                 {
@@ -452,12 +524,12 @@ namespace ARSandbox.WaterSimulation
                     if (metaballCount > MaxMetaballs)
                     {
                         Destroy(droplet.gameObject);
-                        Destroy(droplet);
                         waterDroplets.RemoveAt(i);
                     }
                 }
             }
         }
+        
         private void SetUpMetaballCamera()
         {
             CalibrationManager.SetUpDataCamera(MetaballCamera);
@@ -465,12 +537,10 @@ namespace ARSandbox.WaterSimulation
             MetaballCamera.targetTexture = metaballRT;
             Sandbox.SetSandboxShader(MetaballShader);
             Sandbox.SetShaderTexture("_MetaballTex", metaballRT);
-            // Aqui, utilizamos a textura selecionada pelo usuário, referenciada pelo índice selectedTextureIndex
             if (selectedTextureIndex >= 0 && selectedTextureIndex < WaterColorTextures.Length)
             {
                 Sandbox.SetShaderTexture("_WaterColorTex", WaterColorTextures[selectedTextureIndex]);
             }
-
             Vector2 waterSurfaceTexScaling = new Vector2((float)sandboxDescriptor.DataSize.x / (float)sandboxDescriptor.DataSize.y * 1f, 1f);
             Sandbox.SetTextureProperties("_WaterSurfaceTex", Vector2.zero, waterSurfaceTexScaling);
         }
@@ -483,7 +553,6 @@ namespace ARSandbox.WaterSimulation
                 metaballRT.DiscardContents();
                 metaballRT.Release();
             }
-
             metaballRT = new RenderTexture((int)(256.0f * aspectRatio), 256, 0);
         }
 
@@ -495,22 +564,17 @@ namespace ARSandbox.WaterSimulation
                 {
                     if (!Physics.CheckSphere(gesture.WorldPosition + new Vector3(0, 0, -5), 1.0f))
                     {
-                        if (isWaterfallActive)
+                        if (isWaterfallActive && gesture.IsUIGesture)
                         {
-                            GameObject newEmitter = Instantiate(WaterfallEmitterPrefab, gesture.WorldPosition, Quaternion.identity);
-                            var emitterScript = newEmitter.GetComponent<S_WaterfallEmitter>();
-                            emitterScript.Initialize(WaterDroplet, selectedViscosity, absorptionSpeed, evaporationTime, WaterColorTextures[selectedTextureIndex]);
-                            emitterScript.SetEmissionRate(emissionRate);
-                            emitterScript.SetShowMesh(showParticles); // Passa o estado atual de showParticles
-                            activeWaterfallEmitters.Add(newEmitter);
+                            SpawnWaterfall(gesture.WorldPosition, false); 
                         }
-                        else
+                        else if (!gesture.IsUIGesture || !isWaterfallActive)
                         {
                             WaterDroplet waterDroplet = Instantiate(WaterDroplet, gesture.WorldPosition, Quaternion.identity);
                             waterDroplet.SetShowMesh(showParticles);
-                            waterDroplet.SetViscosity(selectedViscosity); // Aplica a viscosidade
-                            waterDroplet.SetAbsorptionSpeed(absorptionSpeed); // Aplica a absorção
-                            waterDroplet.SetEvaporationTime(evaporationTime); // Aplica a evaporação
+                            waterDroplet.SetViscosity(selectedViscosity); 
+                            waterDroplet.SetAbsorptionSpeed(absorptionSpeed); 
+                            waterDroplet.SetEvaporationTime(evaporationTime); 
                             waterDroplets.Add(waterDroplet);
                         }
                     }
@@ -520,46 +584,29 @@ namespace ARSandbox.WaterSimulation
 
         public void UI_DestroyWaterfalls()
         {
-            foreach (GameObject emitter in activeWaterfallEmitters)
-            {
-                if (emitter != null) Destroy(emitter);
-            }
+            activeWaterfallEmitters.RemoveAll(item => item == null);
+            foreach (GameObject emitter in activeWaterfallEmitters) Destroy(emitter);
             activeWaterfallEmitters.Clear();
         }
 
         private void DestroyWaterDroplets()
         {
-            foreach (WaterDroplet droplet in waterDroplets)
-            {
-                Destroy(droplet);
-            }
+            foreach (WaterDroplet droplet in waterDroplets) Destroy(droplet);
             waterDroplets.Clear();
         }
 
-        public void UI_DestroyWaterDroplets()
-        {
-            DestroyWaterDroplets();
-        }
+        public void UI_DestroyWaterDroplets() { DestroyWaterDroplets(); }
 
         public void UI_ToggleShowParticles(bool showParticles)
         {
             this.showParticles = showParticles;
-            foreach (WaterDroplet droplet in waterDroplets)
-            {
-                droplet.SetShowMesh(showParticles);
-            }
+            foreach (WaterDroplet droplet in waterDroplets) droplet.SetShowMesh(showParticles);
 
-            // Aplica o efeito às gotas da cascata
+            activeWaterfallEmitters.RemoveAll(item => item == null);
             foreach (GameObject emitter in activeWaterfallEmitters)
             {
-                if (emitter != null)
-                {
-                    var emitterScript = emitter.GetComponent<S_WaterfallEmitter>();
-                    if (emitterScript != null)
-                    {
-                        emitterScript.SetShowMesh(showParticles);
-                    }
-                }
+                var emitterScript = emitter.GetComponent<S_WaterfallEmitter>();
+                if (emitterScript != null) emitterScript.SetShowMesh(showParticles);
             }
         }
     }

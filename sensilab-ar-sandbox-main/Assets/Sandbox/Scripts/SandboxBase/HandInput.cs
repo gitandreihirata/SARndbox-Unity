@@ -11,6 +11,7 @@ namespace ARSandbox
     {
 
         [Header("Modo de Operação")]
+        public bool EnableGestures = true; 
         public bool UseMediaPipe = false; 
         
         [Header("Referências")]
@@ -22,9 +23,8 @@ namespace ARSandbox
         
         public KinectHandTracker MediaPipeTracker; 
 
-        [Header("Interações IA (MediaPipe)")]
-        public GameObject CloudPrefab;
-        public float CloudSpawnCooldown = 2.0f;
+        [Header("Comunicação Master")]
+        private WaterSimulation.WaterSimulation _waterSim;
 
         [Header("Configuração Automática (Modo Nativo)")]
         public float HeightOffsetFromSand = 50.0f; 
@@ -42,7 +42,6 @@ namespace ARSandbox
         public int CurrentPixelCount;
 
         private List<HandInputGesture> CurrentGestures;
-        private float _cloudTimer = 0f;
         private GameObject _grabbedObject = null;
 
         public delegate void OnGesturesReady_Delegate();
@@ -51,12 +50,11 @@ namespace ARSandbox
         
         void Start()
         {
-            // --- CARREGAR CONFIGURAÇÃO SALVA ---
-            // Verifica se existe uma configuração salva. Se for 1, liga. Se 0, desliga.
-            if (PlayerPrefs.HasKey("UseMediaPipe"))
-            {
-                UseMediaPipe = PlayerPrefs.GetInt("UseMediaPipe") == 1;
-            }
+            _waterSim = FindObjectOfType<WaterSimulation.WaterSimulation>();
+
+            if (PlayerPrefs.HasKey("EnableGestures")) EnableGestures = PlayerPrefs.GetInt("EnableGestures") == 1;
+            if (PlayerPrefs.HasKey("UseMediaPipe")) UseMediaPipe = PlayerPrefs.GetInt("UseMediaPipe") == 1;
+            if (PlayerPrefs.HasKey("InteractionZoneHeight")) InteractionZoneHeight = PlayerPrefs.GetFloat("InteractionZoneHeight");
 
             IsCalibrating = true;
             CalibrationManager.OnCalibration += OnCalibration;
@@ -74,15 +72,10 @@ namespace ARSandbox
             {
                 CurrentGestures.RemoveAll(x => !x.IsUIGesture);
 
-                // --- AQUI ESTÁ A "CHAVE DE DESVIO" ---
-                // Se um está ligado, o outro NÃO roda.
-                if (UseMediaPipe)
+                if (EnableGestures)
                 {
-                    ProcessMediaPipeDetection();
-                }
-                else
-                {
-                    ProcessAutomaticHandDetection();
+                    if (UseMediaPipe) ProcessMediaPipeDetection();
+                    else ProcessAutomaticHandDetection();
                 }
 
                 if (OnGesturesReady != null) OnGesturesReady();
@@ -94,107 +87,92 @@ namespace ARSandbox
         // =================================================================================
         private void ProcessMediaPipeDetection()
         {
-            // 1. Validação Básica
             if (MediaPipeTracker == null || !MediaPipeTracker.HandDetected) 
             {
                 DebugCurrentGesture = "Mão não detectada";
-                UITextDebugCurrentGesturel.text = DebugCurrentGesture;
+                if(UITextDebugCurrentGesturel != null) UITextDebugCurrentGesturel.text = DebugCurrentGesture;
                 _grabbedObject = null;
                 return;
             }
 
-            // 2. Obter Dados do Kinect (Para checar altura)
             ushort[] depthData = KinectManager.GetCurrentData();
             if (depthData == null || depthData.Length == 0) return;
             Point frameSize = KinectManager.GetKinectFrameSize();
             
-            // 3. Converter Posição da Palma (Normalizado -> Pixels)
+            // Pega o pixel absoluto do Kinect
             Vector2 palmNorm = MediaPipeTracker.HandCenter;
-            int palmX = (int)(palmNorm.x * frameSize.x);
-            int palmY = (int)(palmNorm.y * frameSize.y);
+            int palmX = Mathf.Clamp((int)(palmNorm.x * frameSize.x), 0, frameSize.x - 1);
+            int palmY = Mathf.Clamp((int)(palmNorm.y * frameSize.y), 0, frameSize.y - 1);
 
-            // Clamp para evitar erro de array fora do limite
-            palmX = Mathf.Clamp(palmX, 0, frameSize.x - 1);
-            palmY = Mathf.Clamp(palmY, 0, frameSize.y - 1);
-
-            // --- FILTRO DE ALTURA (NOVO) ---
-            
-            // Ler a profundidade real no pixel onde a mão está
             int index = palmY * frameSize.x + palmX;
             ushort handDepth = depthData[index];
-            DebugHandHeight = handDepth; // Mostra no Inspector
+            DebugHandHeight = handDepth; 
 
-            // Calcular os limites baseados nos Sliders
             float sandDepth = CalibrationManager.GetCalibrationDescriptor().MaxDepth;
-            float floorLimit = sandDepth - HeightOffsetFromSand; // Perto da areia
-            float ceilingLimit = floorLimit - InteractionZoneHeight; // Perto da câmera
+            float floorLimit = sandDepth - HeightOffsetFromSand; 
+            float ceilingLimit = floorLimit - InteractionZoneHeight; 
 
-            // Se a profundidade for 0 (erro de leitura) ou fora dos limites, IGNORA
-            // Nota: Depth menor = mais alto (perto da câmera). Depth maior = mais baixo.
             if (handDepth == 0 || handDepth > floorLimit || handDepth < ceilingLimit)
             {
                 DebugCurrentGesture = "Mão Fora da Zona (Altura)";
-                UITextDebugCurrentGesturel.text = DebugCurrentGesture;
+                if(UITextDebugCurrentGesturel != null) UITextDebugCurrentGesturel.text = DebugCurrentGesture;
                 _grabbedObject = null;
-                return; // Sai da função aqui
+                return; 
             }
 
-            // ----------------------------------------------------
-
             string gesture = MediaPipeTracker.CurrentGesture;
-            DebugCurrentGesture = gesture; // Mostra o gesto real
-            UITextDebugCurrentGesturel.text = DebugCurrentGesture;
+            DebugCurrentGesture = gesture; 
+            if(UITextDebugCurrentGesturel != null) UITextDebugCurrentGesturel.text = DebugCurrentGesture;
             
-            Vector3 palmWorldPos = GetWorldPosFromDepth(palmX, palmY);
+            // CORREÇÃO MESTRE DA SINCRONIA DE CALIBRAÇÃO (Recorte Relativo)
+            Point dataStart = CalibrationManager.GetCalibrationDescriptor().DataStart;
+            Point dataEnd = CalibrationManager.GetCalibrationDescriptor().DataEnd;
 
-            // Posição do Indicador (Para Lasso)
-            Vector2 tipNorm = MediaPipeTracker.IndexTipPosition;
-            int tipX = Mathf.Clamp((int)(tipNorm.x * frameSize.x), 0, frameSize.x - 1);
-            int tipY = Mathf.Clamp((int)(tipNorm.y * frameSize.y), 0, frameSize.y - 1);
-            Vector3 tipWorldPos = GetWorldPosFromDepth(tipX, tipY);
+            int relPalmX = Mathf.Clamp(palmX - dataStart.x, 0, dataEnd.x - dataStart.x - 1);
+            int relPalmY = Mathf.Clamp(palmY - dataStart.y, 0, dataEnd.y - dataStart.y - 1);
 
-            // A) OPEN PALM -> Água
+            Vector3 palmWorldPos = GetWorldPosFromDepth(relPalmX, relPalmY);
+            palmWorldPos.z = Sandbox.GetDepthFromWorldPos(palmWorldPos);
+
             if (gesture == "Open_Palm")
             {
                 _grabbedObject = null;
-                CreateGestureAtDepthPoint(palmX, palmY); 
+                CreateGestureAtDepthPoint(relPalmX, relPalmY); 
             }
-            // B) CLOSED FIST -> Nuvem
             else if (gesture == "Closed_Fist")
             {
                 _grabbedObject = null;
-                _cloudTimer -= Time.deltaTime;
-
-                if (_cloudTimer <= 0)
-                {
-                    SpawnCloud(palmWorldPos);
-                    _cloudTimer = CloudSpawnCooldown;
-                }
+                if (_waterSim == null) _waterSim = FindObjectOfType<WaterSimulation.WaterSimulation>();
+                if (_waterSim != null) _waterSim.SpawnWaterfall(palmWorldPos);
             }
-            // C) LASSO -> Mover Objetos
             else if (gesture == "Lasso_Grab")
             {
-                if (_grabbedObject == null)
+                if (_grabbedObject == null) TryGrabObject(palmWorldPos);
+                else _grabbedObject.transform.position = new Vector3(palmWorldPos.x, palmWorldPos.y, _grabbedObject.transform.position.z);
+            }
+            else if (gesture == "Pointing")
+            {
+                Vector2 tipNorm = MediaPipeTracker.IndexTipPosition;
+                int tipX = Mathf.Clamp((int)(tipNorm.x * frameSize.x), 0, frameSize.x - 1);
+                int tipY = Mathf.Clamp((int)(tipNorm.y * frameSize.y), 0, frameSize.y - 1);
+                Vector3 tipWorldPos = GetWorldPosFromDepth(tipX, tipY);
+
+                if (_grabbedObject == null) TryGrabObject(tipWorldPos);
+                else _grabbedObject.transform.position = new Vector3(tipWorldPos.x, tipWorldPos.y, _grabbedObject.transform.position.z);
+            }
+            else if (gesture == "Victory")
+            {
+                _grabbedObject = null;
+                if (_waterSim == null) _waterSim = FindObjectOfType<WaterSimulation.WaterSimulation>();
+                if (_waterSim != null) 
                 {
-                    TryGrabObject(tipWorldPos);
-                }
-                else
-                {
-                    _grabbedObject.transform.position = new Vector3(tipWorldPos.x, tipWorldPos.y, _grabbedObject.transform.position.z);
+                    _waterSim.UI_DestroyWaterfalls();   
+                    _waterSim.UI_DestroyWaterDroplets(); 
                 }
             }
             else
             {
                 _grabbedObject = null;
-            }
-        }
-
-        private void SpawnCloud(Vector3 position)
-        {
-            if (CloudPrefab != null)
-            {
-                Vector3 spawnPos = new Vector3(position.x, position.y, position.z - 30);
-                Instantiate(CloudPrefab, spawnPos, Quaternion.identity);
             }
         }
 
@@ -253,13 +231,30 @@ namespace ARSandbox
                 }
             }
             CurrentPixelCount = pixelCount;
+            
             if (pixelCount > MinPixelsPresent)
             {
+                int avgX = (int)(sumX / pixelCount);
+                int avgY = (int)(sumY / pixelCount);
+
+                // CORREÇÃO MESTRE DA SINCRONIA NO MODO NATIVO TAMBÉM
+                Point dataStart = CalibrationManager.GetCalibrationDescriptor().DataStart;
+                Point dataEnd = CalibrationManager.GetCalibrationDescriptor().DataEnd;
+
+                int relAvgX = Mathf.Clamp(avgX - dataStart.x, 0, dataEnd.x - dataStart.x - 1);
+                int relAvgY = Mathf.Clamp(avgY - dataStart.y, 0, dataEnd.y - dataStart.y - 1);
+
+                Vector3 worldPos = GetWorldPosFromDepth(relAvgX, relAvgY);
+                worldPos.z = Sandbox.GetDepthFromWorldPos(worldPos);
+
                 if (pixelCount > OpenHandThreshold)
                 {
-                    int avgX = (int)(sumX / pixelCount);
-                    int avgY = (int)(sumY / pixelCount);
-                    CreateGestureAtDepthPoint(avgX, avgY);
+                    CreateGestureAtDepthPoint(relAvgX, relAvgY);
+                }
+                else
+                {
+                    if (_waterSim == null) _waterSim = FindObjectOfType<WaterSimulation.WaterSimulation>();
+                    if (_waterSim != null) _waterSim.SpawnWaterfall(worldPos);
                 }
             }
         }
@@ -279,20 +274,15 @@ namespace ARSandbox
             CurrentGestures.Add(new HandInputGesture(999, worldPos, Vector2.zero, terrainDepth, dataPos, false, false));
         }
 
-        // --- FUNÇÃO ATUALIZADA PARA SALVAR ---
-        public void UI_SetUseMediaPipe(bool value) 
-        { 
-            UseMediaPipe = value;
-            
-            // SALVA NO DISCO: 1 para True, 0 para False
-            PlayerPrefs.SetInt("UseMediaPipe", value ? 1 : 0);
-            PlayerPrefs.Save();
-        }
-        
+        // =================================================================================
+        // FUNÇÕES DA UI
+        // =================================================================================
+        public void UI_SetEnableGestures(bool value) { EnableGestures = value; PlayerPrefs.SetInt("EnableGestures", value ? 1 : 0); PlayerPrefs.Save(); }
+        public void UI_SetUseMediaPipe(bool value) { UseMediaPipe = value; PlayerPrefs.SetInt("UseMediaPipe", value ? 1 : 0); PlayerPrefs.Save(); }
         public void UI_SetOpenHandThreshold(float value) { OpenHandThreshold = (int)value; }
         public void UI_SetHeightOffset(float value) { HeightOffsetFromSand = value; }
+        public void UI_SetInteractionZoneHeight(float value) { InteractionZoneHeight = value; PlayerPrefs.SetFloat("InteractionZoneHeight", value); PlayerPrefs.Save(); }
 
-        // --- MÉTODOS MOUSE (UI) ---
         public void OnUITouchDown(int touchID, Vector2 screenSpacePoint)
         {
             if (!CurrentGestures.Exists((gesture) => gesture.GestureID == touchID))

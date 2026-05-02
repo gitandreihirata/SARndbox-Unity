@@ -17,7 +17,296 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 5bdaebdf04e6ba843af15126c9e1e5de, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 155254535700480
+    m_Localized: Barra espaciadora
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155255420698624
+    m_Localized: "Elevaci\xF3n inicial:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155256234393600
+    m_Localized: Aceptar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 155256926453760
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29061496832
+    m_Localized: "Men\xFA principal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 508399140864
+    m_Localized: "Configuraci\xF3n de SARndbox"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 644865015808
+    m_Localized: Compartir datos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 151775960317952
+    m_Localized: Compartir con
+    m_Metadata:
+      m_Items: []
+  - m_Id: 693468610560
+    m_Localized: Desarrollado por Lachlan Smith con
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154169678970880
+    m_Localized: "\xBFEst\xE1 seguro de que desea cancelar esta calibraci\xF3n actual?
+      (Se utilizar\xE1 la calibraci\xF3n anterior)."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154170475888640
+    m_Localized: "\xBFEst\xE1 seguro de que desea eliminar esta topograf\xEDa guardada?
+      (Esta acci\xF3n no se puede deshacer)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154171264417792
+    m_Localized: "\xBFEst\xE1 seguro de que desea eliminar el archivo geol\xF3gico:
+      \\\"{0}\\\"?\\n (Esta acci\xF3n no se puede deshacer)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154172027781120
+    m_Localized: "\xBFEst\xE1 seguro de que desea abrir el archivo de geolog\xEDa:
+      \\\"{0}\\\"?\\n (Se perder\xE1 todo el progreso no guardado)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 744769142784
+    m_Localized: "En colaboraci\xF3n con:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 820094648320
+    m_Localized: 'Modificado por:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143717024612352
+    m_Localized: "Iniciar calibraci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143887145582592
+    m_Localized: "Elevaci\xF3n inicial / Elevaci\xF3n final"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143888164798464
+    m_Localized: "Elevaci\xF3n Inicial/Tama\xF1o del Paso"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 154999362633728
+    m_Localized: No se pudo guardar la captura.\nTente iniciar el software en modo
+      administrador.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19462429556736
+    m_Localized: "Reiniciar Simulaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2005954412544
+    m_Localized: Modos de la SARndbox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2004201193472
+    m_Localized: "Salir de la Simulaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2195536953344
+    m_Localized: Simulaciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2202088456192
+    m_Localized: Fluido
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2204386934784
+    m_Localized: Incendio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13016983879680
+    m_Localized: "Emisiones Atmosf\xE9ricas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2209092943872
+    m_Localized: "Geolog\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19458935701504
+    m_Localized: "Pausar Simulaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19460684726272
+    m_Localized: "Continuar Simulaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13019521433600
+    m_Localized: Herramientas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13023657017344
+    m_Localized: "Constructor de Topograf\xEDa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141425118494720
+    m_Localized: Opciones del Constructor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143866736099328
+    m_Localized: General
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189665836618956800
+    m_Localized: Gestos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143868040527872
+    m_Localized: "Resoluci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143868841639936
+    m_Localized: Bajo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143869600808960
+    m_Localized: Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143870339006464
+    m_Localized: 'Calidad:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143871056232448
+    m_Localized: 'Calidad: Alto'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143871769264128
+    m_Localized: Datos no Tratados
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143872494878720
+    m_Localized: Bajo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143873207910400
+    m_Localized: Media
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143873946107904
+    m_Localized: Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143874667528192
+    m_Localized: Muy Alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143879696498688
+    m_Localized: Espesor del Contorno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143881894313984
+    m_Localized: Espeso
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20814945796096
+    m_Localized: Espesor del Lecho
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143877481906176
+    m_Localized: Contornos Menores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143875367976960
+    m_Localized: Espaciamiento de Contorno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143885312671744
+    m_Localized: Etapa de Espaciamiento Constante
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143880422113280
+    m_Localized: 'Contornos:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143881202253824
+    m_Localized: Ninguno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143878186549248
+    m_Localized: Menos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143878979272704
+    m_Localized: "M\xE1s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 900414445928448
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143898977714176
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 143894351396864
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19454049337344
+    m_Localized: Cerrar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 196166899144540160
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189664952031854592
+    m_Localized: Altura de la Mano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189664931479764992
+    m_Localized: "Tama\xF1o de la Mano"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20807165362176
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20819832160256
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20853898297344
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20858289733632
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20863138349056
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20870813925376
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 141416750858240
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 142735477784576
+    m_Localized: "M\xE1s Alto"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 219770597460361216
+    m_Localized: Usar Media Pipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 222524901900369920
+    m_Localized: Debugs
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

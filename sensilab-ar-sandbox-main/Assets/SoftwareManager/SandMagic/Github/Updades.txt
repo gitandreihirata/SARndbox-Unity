@@ -1,3 +1,11 @@
+Núcleo (Core & Base): O coração da aplicação (Sandbox.cs, SandboxCamera.cs), integração com os sensores (KinectManager.cs), processamento de contornos e o sistema de calibração espacial.
+
+Novas Interações e IA: Uma adição muito bacana é o uso do MediaPipe (KinectHandTracker.cs) integrado ao HandInput.cs para detectar gestos específicos (como "Point", "Lasso_Grab", "Closed_Fist") e instanciar objetos como nuvens interativas (SimpleCloudBehavior.cs, CloudLifeCycle.cs).
+
+
+Modo Nativo (Simples/Profundidade): No HandInput.cs, temos variáveis como HeightOffsetFromSand, InteractionZoneHeight e OpenHandThreshold. 
+Se a IA estiver desligada (UseMediaPipe = false), o sistema usa a câmera de profundidade tradicional do Kinect para contar quantos "pixels" estão acima da areia para adivinhar se a mão está aberta ou fechada.
+
 //------------------------------------------------01/03/2025 - 30/03/2025--------------------------------------------------//
 SOFTWARE
 ->Atualizado para a versão 2022.3.59

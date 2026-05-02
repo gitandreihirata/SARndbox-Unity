@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// NÃO coloque "using Mediapipe.Unity" aqui para evitar conflito com UI
 
 namespace ARSandbox
 {
@@ -12,8 +11,11 @@ namespace ARSandbox
         [Header("ARRASTE O ARQUIVO .BYTES AQUI")]
         public TextAsset ModelFile; 
 
-        public int NumHands = 2;
+        [Header("Configuração de Montagem do Kinect")]
+        [Tooltip("Se o Kinect estiver deitado ou montado invertido, use: 90, 180 ou 270")]
+        public int CameraRotationDegrees = 0;
 
+        public int NumHands = 2;
         public bool HandDetected = false;
         public string CurrentGesture = "None";
         public Vector2 HandCenter = Vector2.zero; 
@@ -21,8 +23,6 @@ namespace ARSandbox
 
         private Mediapipe.Tasks.Vision.HandLandmarker.HandLandmarker _handLandmarker;
         private bool _isProcessing = false;
-        
-        // CORREÇÃO: Variável para controlar o tempo manualmente
         private long _nextTimestamp = 0; 
 
         private IEnumerator Start()
@@ -38,7 +38,7 @@ namespace ARSandbox
             try 
             {
                 var baseOptions = new Mediapipe.Tasks.Core.BaseOptions(
-                    Mediapipe.Tasks.Core.BaseOptions.Delegate.CPU, // Mantendo CPU por segurança
+                    Mediapipe.Tasks.Core.BaseOptions.Delegate.CPU, 
                     modelAssetBuffer: ModelFile.bytes
                 );
 
@@ -55,7 +55,6 @@ namespace ARSandbox
                 );
 
                 _handLandmarker = Mediapipe.Tasks.Vision.HandLandmarker.HandLandmarker.CreateFromOptions(options);
-                Debug.Log("MediaPipe Carregado!");
             }
             catch (System.Exception e)
             {
@@ -67,7 +66,7 @@ namespace ARSandbox
         {
             if (_handLandmarker == null || KinectManager == null) return;
 
-            Texture2D kinectTex = KinectManager.GetColorTexture(); 
+            Texture2D kinectTex = KinectManager.GetIRColorizedTexture(); 
 
             if (kinectTex != null && !_isProcessing)
             {
@@ -86,27 +85,17 @@ namespace ARSandbox
             }
             catch (System.Exception e)
             {
-                Debug.LogError($"Erro conversão imagem: {e.Message}");
                 _isProcessing = false;
                 yield break;
             }
 
-            // --- CORREÇÃO DO TIMESTAMP ---
-            // Em vez de usar DateTime.Now (que pode oscilar), incrementamos manualmente.
-            // O MediaPipe só precisa que o número cresça.
-            // Usamos milissegundos simulados baseados no tempo da Unity desde o início.
             long timestamp = (long)(Time.timeSinceLevelLoad * 1000);
-
-            // Proteção extra: Se o frame for muito rápido e o tempo for igual ao anterior, adiciona 1ms
-            if (timestamp <= _nextTimestamp)
-            {
-                timestamp = _nextTimestamp + 1;
-            }
+            if (timestamp <= _nextTimestamp) timestamp = _nextTimestamp + 1;
             _nextTimestamp = timestamp;
 
-            var imageOptions = new Mediapipe.Tasks.Vision.Core.ImageProcessingOptions(rotationDegrees: 0);
+            // Envia a imagem rotacionada para a IA ler de forma "confortável"
+            var imageOptions = new Mediapipe.Tasks.Vision.Core.ImageProcessingOptions(rotationDegrees: CameraRotationDegrees);
 
-            // Bloco try-catch para capturar erros específicos de execução
             try 
             {
                 _handLandmarker.DetectAsync(image, timestamp, imageOptions);
@@ -119,7 +108,6 @@ namespace ARSandbox
             yield return new WaitForEndOfFrame();
 
             if (image != null) ((System.IDisposable)image).Dispose();
-            
             _isProcessing = false;
         }
 
@@ -133,17 +121,34 @@ namespace ARSandbox
                 HandDetected = true;
                 var landmarks = result.handLandmarks[0].landmarks;
 
-                HandCenter = new Vector2((float)landmarks[9].x, (float)landmarks[9].y);
-                IndexTipPosition = new Vector2((float)landmarks[8].x, (float)landmarks[8].y);
+                // Lê as coordenadas que o MediaPipe achou na imagem rotacionada
+                Vector2 rawHandCenter = new Vector2((float)landmarks[9].x, (float)landmarks[9].y);
+                Vector2 rawIndexTip = new Vector2((float)landmarks[8].x, (float)landmarks[8].y);
+
+                // Executa a Matemática Reversa (Des-Rotação) para a água cair no lugar físico correto
+                HandCenter = UnrotateCoordinates(rawHandCenter, CameraRotationDegrees);
+                IndexTipPosition = UnrotateCoordinates(rawIndexTip, CameraRotationDegrees);
 
                 CurrentGesture = CalculateGesture(landmarks);
-                Debug.Log(CurrentGesture);
             }
             else
             {
                 HandDetected = false;
                 CurrentGesture = "None";
             }
+        }
+
+        // Função mágica que devolve as coordenadas para o mundo real baseado em como a câmera girou
+        private Vector2 UnrotateCoordinates(Vector2 normalizedPos, int rotation)
+        {
+            float nx = normalizedPos.x;
+            float ny = normalizedPos.y;
+
+            if (rotation == 90) return new Vector2(ny, 1.0f - nx);
+            if (rotation == 180) return new Vector2(1.0f - nx, 1.0f - ny);
+            if (rotation == 270) return new Vector2(1.0f - ny, nx);
+            
+            return normalizedPos; // 0 graus (Original)
         }
 
         private void OnDestroy()
