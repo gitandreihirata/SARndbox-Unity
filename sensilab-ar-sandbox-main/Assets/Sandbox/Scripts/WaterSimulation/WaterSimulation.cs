@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 namespace ARSandbox.WaterSimulation
 {
@@ -91,7 +92,7 @@ namespace ARSandbox.WaterSimulation
             if (PlayerPrefs.HasKey("MinCloudParticleSize")) MinCloudParticleSize = PlayerPrefs.GetFloat("MinCloudParticleSize");
             if (PlayerPrefs.HasKey("MaxCloudParticleSize")) MaxCloudParticleSize = PlayerPrefs.GetFloat("MaxCloudParticleSize");
 
-            ConfigureDropdown();
+            StartCoroutine(InitDropdownLocalization());
             ConfigureViscositySlider();
             ConfigureAbsorptionEvaporationSlider();
             ConfigureWaterfallControls();
@@ -232,13 +233,64 @@ namespace ARSandbox.WaterSimulation
         // =========================================================
         // CONFIGURAÇÕES PADRÕES
         // =========================================================
-        void ConfigureDropdown()
+        IEnumerator InitDropdownLocalization()
         {
-            string[] textureNames = { "Água", "Lava", "Ácido", "Óleo", "Gelo" }; 
+            // Preenche com os nomes padrões imediatamente para o Dropdown não iniciar vazio
+            string[] defaultNames = { "Água", "Lava", "Ácido", "Óleo", "Gelo" }; 
+            textureDropdown.ClearOptions();
+            textureDropdown.AddOptions(new List<string>(defaultNames));
+            textureDropdown.value = selectedTextureIndex;
+            textureDropdown.RefreshShownValue();
+
+            // Espera o sistema de localização do Unity inicializar
+            yield return LocalizationSettings.InitializationOperation;
+
+            StartCoroutine(UpdateDropdownTranslations());
+        }
+
+        private void OnLocaleChanged(UnityEngine.Localization.Locale locale)
+        {
+            if (gameObject.activeInHierarchy)
+            {
+                StartCoroutine(UpdateDropdownTranslations());
+            }
+        }
+
+        IEnumerator UpdateDropdownTranslations()
+        {
+            // Espera um frame para garantir que o Unity terminou de carregar o novo idioma de fato
+            yield return null;
+
+            string[] textureKeys = { "Fluid_Color_Water", "Fluid_Color_Lava", "Fluid_Color_Acid", "Fluid_Color_Oil", "Fluid_Color_Ice" }; 
+            string[] defaultNames = { "Água", "Lava", "Ácido", "Óleo", "Gelo" }; 
             List<string> options = new List<string>();
-            for (int i = 0; i < WaterColorTextures.Length; i++) options.Add(textureNames[i]);
+            
+            int currentIndex = textureDropdown.value; 
+            textureDropdown.onValueChanged.RemoveAllListeners();
+
+            // Pede a tabela inteira 1 única vez (muito mais rápido do que pedir string por string)
+            var tableOp = LocalizationSettings.StringDatabase.GetTableAsync("LocalizationTables");
+            yield return tableOp;
+            var table = tableOp.Result;
+
+            for (int i = 0; i < WaterColorTextures.Length; i++) 
+            {
+                string translated = null;
+                if (table != null)
+                {
+                    var entry = table.GetEntry(textureKeys[i]);
+                    if (entry != null) translated = entry.LocalizedValue;
+                }
+
+                if (!string.IsNullOrEmpty(translated)) options.Add(translated);
+                else options.Add(defaultNames[i]);
+            }
             textureDropdown.ClearOptions();
             textureDropdown.AddOptions(options);
+
+            textureDropdown.value = currentIndex; 
+            textureDropdown.RefreshShownValue();
+
             textureDropdown.onValueChanged.AddListener(delegate { OnTextureSelected(textureDropdown); });
         }
 
@@ -373,10 +425,19 @@ namespace ARSandbox.WaterSimulation
             SetUpMetaballCamera();
             MetaballCamera.gameObject.SetActive(true);
             StartCoroutine(RunSimulationCoroutine = RunSimulation());
+
+            // Inscreve no evento e garante atualização se o idioma mudou enquanto a simulação estava desativada
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+            if (LocalizationSettings.InitializationOperation.IsDone)
+            {
+                StartCoroutine(UpdateDropdownTranslations());
+            }
         }
 
         void OnDisable()
         {
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+
             HandInput.OnGesturesReady -= OnGesturesReady;
             CalibrationManager.OnCalibration -= OnCalibration;
             Sandbox.OnSandboxReady -= OnSandboxReady;

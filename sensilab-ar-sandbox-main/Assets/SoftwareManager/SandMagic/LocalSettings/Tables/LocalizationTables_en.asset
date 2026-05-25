@@ -49,7 +49,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2001927880704
-    m_Localized: Feel free to contact
+    m_Localized: Exit Simulation
     m_Metadata:
       m_Items: []
   - m_Id: 2004201193472
@@ -62,10 +62,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2195536953344
     m_Localized: Simulations
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2202088456192
-    m_Localized: Water Simulation
     m_Metadata:
       m_Items: []
   - m_Id: 2204386934784
@@ -126,18 +122,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 16172195201024
     m_Localized: Fast
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16336364453888
-    m_Localized: Water Options
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16337597579264
-    m_Localized: Show Particles
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16339174637568
-    m_Localized: Clear Water
     m_Metadata:
       m_Items: []
   - m_Id: 16485123833856
@@ -529,13 +513,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 141423776317440
-    m_Localized: Save As                                                         
-      New Geology
+    m_Localized: Save As New Geology
     m_Metadata:
       m_Items: []
   - m_Id: 141424430628864
-    m_Localized: Save Over                                                Current
-      Geology
+    m_Localized: Save Over Current Geology
     m_Metadata:
       m_Items: []
   - m_Id: 141425118494720
@@ -606,10 +588,8 @@ MonoBehaviour:
     m_Localized: 'Corner Calibration Instructions:
 
 
-
       Drag the CYAN corners
       around the shape of the sandbox in the depth image.
-
 
 
       Drag the RED corners
@@ -624,10 +604,8 @@ MonoBehaviour:
     m_Localized: 'Depth Calibration Instructions:
 
 
-
-      Touch the LOWEST part
-      of the depth image and then the HIGHEST.
-
+      Touch the LOWEST part of
+      the depth image and then the HIGHEST.
 
 
       The depth range can be fine-tuned
@@ -644,12 +622,10 @@ MonoBehaviour:
     m_Localized: 'Lens Shift Calibration Instructions:
 
 
-
       Use the Lens Shift
       option to make the peaks and troughs line up on the projection. Note that you
       will probably have to use the Horizontal Translation afterwards to line up
       the projection properly.
-
 
 
       Use the other options to fine tune the calibration.'
@@ -696,7 +672,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143859224100864
-    m_Localized: Depth Calibration
+    m_Localized: xxxxxxx
     m_Metadata:
       m_Items: []
   - m_Id: 143859865829376
@@ -732,7 +708,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143865310035968
-    m_Localized: Save Calibration
+    m_Localized: New Entry
     m_Metadata:
       m_Items: []
   - m_Id: 143866006290432
@@ -741,10 +717,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 143866736099328
     m_Localized: General
-    m_Metadata:
-      m_Items: []
-  - m_Id: 143868040527872
-    m_Localized: Resolution
     m_Metadata:
       m_Items: []
   - m_Id: 143868841639936
@@ -1012,7 +984,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 154173684531200
-    m_Localized: 'Confirm sending capture: \n\"{0}\"\nTo: {1}'
+    m_Localized: "Confirm sending capture: \n\"{0}\"\nTo: {1}"
     m_Metadata:
       m_Items: []
   - m_Id: 154174456283136
@@ -1081,8 +1053,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 155717167431680
-    m_Localized: "There are current no Kinect Sensors connected. \r\nPlease plug
-      in a sensor to begin using this application.\r\nTry to detect\u2026"
+    m_Localized: "There are current no Kinect Sensors connected. \nPlease plug in
+      a sensor to begin using this application.\nTry to detect"
     m_Metadata:
       m_Items: []
   - m_Id: 900414445928448
@@ -1106,120 +1078,72 @@ MonoBehaviour:
     m_Localized: Rename Geology File
     m_Metadata:
       m_Items: []
-  - m_Id: 46101299127861248
+  - m_Id: 253484529212121088
+    m_Localized: Fluid Simulation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509697
+    m_Localized: Fluid Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509698
+    m_Localized: Show Particles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509699
+    m_Localized: Clear Fluid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509700
     m_Localized: Color
     m_Metadata:
       m_Items: []
-  - m_Id: 46101359462924288
+  - m_Id: 253484529220509701
     m_Localized: Water
     m_Metadata:
       m_Items: []
-  - m_Id: 46101361631379456
-    m_Localized: "Lava\r"
+  - m_Id: 253484529220509702
+    m_Localized: Lava
     m_Metadata:
       m_Items: []
-  - m_Id: 46101362956779520
+  - m_Id: 253484529220509703
     m_Localized: Acid
     m_Metadata:
       m_Items: []
-  - m_Id: 46101364185710592
+  - m_Id: 253484529220509704
     m_Localized: Oil
     m_Metadata:
       m_Items: []
-  - m_Id: 46101365251063808
-    m_Localized: "Ice\r"
+  - m_Id: 253484529220509705
+    m_Localized: Ice
     m_Metadata:
       m_Items: []
-  - m_Id: 46101366349971456
-    m_Localized: "Flow\r"
+  - m_Id: 253484529220509706
+    m_Localized: Flow
     m_Metadata:
       m_Items: []
-  - m_Id: 46101367385964544
-    m_Localized: "Point of origin\r"
+  - m_Id: 253484529220509707
+    m_Localized: Point of origin
     m_Metadata:
       m_Items: []
-  - m_Id: 46101368778473472
+  - m_Id: 253484529220509708
     m_Localized: Viscosity
     m_Metadata:
       m_Items: []
-  - m_Id: 46101369713803264
-    m_Localized: "Infiltration\r"
+  - m_Id: 253484529220509709
+    m_Localized: Infiltration
     m_Metadata:
       m_Items: []
-  - m_Id: 46101371261501440
+  - m_Id: 253484529220509710
     m_Localized: Evaporation
     m_Metadata:
       m_Items: []
-  - m_Id: 189664931479764992
-    m_Localized: Hand Size
+  - m_Id: 253484529233092609
+    m_Localized: Resolution
     m_Metadata:
       m_Items: []
-  - m_Id: 189664952031854592
-    m_Localized: Hand Height
-    m_Metadata:
-      m_Items: []
-  - m_Id: 189665836618956800
-    m_Localized: Gestures
-    m_Metadata:
-      m_Items: []
-  - m_Id: 196166899144540160
-    m_Localized: Use Gestures
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219770597460361216
-    m_Localized: Use Media Pipe
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219770613440659456
-    m_Localized: Clouds
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219804602746486784
-    m_Localized: Use Clouds
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219808992123371520
-    m_Localized: Size
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219809645885341696
-    m_Localized: Sounds
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219809648825548800
-    m_Localized: Active Sound
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219810281712467968
-    m_Localized: Volume
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222524901900369920
-    m_Localized: Debugs
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525628609675264
-    m_Localized: Show Debug
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525631294029824
-    m_Localized: Performance
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525759719424000
-    m_Localized: Calibration
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525761061601280
-    m_Localized: Gestures
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222526055342358528
-    m_Localized: Water
-    m_Metadata:
-      m_Items: []
-  - m_Id: 225211907096920064
-    m_Localized: Interaction Zone Height
+  - m_Id: 253489367861878784
+    m_Localized: New Entry 1
     m_Metadata:
       m_Items: []
   references:

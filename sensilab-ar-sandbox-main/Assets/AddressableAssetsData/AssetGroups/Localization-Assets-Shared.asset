@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 36851995f57e5de4faf67e03438d3549
   m_SerializeEntries:
+  - m_GUID: 4cc5c329211d2314ebf9fe19a0fd0326
+    m_Address: Assets/New Table Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5bdaebdf04e6ba843af15126c9e1e5de
     m_Address: Assets/SoftwareManager/SandMagic/LocalSettings/Tables/LocalizationTables
       Shared Data.asset
