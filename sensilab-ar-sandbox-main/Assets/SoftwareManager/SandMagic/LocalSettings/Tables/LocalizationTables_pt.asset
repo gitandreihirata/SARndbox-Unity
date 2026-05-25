@@ -23,7 +23,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 508399140864
-    m_Localized: "Configura\xE7\xE3o da SARndbox"
+    m_Localized: "Configura\xE7\xE3o                                                                                        
+      da SARndbox"
     m_Metadata:
       m_Items: []
   - m_Id: 644865015808
@@ -47,7 +48,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2001927880704
-    m_Localized: "Sinta-se \xE0 vontade para contactar"
+    m_Localized: "Sair da Simula\xE7\xE3o"
     m_Metadata:
       m_Items: []
   - m_Id: 2004201193472
@@ -62,20 +63,16 @@ MonoBehaviour:
     m_Localized: "Simula\xE7\xF5es"
     m_Metadata:
       m_Items: []
-  - m_Id: 2202088456192
-    m_Localized: Fluido
-    m_Metadata:
-      m_Items: []
   - m_Id: 2204386934784
-    m_Localized: "Inc\xEAndio"
+    m_Localized: "Simula\xE7\xE3o de Inc\xEAndio"
     m_Metadata:
       m_Items: []
   - m_Id: 2209092943872
-    m_Localized: Geologia
+    m_Localized: "Simula\xE7\xE3o Geol\xF3gica"
     m_Metadata:
       m_Items: []
   - m_Id: 13016983879680
-    m_Localized: "Emiss\xF5es Atmosf\xE9ricas"
+    m_Localized: "Simula\xE7\xE3o de Vento"
     m_Metadata:
       m_Items: []
   - m_Id: 13019521433600
@@ -124,18 +121,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 16172195201024
     m_Localized: "R\xE1pido"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16336364453888
-    m_Localized: "Op\xE7\xF5es de \xC1gua"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16337597579264
-    m_Localized: "Exibir Part\xEDculas"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16339174637568
-    m_Localized: "Limpar Flu\xEDdo"
     m_Metadata:
       m_Items: []
   - m_Id: 16485123833856
@@ -187,7 +172,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 19454049337344
-    m_Localized: Fechar
+    m_Localized: "Pr\xF3ximo"
     m_Metadata:
       m_Items: []
   - m_Id: 19455672532992
@@ -255,11 +240,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20789083717632
-    m_Localized: "Brecha \u2013 Sedimentar"
+    m_Localized: "Brecha \x96 Sedimentar"
     m_Metadata:
       m_Items: []
   - m_Id: 20791264755712
-    m_Localized: "Ard\xF3sia \u2013 Metam\xF3rfica"
+    m_Localized: "Ard\xF3sia \x96 Metam\xF3rfica"
     m_Metadata:
       m_Items: []
   - m_Id: 20792925700096
@@ -271,7 +256,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20796818014208
-    m_Localized: "Corneana\_\u2013\_Metam\xF3rfica"
+    m_Localized: "Corneana\_\x96\_Metam\xF3rfica"
     m_Metadata:
       m_Items: []
   - m_Id: 20798705451008
@@ -279,7 +264,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 20800454475776
-    m_Localized: "Quartzito \u2013 Metam\xF3rfica"
+    m_Localized: "Quartzito \x96 Metam\xF3rfica"
     m_Metadata:
       m_Items: []
   - m_Id: 20802283192320
@@ -563,11 +548,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 142499820814336
-    m_Localized: Mais baixo
+    m_Localized: Abaixar
     m_Metadata:
       m_Items: []
   - m_Id: 142735477784576
-    m_Localized: Mais Alto
+    m_Localized: Aumentar
     m_Metadata:
       m_Items: []
   - m_Id: 142785033486336
@@ -599,8 +584,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143086989819904
-    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de canto:\r\n\r\nArraste os
-      cantos CYAN ao redor da forma da \xE1rea restrita na imagem de profundidade.\r\n\r\nArraste
+    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de canto:\n\nArraste os cantos
+      CYAN ao redor da forma da \xE1rea restrita na imagem de profundidade.\n\nArraste
       os cantos VERMELHOS para os cantos reais projetados na \xE1rea restrita (Veja
       a proje\xE7\xE3o)."
     m_Metadata:
@@ -610,20 +595,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143223535386624
-    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de profundidade:\r\n\r\nToque
-      na parte MAIS BAIXA da imagem de profundidade e depois na MAIS ALTA.\r\n\r\nA
-      faixa de profundidade pode ser ajustada com os controles deslizantes \xE0 direita."
+    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de profundidade:\n\nToque
+      na parte MAIS BAIXA da imagem de profundidade e depois na MAIS ALTA.\n\nA faixa
+      de profundidade pode ser ajustada com os controles deslizantes \xE0 direita."
     m_Metadata:
       m_Items: []
   - m_Id: 143224378441728
-    m_Localized: "Calibra\xE7\xE3o de\r\nMudan\xE7a de lente"
+    m_Localized: "Calibra\xE7\xE3o de\nMudan\xE7a de lente"
     m_Metadata:
       m_Items: []
   - m_Id: 143225137610752
-    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de mudan\xE7a de lente:\r\n\r\nUse
+    m_Localized: "Instru\xE7\xF5es de calibra\xE7\xE3o de mudan\xE7a de lente:\n\nUse
       a op\xE7\xE3o Lens Shift para alinhar os picos e calhas na proje\xE7\xE3o.
       Observe que voc\xEA provavelmente ter\xE1 que usar a Tradu\xE7\xE3o Horizontal
-      depois para alinhar a proje\xE7\xE3o corretamente.\r\n\r\nUse as outras op\xE7\xF5es
+      depois para alinhar a proje\xE7\xE3o corretamente.\n\nUse as outras op\xE7\xF5es
       para ajustar a calibra\xE7\xE3o."
     m_Metadata:
       m_Items: []
@@ -668,7 +653,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143859224100864
-    m_Localized: Calibragem de Profundidade
+    m_Localized: xxxxxxx
     m_Metadata:
       m_Items: []
   - m_Id: 143859865829376
@@ -704,7 +689,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143865310035968
-    m_Localized: "Salvar Calibra\xE7\xE3o"
+    m_Localized: Nova Entrada
     m_Metadata:
       m_Items: []
   - m_Id: 143866006290432
@@ -713,10 +698,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 143866736099328
     m_Localized: Geral
-    m_Metadata:
-      m_Items: []
-  - m_Id: 143868040527872
-    m_Localized: "Resolu\xE7\xE3o"
     m_Metadata:
       m_Items: []
   - m_Id: 143868841639936
@@ -812,7 +793,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143886222835712
-    m_Localized: "Finalizando na Eleva\xE7\xE3o"
+    m_Localized: "Finalizando a Eleva\xE7\xE3o"
     m_Metadata:
       m_Items: []
   - m_Id: 143887145582592
@@ -820,7 +801,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 143888164798464
-    m_Localized: "Eleva\xE7\xE3o Inicial/Tamanho do Passo"
+    m_Localized: "Eleva\xE7\xE3o Inicial / Tamanho do Passo"
     m_Metadata:
       m_Items: []
   - m_Id: 143889196597248
@@ -984,7 +965,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 154173684531200
-    m_Localized: 'Confirme o envio da captura: \n\"{0}\"\Para: {1}'
+    m_Localized: "Confirme o envio da captura: \n\"{0}\"\nPara: {1}"
     m_Metadata:
       m_Items: []
   - m_Id: 154174456283136
@@ -1054,8 +1035,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 155717167431680
-    m_Localized: "N\xE3o h\xE1 sensores Kinect conectados no momento.\r\nConecte
-      um sensor para come\xE7ar a usar este aplicativo.\r\nTente detectar\u2026"
+    m_Localized: "N\xE3o h\xE1 sensores Kinect conectados no momento.\nConecte um
+      sensor para come\xE7ar a usar este aplicativo.\nTente detectar"
     m_Metadata:
       m_Items: []
   - m_Id: 900414445928448
@@ -1079,120 +1060,72 @@ MonoBehaviour:
     m_Localized: Renomear Arquivo de Geologia
     m_Metadata:
       m_Items: []
-  - m_Id: 46101299127861248
+  - m_Id: 253484529212121088
+    m_Localized: "Simula\xE7\xE3o de Flu\xEDdo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509697
+    m_Localized: "Op\xE7\xF5es de Flu\xEDdo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509698
+    m_Localized: "Exibir Part\xEDculas"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509699
+    m_Localized: "Limpar Flu\xEDdo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 253484529220509700
     m_Localized: Cor
     m_Metadata:
       m_Items: []
-  - m_Id: 46101359462924288
+  - m_Id: 253484529220509701
     m_Localized: "\xC1gua"
     m_Metadata:
       m_Items: []
-  - m_Id: 46101361631379456
-    m_Localized: "Lava\r"
+  - m_Id: 253484529220509702
+    m_Localized: Lava
     m_Metadata:
       m_Items: []
-  - m_Id: 46101362956779520
+  - m_Id: 253484529220509703
     m_Localized: "\xC1cido"
     m_Metadata:
       m_Items: []
-  - m_Id: 46101364185710592
+  - m_Id: 253484529220509704
     m_Localized: "\xD3leo"
     m_Metadata:
       m_Items: []
-  - m_Id: 46101365251063808
-    m_Localized: "Gelo\r"
+  - m_Id: 253484529220509705
+    m_Localized: Gelo
     m_Metadata:
       m_Items: []
-  - m_Id: 46101366349971456
-    m_Localized: "Escoamento\r"
+  - m_Id: 253484529220509706
+    m_Localized: Escoamento
     m_Metadata:
       m_Items: []
-  - m_Id: 46101367385964544
-    m_Localized: "Ponto de origem\r"
+  - m_Id: 253484529220509707
+    m_Localized: Ponto de origem
     m_Metadata:
       m_Items: []
-  - m_Id: 46101368778473472
+  - m_Id: 253484529220509708
     m_Localized: Viscosidade
     m_Metadata:
       m_Items: []
-  - m_Id: 46101369713803264
-    m_Localized: "Infiltra\xE7\xE3o\r"
+  - m_Id: 253484529220509709
+    m_Localized: "Infiltra\xE7\xE3o"
     m_Metadata:
       m_Items: []
-  - m_Id: 46101371261501440
+  - m_Id: 253484529220509710
     m_Localized: "Evapora\xE7\xE3o"
     m_Metadata:
       m_Items: []
-  - m_Id: 189664931479764992
-    m_Localized: "Tamanho da M\xE3o"
+  - m_Id: 253484529233092609
+    m_Localized: "Resolu\xE7\xE3o"
     m_Metadata:
       m_Items: []
-  - m_Id: 189664952031854592
-    m_Localized: "Altura da M\xE3o"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 189665836618956800
-    m_Localized: Gestos
-    m_Metadata:
-      m_Items: []
-  - m_Id: 196166899144540160
-    m_Localized: Usar Gestures
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219770597460361216
-    m_Localized: Usar Media Pipe
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219770613440659456
-    m_Localized: Nuvem
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219804602746486784
-    m_Localized: Usar Nuvem
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219808992123371520
-    m_Localized: Tamanho
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219809645885341696
-    m_Localized: Som
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219809648825548800
-    m_Localized: Ativar Som
-    m_Metadata:
-      m_Items: []
-  - m_Id: 219810281712467968
-    m_Localized: Volume
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222524901900369920
-    m_Localized: Debugs
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525628609675264
-    m_Localized: Debugar
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525631294029824
-    m_Localized: Performance
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525759719424000
-    m_Localized: "Calibra\xE7\xE3o"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222525761061601280
-    m_Localized: Gestos
-    m_Metadata:
-      m_Items: []
-  - m_Id: 222526055342358528
-    m_Localized: "\xC1gua"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 225211907096920064
-    m_Localized: "Zona de Altura de Intera\xE7\xE3o"
+  - m_Id: 253489367861878784
+    m_Localized: Nova Entrada 1
     m_Metadata:
       m_Items: []
   references:
