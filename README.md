@@ -1,17 +1,172 @@
 
 #  SARndbox V2
 
- ## Atualizações
+# Release Notes — AR Sandbox Water Simulation v1.3
 
-V1.3
+## 🚀 Overview
 
-🚀 Release Notes: AR Sandbox - Water Simulation v1.3Esta atualização traz uma reformulação completa na arquitetura de reconhecimento de gestos (MediaPipe) e no motor de física de fluidos. O processamento de interações foi centralizado, bugs visuais e de lógica foram corrigidos, e novas mecânicas espaciais foram introduzidas para melhorar a experiência tangível.
+Esta versão traz uma reformulação completa da arquitetura de reconhecimento de gestos (MediaPipe) e do sistema de simulação de água. O processamento das interações foi centralizado, diversos problemas de lógica e renderização foram corrigidos e novas mecânicas espaciais foram adicionadas para tornar a experiência mais intuitiva e realista.
 
-✨ Novas Funcionalidades (Features)Física de Vento (Gesto Mão Aberta / Open_Palm):Implementada mecânica de cinética baseada em $\Delta P / \Delta t$. Ao realizar um movimento rápido de varredura (swipe) sobre a caixa, o sistema converte a velocidade da mão em vetores de força horizontal (ApplyWindForce), empurrando as partículas de água e permitindo estudos dinâmicos de dispersão.Manipulação de Objetos 3D (Gestos ILoveYou e Lasso_Grab):Spawn (Homem-Aranha): O gesto ILoveYou agora instancia um objeto interativo (ex: bloco de contenção) no centro geográfico da caixa de areia.Grab & Drop (Pinça): O gesto Lasso_Grab permite agarrar e arrastar o objeto. A lógica calcula a altura real da areia (Sandbox.GetDepthFromWorldPos) em tempo real, permitindo que o objeto suba montanhas e desça vales fisicamente.Limpeza Global via Gesto (Victory):O sinal de "V" (Paz e Amor) agora atua como um Global Reset, destruindo simultaneamente gotas de água, emissores de cachoeira/nuvem e objetos interativos.Emissores de Cachoeira Independentes:O controle de velocidade da UI (EmissionRateSlider) foi reescrito. Agora, alterar o slider afeta apenas as novas cachoeiras criadas, mantendo as antigas operando na velocidade em que foram instanciadas.
+---
 
-🐛 Correções de Bugs (Bug Fixes)Fix: Nuvens sobrepostas (Overlap Spawn): A verificação de distância (checkDistance) agora varre a lista completa de emissores ativos, impedindo que novas cachoeiras nasçam dentro do raio de colisão de qualquer cachoeira existente.Fix: Profundidade do Clipping de Câmera (Z-Axis): Ajustada a altura de spawn dos projetores de nuvem (de -150f para -60f) e água (de -50f para -40f), evitando que fiquem invisíveis ou cortados pelo Clipping Plane do projetor.Fix: Lobotomia de Nuvens (Script Destroy): Removidas linhas de código legadas que deletavam os componentes SimpleCloudBehavior e CloudLifeCycle no momento do spawn, devolvendo as animações e o ciclo de vida às nuvens.Fix: Limpeza Incompleta de Água: O botão "Limpar" e a função DestroyWaterDroplets foram refatorados para usar FindObjectsOfType<WaterDroplet>(). Agora ele destrói todas as partículas no cenário em 1 frame, incluindo as geradas de forma autônoma pelas cachoeiras (que antes ficavam presas na areia).Fix: Mão invisível em caixas rasas: Removido o bloqueio Physics.CheckSphere dos gestos da mão. A calibragem de caixas mais rasas não aciona mais colisões falsas, garantindo que a água flua da mão independente da altura da areia.Fix: Dependência de UI no Gesto Fechado (Closed_Fist): Removida a exigência da flag isWaterfallActive para o gesto de mão fechada. A cachoeira agora nasce naturalmente pelo gesto, enquanto o toggle da UI controla exclusivamente a interação do Mouse.Fix: Falso Positivo no Gesto Pointer (Pointing): Adicionado um filtro de escape para o gesto de Apontar. O WaterSimulation agora ignora este gesto, não instanciando mais água acidentalmente enquanto o usuário usa a ferramenta de leitura topográfica a laser.
+# ✨ New Features
 
-🛠️ Refatoração e ArquiteturaDescentralização do HandInput.cs:A classe HandInput foi enxugada e não atua mais como criadora de eventos de jogo. Ela agora funciona exclusivamente como Mensageira, enviando coordenadas e identificações de gestos.O "Maestro" WaterSimulation.cs:Toda a lógica de instanciar água, ler distâncias, calcular ventos e mover objetos foi migrada para o método OnGesturesReady() dentro de WaterSimulation.cs.Isolamento de rotinas: Criada uma proteção (gesture.IsUIGesture) que separa completamente o tráfego de dados do Mouse/Touch dos dados vindos da Inteligência Artificial (MediaPipe), garantindo que as duas interfaces funcionem simultaneamente sem conflito.
+### 🌬️ Wind Physics (Open Palm Gesture)
+
+Implementado um sistema de vento baseado em cinética (`ΔP/Δt`). Ao realizar um movimento rápido de varredura com a mão aberta, a velocidade do gesto é convertida em vetores de força horizontal (`ApplyWindForce`), permitindo empurrar as partículas de água e criar simulações dinâmicas de dispersão.
+
+### 🪨 Interactive 3D Objects
+
+#### Spawn (ILoveYou Gesture)
+
+O gesto **ILoveYou** agora instancia um objeto interativo (como um bloco de contenção) no centro da sandbox.
+
+#### Grab & Drop (Lasso Grab)
+
+O gesto **Lasso_Grab** permite selecionar, mover e soltar objetos.
+
+Durante a movimentação, a altura da areia é calculada em tempo real utilizando `Sandbox.GetDepthFromWorldPos()`, permitindo que o objeto acompanhe naturalmente montanhas e vales da superfície.
+
+### ♻️ Global Reset (Victory Gesture)
+
+O gesto **Victory (✌️)** agora executa uma limpeza completa da simulação, removendo simultaneamente:
+
+* partículas de água;
+* emissores de cachoeira;
+* nuvens;
+* objetos interativos.
+
+### 💧 Independent Waterfall Emitters
+
+O controle de emissão (`EmissionRateSlider`) foi reescrito.
+
+Agora, alterações no slider afetam apenas novas cachoeiras criadas, preservando a taxa de emissão das cachoeiras já existentes.
+
+---
+
+# 🐛 Bug Fixes
+
+### ✔️ Waterfall Overlap Prevention
+
+Corrigida a lógica de verificação de distância (`checkDistance`), que agora analisa todos os emissores ativos antes de criar uma nova cachoeira, evitando sobreposição.
+
+### ✔️ Camera Clipping Issues
+
+Ajustadas as alturas de spawn dos projetores:
+
+* Cloud: `-150f → -60f`
+* Water: `-50f → -40f`
+
+Eliminando problemas de clipping e objetos invisíveis.
+
+### ✔️ Cloud Lifecycle Restoration
+
+Removido código legado que destruía os componentes:
+
+* `SimpleCloudBehavior`
+* `CloudLifeCycle`
+
+As nuvens voltaram a executar corretamente suas animações e ciclo de vida.
+
+### ✔️ Complete Water Cleanup
+
+Refatorada a rotina `DestroyWaterDroplets()` utilizando `FindObjectsOfType()`.
+
+Agora todas as partículas de água são removidas em um único frame, incluindo aquelas geradas automaticamente pelas cachoeiras.
+
+### ✔️ Gesture Detection in Shallow Sandboxes
+
+Removida a verificação `Physics.CheckSphere` para os gestos da mão.
+
+Isso elimina falsos bloqueios em caixas de areia rasas e garante funcionamento consistente da interação.
+
+### ✔️ Closed Fist Gesture Independence
+
+O gesto **Closed_Fist** não depende mais da flag `isWaterfallActive`.
+
+Agora:
+
+* o gesto sempre cria uma cachoeira;
+* o toggle da interface controla apenas a interação via mouse.
+
+### ✔️ Pointing Gesture False Positives
+
+Adicionado um filtro para ignorar o gesto **Pointing** dentro do `WaterSimulation`.
+
+Isso impede a criação acidental de água durante o uso da ferramenta de leitura topográfica a laser.
+
+---
+
+# 🛠️ Architecture & Refactoring
+
+## HandInput.cs Simplification
+
+A classe `HandInput` deixou de ser responsável pela lógica de jogo.
+
+Agora ela atua exclusivamente como uma camada de entrada responsável por enviar:
+
+* posição da mão;
+* identificação dos gestos.
+
+## Centralized Gesture Processing
+
+Toda a lógica da simulação foi migrada para `WaterSimulation.cs`, concentrando o processamento no método:
+
+```csharp
+OnGesturesReady()
+```
+
+Agora este método é responsável por:
+
+* criação de água;
+* cálculo do vento;
+* movimentação de objetos;
+* leitura da profundidade da sandbox;
+* gerenciamento dos gestos.
+
+## Input Isolation
+
+Foi implementada a flag:
+
+```csharp
+gesture.IsUIGesture
+```
+
+Essa separação isola completamente:
+
+* entradas da Interface (Mouse/Touch)
+* entradas do MediaPipe (IA)
+
+permitindo que ambos os sistemas operem simultaneamente sem conflitos.
+
+---
+
+# 📈 Summary
+
+### Added
+
+* Wind simulation using Open Palm gesture.
+* Interactive object spawning.
+* Object Grab & Drop.
+* Global Reset gesture.
+* Independent waterfall emission rates.
+
+### Fixed
+
+* Waterfall overlap.
+* Camera clipping.
+* Cloud lifecycle.
+* Complete water cleanup.
+* Gesture detection in shallow sandboxes.
+* Closed Fist dependency.
+* Pointing gesture false positives.
+
+### Refactored
+
+* Simplified `HandInput`.
+* Centralized gesture processing in `WaterSimulation`.
+* Input isolation between UI and MediaPipe.
+
 
 V1.2
  
