@@ -1179,7 +1179,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 219808992123371520
-    m_Localized: Size
+    m_Localized: Min Size
     m_Metadata:
       m_Items: []
   - m_Id: 219809645885341696
@@ -1220,6 +1220,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 225211907096920064
     m_Localized: Interaction Zone Height
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246087295553454080
+    m_Localized: Active Waterfall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246087550483251200
+    m_Localized: Max Size
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246433566231314432
+    m_Localized: ' Qtde'
     m_Metadata:
       m_Items: []
   references:

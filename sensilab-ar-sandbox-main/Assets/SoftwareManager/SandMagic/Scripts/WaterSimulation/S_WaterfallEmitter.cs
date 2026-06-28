@@ -15,7 +15,6 @@ namespace ARSandbox.WaterSimulation
         private Coroutine emissionCoroutine;
         private bool showParticles = false;
 
-        // Lista para armazenar as gotas de água emitidas
         private List<WaterDroplet> emittedDroplets = new List<WaterDroplet>();
 
         public void SetEmissionRate(float rate)
@@ -42,32 +41,25 @@ namespace ARSandbox.WaterSimulation
             }
         }
 
-        // Método para definir a visibilidade das gotas emitidas
         public void SetShowMesh(bool showParticles)
         {
             this.showParticles = showParticles;
-
-            // Aplica a visibilidade para todas as gotas já emitidas
             foreach (var droplet in emittedDroplets)
             {
-                if (droplet != null) // Verifica se a gota ainda existe
-                {
-                    droplet.SetShowMesh(showParticles);
-                }
+                if (droplet != null) droplet.SetShowMesh(showParticles);
             }
         }
+        
         private IEnumerator EmitWaterDroplets()
         {
             while (true)
             {
-                //Debug.Log("EmitWaterDroplets");
                 WaterDroplet droplet = Instantiate(WaterDropletPrefab, transform.position, Quaternion.identity);
                 droplet.SetViscosity(viscosity);
                 droplet.SetAbsorptionSpeed(absorptionSpeed);
                 droplet.SetEvaporationTime(evaporationTime);
                 //droplet.SetWaterTexture(waterTexture);
                 droplet.SetShowMesh(showParticles);
-                // Adiciona a gota à lista para controle de visibilidade
                 emittedDroplets.Add(droplet);
                 yield return new WaitForSeconds(1.0f / emissionRate);
             }

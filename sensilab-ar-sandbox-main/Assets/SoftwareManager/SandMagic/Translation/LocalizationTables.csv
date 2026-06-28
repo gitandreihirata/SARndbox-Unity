@@ -1,0 +1,330 @@
+Key,Id,Shared Comments,English(en),English(en) Comments,Portuguese(pt),Portuguese(pt) Comments,Spanish(es),Spanish(es) Comments
+"MainMenu",29061496832,"","Main Menu","","Menu Principal","","Menú principal",""
+"SandboxSettings",508399140864,"","SARndbox                                                                                      Settings","","Configuração da SARndbox","","Configuración de SARndbox",""
+"ShareData",644865015808,"","Share                                                              Data","","Compartilhar Dados","","Compartir datos",""
+"DevelopedBy",693468610560,"","Developed by Lachlan Smith with","","Desenvolvido por Lachlan Smith com","","Desarrollado por Lachlan Smith con",""
+"InConjuctionWith",744769142784,"","In Conjuction With:","","Em parceria com:","","En colaboración con:",""
+"ModifiedBy",820094648320,"","Modified by:","","Modificado por:","","Modificado por:",""
+"AnyProblemsOrQuetions",868127817728,"","Any problems Or quetions?","","Algum problema ou questão?","",,
+"FeelFreeToContact",2001927880704,"","Feel free to contact","","Sinta-se à vontade para contactar","",,
+"ExitSimulation",2004201193472,"","Exit Simulation","","Sair da Simulação","","Salir de la Simulación",""
+"SandboxModes",2005954412544,"","Sandbox Modes","","Modos da SARndbox","","Modos de la SARndbox",""
+"Simulations",2195536953344,"","Simulations","","Simulações","","Simulaciones",""
+"Simulations_WaterSimulation",2202088456192,"","Water Simulation","","Fluido","","Fluido",""
+"Simulations_FireSimulation",2204386934784,"","Fire Simulation","","Incêndio","","Incendio",""
+"Simulations_GeologySimulation",2209092943872,"","Geology Simulation","","Geologia","","Geología",""
+"Simulations_WindSimulation",13016983879680,"","Wind Simulation","","Emissões Atmosféricas","","Emisiones Atmosféricas",""
+"Tools",13019521433600,"","Tools","","Ferramentas","","Herramientas",""
+"TopographyBuilder",13023657017344,"","Topography Builder","","Construtor de Topografia","","Constructor de Topografía",""
+"Wind_WindOptions",13476197253120,"","Wind Options","","Opções de Vento","",,
+"Wind_EnableWind",13482048307200,"","Enable Wind","","Ativar Vento","",,
+"Wind_EnableCoriolisEffect",13634171518976,"","Enable Coriolis Effect","","Ativar Efeito Coriolis","",,
+"Wind_EarthHemisphere",13635710828544,"","Earth Hemisphere","","Hemisfério Terrestre","",,
+"Wind_Southern",13638403571712,"","Southern","","Hemisfério Sul","",,
+"Wind_Northern",16003143778304,"","Northern","","Hemisfério Norte","",,
+"Wind_WindSpeedMultiplier",16004787945472,"","Wind Speed Multiplier","","Multiplicador de Velocidade do Vento","",,
+"Wind_Slow",16005958156288,"","Slow","","Lento","",,
+"Wind_Value",16170899161088,"","Value: 100.0%","","Valor: 100.0%","",,
+"Wind_Fast",16172195201024,"","Fast","","Rápido","",,
+"Water_WaterOptions",16336364453888,"","Water Options","","Opções de Água","",,
+"Water_ShowParticles",16337597579264,"","Show Particles","","Exibir Partículas","",,
+"Water_ClearWater",16339174637568,"","Clear Water","","Limpar Fluído","",,
+"Fire_FireOptions",16485123833856,"","Fire Options","","Opções de Fogo","",,
+"Fire_WindOption",16487447478272,"","Wind Option","","Opções de Vento","",,
+"Fire_WindBlowingTo",16489016147968,"","Wind Blowing To","","Vento Soprando para","",,
+"Fire_WindSpeed",17368951767040,"","Wind Speed","","Velocidade do Vento","",,
+"Fire_WindSpeed_Lower",17370906312704,"","Lower","","Abaixar","",,
+"Fire_WindSpeed_Ms",17372214935552,"","m/s","","m/s","",,
+"Fire_WindSpeed_Higher",17831705133056,"","Higher","","Aumentar","",,
+"Fire_WindSpeed_Value",17832866955264,"","Value: 0.00 m/s","","Valor: 0.00 m/s","",,
+"Fire_LandscapeOtions",17834393681920,"","Landscape Otions","","Opções de Paisagem","",,
+"Fire_LandscapeZoom",19449301385216,"","Landscape Zoom","","Zoom da Paisagem","",,
+"Fire_LandscapeOptions_Far",19451088158720,"","Far","","Distante","",,
+"Fire_LandscapeOptions_Porcentage",19452514222080,"","Porcentage","","Porcentagem","",,
+"Fire_LandscapeOptions_Close",19454049337344,"","Close","","Fechar","","Cerrar",""
+"Fire_LandscapeOptions_Value",19455672532992,"","Value: 100%","","Valor: 100%","",,
+"Fire_RandomiseFlora",19457228619776,"","Randomise Flora","","Randomizar Flora","",,
+"Fire_PauseSimulation",19458935701504,"","Pause Simulation","","Pausar Simulação","","Pausar Simulación",""
+"Fire_ResumeSimulation",19460684726272,"","Resume Simulation","","Continuar Simulação","","Continuar Simulación",""
+"Fire_ResetSimulation",19462429556736,"","Reset Simulation","","Reiniciar Simulação","","Reiniciar Simulación",""
+"Geology_Beds",20624306290688,"","Beds","","Leitos","",,
+"Geology_Beds_GeologicalBedOrder",20767709544448,"","Geological Bed Order","","Ordem Geológico do leito","",,
+"Geology_Beds_GeologicalLayer_Basalt",20772541382656,"","Basalt","","Basalto - Ígnea Eruptiva","",,
+"Geology_Beds_GeologicalLayer_Gabbro",20774399459328,"","Gabbro","","Gabro - Ígnea Intrusiva","",,
+"Geology_Beds_GeologicalLayer_Granodiorite",20776647606272,"","Granodiorite","","Granodiorito - Ígnea Plutônica","",,
+"Geology_Beds_GeologicalLayer_Rhyolite",20778367270912,"","Rhyolite","","Riolito - Ígnea Vulcânica","",,
+"Geology_Beds_GeologicalLayer_Sandstone",20780246319104,"","Sandstone","","Arenito - Sedimentar","",,
+"Geology_Beds_GeologicalLayer_Mudstone",20782070841344,"","Mudstone","","Argila","",,
+"Geology_Beds_GeologicalLayer_Conglomerate",20783853420544,"","Conglomerate","","Conglomerado - Sedimentar","",,
+"Geology_Beds_GeologicalLayer_Limestone",20785715691520,"","Limestone","","Calcário - Sedimentar","",,
+"Geology_Beds_GeologicalLayer_Coal",20787460521984,"","Coal","","Carvão - Sedimentar","",,
+"Geology_Beds_GeologicalLayer_Breccia",20789083717632,"","Breccia","","Brecha – Sedimentar","",,
+"Geology_Beds_GeologicalLayer_Slate",20791264755712,"","Slate","","Ardósia – Metamórfica","",,
+"Geology_Beds_GeologicalLayer_Schist",20792925700096,"","Schist","","Xisto - Sedimentar","",,
+"Geology_Beds_GeologicalLayer_Gneiss",20794804748288,"","Gneiss","","Gneisse - Metamórfica","",,
+"Geology_Beds_GeologicalLayer_Hornfels",20796818014208,"","Hornfels","","Corneana – Metamórfica","",,
+"Geology_Beds_GeologicalLayer_Marble",20798705451008,"","Marble","","Mármore - Metamórfica","",,
+"Geology_Beds_GeologicalLayer_Quartzite",20800454475776,"","Quartzite","","Quartzito – Metamórfica","",,
+"Geology_Beds_BedRockOffset",20802283192320,"","Bed Rock Offset","","Deslocamento da Rocha do Leito","",,
+"Geology_Beds_BedRockOffset_Value",20803877027840,"","Value: 0.0 mm","","Valor: 0.0 mm","",,
+"Geology_Beds_BedRockOffset_Lower",20805563138048,"","Lower","","Mais baixo","",,
+"Geology_Beds_BedRockOffset_Higher",20807165362176,"","Higher","","Mais Alto","","Más Alto",""
+"Geology_Beds_AddBed",20808780169216,"","Add Bed","","Adicionar Leito","",,
+"Geology_Beds_AddBed_AddBedMenu",20810348838912,"","Add Bed Menu","","Menu de Adição de Leito","",,
+"Geology_Beds_AddBed_EditBedMenu",20811871371264,"","Edit Bed Menu","","Menu de Edição de Leito","",,
+"Geology_Beds_BedSelection",20813502955520,"","Bed Selection","","Seleção do Leito","",,
+"Geology_Beds_Thickness",20814945796096,"","Bed Thickness","","Espessura do Leito","","Espesor del Lecho",""
+"Geology_Beds_Thickness_Value",20816539631616,"","Value: 0.0 mm","","Valor: 0.0 mm","",,
+"Geology_Beds_Thickness_Lower",20818078941184,"","Lower","","Mais baixo","",,
+"Geology_Beds_Thickness_Higher",20819832160256,"","Higher","","Mais Alto","","Más Alto",""
+"Geology_Beds_Texture",20821518270464,"","Bed Texture","","Textura do Leito","",,
+"Geology_Beds_Summary",20823019831296,"","Bed Summary","","Resumo do Leito","",,
+"Geology_Transforms",20824496226304,"","Transforms","","Transformações","",,
+"Geology_Transforms_GeologicalHistory",20825884540928,"","Geological History","","História Geológica","",,
+"Geology_Transforms_AddTransform",20827386101760,"","Add Transform","","Adicionar Tranformação","",,
+"Geology_Transforms_AddTransformMenu",20829017686016,"","Add Transform Menu","","Menu de Adição de Tranformação","",,
+"Geology_Transforms_EditTransformMenu",20830758322176,"","Edit Transform Menu","","Menu de Edição de Tranformação","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform",20832377323520,"","Select Transform","","Selecione a Transformação","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform_Tilt",20833874690048,"","Tilt","","Declive","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform_Fold",20835153952768,"","Fold","","Dobra","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform_Fault",20836634542080,"","Fault","","Falha","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform_TiltTransform",20837943164928,"","Tilt Transform","","Transformação Declive","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform_FoldTransform",20839465697280,"","Fold Transform","","Transformação Dobra","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform_FaultTransform",20842280075264,"","Fault Transform","","Transformação Falha","",,
+"Geology_Transforms_EditTransformMenu_SelectTransform_UnknownTransform",20843437703168,"","Unknown Transform","","Transformação Desconhecida","",,
+"Geology_Transforms_EditTransformMenu_TransformOptions",20844452724736,"","Transform Options","","Opção de Transformação","",,
+"Geology_Transforms_EditTransformMenu_TransformOptions_Strike",20845329334272,"","Strike","","Direção","",,
+"Geology_Transforms_EditTransformMenu_TransformOptions_Dip",20846461796352,"","Dip","","Inclinação","",,
+"Geology_Transforms_EditTransformMenu_TransformOptions_Plunge",20847439069184,"","Plunge","","Mergulho","",,
+"Geology_Transforms_EditTransformMenu_TransformOptions_Rake",20848475062272,"","Rake","","Arraste","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions",20849515249664,"","Extra Options","","Opção Extra","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude",20850513494016,"","Amplitude","","Amplitude","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude_Value",20851746619392,"","Value: 25 mm","","Valor: 25 mm","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude_Lower",20852749058048,"","Lower","","Mais baixo","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Amplitude_Higher",20853898297344,"","Higher","","Mais Alto","","Más Alto",""
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Period",20854980427776,"","Period","","Período","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Period_Value",20855961894912,"","Value: 50 mm","","Valor: 50 mm","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Period_Lower",20857236963328,"","Lower","","Mais baixo","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Period_Higher",20858289733632,"","Higher","","Mais Alto","","Más Alto",""
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Offset",20859661271040,"","Offset","","Desvio","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Offset_Value",20860747595776,"","Value: 0 mm","","Valor: 0 mm","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Offset_Lower",20862022664192,"","Lower","","Mais baixo","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Offset_Higher",20863138349056,"","Higher","","Mais Alto","","Más Alto",""
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Syncline_Hinge_Colour",20864426000384,"","Syncline Hinge Colour","","Cor da Linha de Charneira Sinclinal","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Anticline_Hinge_Colour",20865566851072,"","Anticline Hinge Colour","","Cor da Linha de Charneira Anticlinal","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Slip",20866896445440,"","Slip","","Deslizamento","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Slip_Value",20868154736640,"","Value: 25 mm","","Valor: 25 mm","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Slip_Lower",20869413027840,"","Lower","","Mais baixo","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Slip_Higher",20870813925376,"","Higher","","Mais Alto","","Más Alto",""
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Position",20872193851392,"","Position","","Posição","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Position_Value",20873477308416,"","Value: 0 mm","","Valor: 0 mm","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Position_Lower",141414653706240,"","Lower","","Mais baixo","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_Position_Higher",141416750858240,"","Higher","","Mais Alto","","Más Alto",""
+"Geology_Transforms_EditTransformMenu_ExtraOptions_FaultColour",141418285973504,"","Fault Colour","","Cor da Falha","",,
+"Geology_Transforms_EditTransformMenu_ExtraOptions_FaultColour_Value",141419636539392,"",,,,,,
+"Geology_Transforms_EditTransformMenu_TransformSummary",141420345376768,"","Transform Summary","","Resumo da Transformação","",,
+"Geology_SaveLoad",141421079379968,"","Save/Load","","Salvar/Carregar","",,
+"Geology_SaveLoad_CurrentGeologyFile",141421754662912,"","Current Geology File","","Arquivo Atual de Geologia","",,
+"Geology_SaveLoad_NoFileSelected",141422438334464,"","No File Selected","","Nenhum Arquivo Selecionado","",,
+"Geology_SaveLoad_GeologyFileList",141423088451584,"","Geology File List","","Lista de Arquivos","",,
+"Geology_SaveLoad_SaveAsNewGeology",141423776317440,"","Save As                                                          New Geology","","Salvar como Novo Arquivo","",,
+"Geology_SaveLoad_SaveOverCurrentGeology",141424430628864,"","Save Over                                                Current Geology","","Sobrescrever Arquivo Atual","",,
+"Topography_BuilderOptions",141425118494720,"","Builder Options","","Opções do Construtor","","Opciones del Constructor",""
+"Topography_LoadedTopography",141425793777664,"","Loaded Topography","","Topografia Carregada","",,
+"Topography_TopographyToRename",141426364203008,"","Topography To Rename","","Topografia para Renomear","",,
+"Topography_SavedTopographies",141427031097344,"","Saved Topographies","","Topografias Salvas","",,
+"Topography_SaveNewTopography",142420418445312,"","Save New Topography","","Salvar Nova Topografia","",,
+"Topography_LoadedTopographyHeightOffset",142467763748864,"","Loaded Topography Height Offset","","Deslocamento de Altura da Topografia Carregada","",,
+"Topography_LoadedTopographyHeightOffset_Value",142475988779008,"","Value: 0 mm","","Valor: 0 mm","",,
+"Topography_Lower",142499820814336,"","Lower","","Mais baixo","",,
+"Topography_Higher",142735477784576,"","Higher","","Mais Alto","","Más Alto",""
+"Topography_Mm",142785033486336,"","mm","","mm","",,
+"Topography_HeightAcceptanceRange",142786883174400,"","Height Acceptance Range","","Faixa deAceitação de Altura","",,
+"Topography_HeightAcceptanceRange_Value",142788569284608,"","Value: 25 mm","","Valor: 25 mm","",,
+"Topography_TopographyName",142933880946688,"","Topography Name:","","Nome da Topografia:","",,
+"Topography_NoTopographySelected",142985269559296,"","No Topography Selected","","Nenhuma Topografia selecionada","",,
+"Topography_RenameTopography",143030966501376,"","Rename Topography","","Renomeie a Topografia","",,
+"Calibration_CornerCalibration",143085093994496,"","Corner Calibration","","Calibração de Canto","",,
+"Calibration_CornerCalibration_Instruction",143086989819904,"","Corner Calibration Instructions:
+
+
+Drag the CYAN corners around the shape of the sandbox in the depth image.
+
+
+Drag the RED corners to the actual corners projected onto the sandbox (Look at projection).","","Instruções de calibração de canto:
+
+Arraste os cantos CYAN ao redor da forma da área restrita na imagem de profundidade.
+
+Arraste os cantos VERMELHOS para os cantos reais projetados na área restrita (Veja a projeção).","",,
+"Calibration_DepthCalibration",143088579461120,"","Depth Calibration","","Calibração de Profundidade","",,
+"Calibration_DepthCalibration_Instruction",143223535386624,"","Depth Calibration Instructions:
+
+
+Touch the LOWEST part of the depth image and then the HIGHEST.
+
+
+The depth range can be fine-tuned with the sliders to the right.","","Instruções de calibração de profundidade:
+
+Toque na parte MAIS BAIXA da imagem de profundidade e depois na MAIS ALTA.
+
+A faixa de profundidade pode ser ajustada com os controles deslizantes à direita.","",,
+"Calibration_Lens Shift_Calibration",143224378441728,"","Lens Shift
+Calibration","","Calibração de
+Mudança de lente","",,
+"Calibration_Lens Shift_Instruction",143225137610752,"","Lens Shift Calibration Instructions:
+
+
+Use the Lens Shift option to make the peaks and troughs line up on the projection. Note that you will probably have to use the Horizontal Translation afterwards to line up the projection properly.
+
+
+Use the other options to fine tune the calibration.","","Instruções de calibração de mudança de lente:
+
+Use a opção Lens Shift para alinhar os picos e calhas na projeção. Observe que você provavelmente terá que usar a Tradução Horizontal depois para alinhar a projeção corretamente.
+
+Use as outras opções para ajustar a calibração.","",,
+"Calibration_Lens Shift",143225829670912,"","Lens Shift","","Mudança de Lente","",,
+"Calibration_Lens Shift_HorizontalTranslation",143226622394368,"","Horizontal Translation","","Tradução Horizontal","",,
+"Calibration_Lens Shift_VerticalTranslation",143227142488064,"","Vertical Translation","","Tradução Vertical","",,
+"Calibration_Lens Shift_HorizontalScale",143227851325440,"","Horizontal Scale","","Escala Horizontal","",,
+"Calibration_Lens Shift_VerticalScale",143715116204032,"","Vertical Scale","","Escala Vertical","",,
+"Calibration_Start",143717024612352,"","Start Calibration","","Iniciar Calibração","","Iniciar calibración",""
+"Calibration_TouchHighestPoint",143717989302272,"","Touch Highest Point","","Toque no Ponto mais Alto","",,
+"Calibration_TouchLowestPoint",143857009508352,"","Touch Lowest Point","","Toque no Ponto mais Baixo","",,
+"Calibration_MaxDepth",143857735122944,"","Max Depth","","Profundidade Máxima","",,
+"Calibration_MinDepth",143858511069184,"","Min Depth","","Profundidade Mínima","",,
+"xxxxxxx",143859224100864,"","Depth Calibration","","Calibragem de Profundidade","",,
+"Calibration_Next",143859865829376,"","Next","","Próximo","",,
+"Calibration_Back",143860532723712,"","Back","","Voltar","",,
+"Calibration_Less",143861182840832,"","Less","","Menos","",,
+"Calibration_More",143861862318080,"","More","","Mais","",,
+"Calibration_Shrink",143862541795328,"","Shrink","","Encolher","",,
+"Calibration_Grow",143863229661184,"","Grow","","Crescer","",,
+"Calibration_CancelCalibration",143863883972608,"","Cancel Calibration","","Cancelar Calibração","",,
+"Calibration_BackCalibration",143864513118208,"","Back To Calibration","","Voltar para Calibração","",,
+"Calibration_SaveCalibration",143865310035968,"","Save Calibration","","Salvar Calibração","",,
+"Calibration_ResetParameters",143866006290432,"","Reset Parameters","","Redefinir Parâmetros","",,
+"SandboxSettings_General",143866736099328,"","General","","Geral","","General",""
+"SandboxSettings_Language",143868040527872,"","Resolution","","Resolução","","Resolución",""
+"SandboxSettings_Resolution_Lower",143868841639936,"","Lower","","Baixo","","Bajo",""
+"SandboxSettings_Resolution_Higher",143869600808960,"","Higher","","Alto","","Alto",""
+"SandboxSettings_Resolution_Quality",143870339006464,"","Quality:","","Qualidade:","","Calidad:",""
+"SandboxSettings_Resolution_Quality_Value",143871056232448,"","Quality: High","","Qualidade: Alto","","Calidad: Alto",""
+"SandboxSettings_Resolution_Quality_Value_RawData",143871769264128,"","RawData","","Dados não Tratados","","Datos no Tratados",""
+"SSandboxSettings_Resolution_Quality_Value_Low",143872494878720,"","Low","","Baixo","","Bajo",""
+"SandboxSettings_Resolution_Quality_Value_Medium",143873207910400,"","Medium","","Média","","Media",""
+"SandboxSettings_Resolution_Quality_Value_High",143873946107904,"","High","","Alto","","Alto",""
+"SandboxSettings_Resolution_Quality_Value_Highest",143874667528192,"","Highest","","Muito Alto","","Muy Alto",""
+"SandboxSettings_ContourSpacing",143875367976960,"","Contour Spacing","","Espaçamento de Contorno","","Espaciamiento de Contorno",""
+"SandboxSettings_ContourSpacing_Lower",143876097785856,"","Lower","","Baixo","",,
+"SandboxSettings_ContourSpacing_Higher",143876773068800,"","Higher","","Alto","",,
+"SandboxSettings_MinorContours",143877481906176,"","Minor Contours","","Contornos Menores","","Contornos Menores",""
+"SandboxSettings_MinorContours_Less",143878186549248,"","Less","","Menos","","Menos",""
+"SandboxSettings_MinorContours_More",143878979272704,"","More","","Mais","","Más",""
+"SandboxSettings_ContourThickness",143879696498688,"","Contour Thickness","","Espessura do Contorno","","Espesor del Contorno",""
+"SandboxSettings_ContourThickness_Slider_Contours",143880422113280,"","Contours:","","Contornos:","","Contornos:",""
+"SandboxSettings_ContourThickness_None",143881202253824,"","None","","Nenhum","","Ninguno",""
+"SandboxSettings_ContourThickness_Thick",143881894313984,"","Thick","","Espesso","","Espeso",""
+"SandboxSettings_ContourLabels",143882615734272,"","Contour Labels","","Marcadores de Contorno","",,
+"SandboxSettings_ShowLabels",143883391680512,"","Show Labels","","Mostrar Marcadores","",,
+"SandboxSettings_SpacingMode",143884347981824,"","Spacing Mode","","Modo de Espaçamento","",,
+"SandboxSettings_ConstSpacingStep",143885312671744,"","Constant Spacing Step","","Etapa de Espaçamento Constante","","Etapa de Espaciamiento Constante",""
+"SandboxSettings_EndingElevation",143886222835712,"","Ending Elevation","","Finalizando na Elevação","",,
+"SandboxSettings_StartingElevationEndingElevation",143887145582592,"","Starting Elevation / Ending Elevation","","Elevação Inicial / Elevação Final","","Elevación inicial / Elevación final",""
+"SandboxSettings_StartingElevationStepSize",143888164798464,"","StartingElevation/Step Size","","Elevação Inicial/Tamanho do Passo","","Elevación Inicial/Tamaño del Paso",""
+"SandboxSettings_LabelDensity",143889196597248,"","Label Density","","Densidade do Rótulo","",,
+"SandboxSettings_Sparse",143890165481472,"","Sparse","","Escasso","",,
+"SandboxSettings_LabelDensity_Value",143891125977088,"","Value: 0.50","","Valor: 0.50","",,
+"SandboxSettings_Dense",143892208107520,"","Dense","","Denso","",,
+"SandboxSettings_DynamicColouring",143893327986688,"","Dynamic Colouring","","Coloração Dinâmica","",,
+"SandboxSettings_Close",143894351396864,"","Close","","Fechar","","Cerrar",""
+"ShareData_CapturedFrame",143895446110208,"","Captured Frame","","Quadro Capturado","",,
+"ShareData_CaptureNewFrame",143896557600768,"","Capture New Frame","","Capturar novo Quadro","",,
+"ShareData_UseFrame",143897732005888,"","Use Frame","","Usar Quadro","",,
+"ShareData_Close",143898977714176,"","Close","","Fechar","","Cerrar",""
+"ShareData_CaptureName",151769723387904,"","Capture Name","","Nome da Captura","",,
+"ShareData_Sandbox Topography",151771170422784,"","Sandbox  Topography","","Topografia da Caixa de Areia","",,
+"ShareData_Attachments",151772281913344,"","Attachments","","Anexos","",,
+"ShareData_CurrentImage",151773347266560,"","Current Image","","Imagem Atual","",,
+"ShareData_CSVData",151774349705216,"",".CSV Data","","Dados .CSV","",,
+"ShareData_B/WTopographyImage",151775209537536,"","B/W Topography Image","","Imagem Topográfica (Preto/Branco)","",,
+"ShareData_ShareTo",151775960317952,"","Share To","","Compartilhar com","","Compartir con",""
+"ShareData_ShareTo_Email",151776673349632,"","Email Address","","Endereço de Email","",,
+"ShareData_ShareTo_Email_LookInARSandboxData",151777482850304,"","Look in ARSandboxData","","Veja em ARSandboxData","",,
+"ShareData_ShareTo_Email_EnterEmail",151778132967424,"","Enter Email","","Digite o e-mail","",,
+"ShareData_ShareTo_Email_EnterEmailHere",151778833416192,"","Enter Email Here","","Digite o e-mail aqui","",,
+"ShareData_ShareTo_Email_SendEmail",153733689458688,"","Send Email","","Enviar email","",,
+"ShareData_ShareTo_Desktop",153889574961152,"","Desktop","","Área de Trabalho","",,
+"ShareData_ShareTo_Desktop_DesktopFolder",153894327107584,"","Desktop Folder","","Pasta da área de trabalho","",,
+"ShareData_ShareTo_GoogleDrive",153896176795648,"","Google Drive","","Google Drive","",,
+"ShareData_Back",154044021817344,"","Back","","Voltar","",,
+"ConfirmationPanel_AreYouSure",154125986906112,"","Are You Sure?","","Confirma?","",,
+"ConfirmationPanel_Accept",154162527682560,"","Accept","","Aceita","",,
+"ConfirmationPanel_Cancel",154165086208000,"","Cancel","","Cancelar","",,
+"ConfirmationPanel_Open",154165874737152,"","Open","","Abrir","",,
+"ConfirmationPanel_Save",154166680043520,"","Save","","Salvar","",,
+"ConfirmationPanel_Delete",154167384686592,"","Delete","","Deletar","",,
+"ConfirmationPanel_Send",154168185798656,"","Send","","Enviar","",,
+"ConfirmationPanel_Email_CancelSendingEmail",154168907218944,"","Cancel Sending Email","","Cancelar Envio do Email","",,
+"ConfirmationPanel_Calibration_CancelCurrentCalibration",154169678970880,"","Are you sure you want to cancel this current calibration? \n (The previous calibration will be used)","","Tem certeza de que deseja cancelar esta calibração atual? \n (A calibração anterior será usada)","","¿Está seguro de que desea cancelar esta calibración actual? (Se utilizará la calibración anterior).",""
+"ConfirmationPanel_Topography_Delete",154170475888640,"","Are you sure you want to delete\n this saved topography?\n (This action cannot be undone)","","Tem certeza de que deseja excluir\n esta topografia salva?\n (Essa ação não pode ser desfeita)","","¿Está seguro de que desea eliminar esta topografía guardada? (Esta acción no se puede deshacer)",""
+"ConfirmationPanel_Geology_Delete",154171264417792,"","Are you sure you want to delete the geology file: \""{0}\""?\n (This action cannot be undone)","","Tem certeza de que deseja excluir o arquivo geológico: \""{0}\""?\n (Esta ação não pode ser desfeita)","","¿Está seguro de que desea eliminar el archivo geológico: \""{0}\""?\n (Esta acción no se puede deshacer)",""
+"ConfirmationPanel_Geology_Open",154172027781120,"","Are you sure you want to open the geology file: \""{0}\""?\n (All unsaved progress will be lost)","","Tem certeza de que deseja abrir o arquivo de geologia: \""{0}\""?\n (Todo o progresso não salvo será perdido)","","¿Está seguro de que desea abrir el archivo de geología: \""{0}\""?\n (Se perderá todo el progreso no guardado)",""
+"ConfirmationPanel_Geology_Saved",154172896002048,"","Are you sure you want to save over the geology file: \""{0}\""?","","Tem certeza de que deseja salvar o arquivo de geologia: \""{0}\""?","",,
+"ConfirmationPanel_Email_SendingCapture",154173684531200,"","Confirm sending capture: \n\""{0}\""\nTo: {1}","","Confirme o envio da captura: \n\""{0}\""\Para: {1}","",,
+"ConfirmationPanel_Email_SendingEmail",154174456283136,"","Sending Email","","Enviando Email","",,
+"ConfirmationPanel_Email_SendingEmailCancelled",154175379030016,"","\nSending email cancelled.\n","","\nEnvio de Email Cancelado.\n","",,
+"ConfirmationPanel_SavingCapture",154176129810432,"","Confirm saving capture:\n\""{0}\""\nto desktop?\n(See folder \""/{1}\"")","","Confirme o salvamento da captura:\n\""{0}\""\n na Área de Trabalho?\n(Veja a pasta \""/{1}\"")","",,
+"ConfirmationPanel_CaptureSaved",154992525918208,"","\nCapture saved!\n","","\nCaptura salva!\n","",,
+"ConfirmationPanel_couldntBeSaved",154999362633728,"","Capture couldn't be saved.\nTry starting software in administrator mode.","","Não foi possível salvar a captura.\nTente iniciar o software no modo de administrador.","","No se pudo guardar la captura.\nTente iniciar el software en modo administrador.",""
+"OnScreenKeyboard_EnterName",155002848100352,"","Enter Name","","Digite o Nome","",,
+"OnScreenKeyboard_Shift",155243005558784,"","Shift","","Shift","",,
+"OnScreenKeyboard_Backspace",155247233417216,"","Backspace","","Backspace","",,
+"OnScreenKeyboard_Accept",155250005852160,"","Accept","","Aceitar","",,
+"OnScreenKeyboard_Cancel",155253403238400,"","Cancel","","Cancelar","",,
+"OnScreenKeyboard_Space",155254535700480,"","Space","","Space","","Barra espaciadora",""
+"OnScreenNumPad_StartingElevation",155255420698624,"","Starting Elevation:","","Elevação Inicial:","","Elevación inicial:",""
+"OnScreenNumPad_Accept",155256234393600,"","Accept","","Aceitar","","Aceptar",""
+"OnScreenNumPad_Cancel",155256926453760,"","Cancel","","Cancelar","","Cancelar",""
+"Standard_Value",155257584959488,"","Value:","","Valor:","",,
+"Standard_Kinect_Required",155675689959424,"","Kinect Sensor Required","","Necessário Sensor Kinect","",,
+"Standard_Kinect_Connected",155717167431680,"","There are current no Kinect Sensors connected. 
+Please plug in a sensor to begin using this application.
+Try to detect…","","Não há sensores Kinect conectados no momento.
+Conecte um sensor para começar a usar este aplicativo.
+Tente detectar…","",,
+"ConfirmationPanel_Close",900414445928448,"","Close","","Fechar","","Cerrar",""
+"ConfirmationPanel_Email_CouldNotbeSent",1081512731820032,"","Email could not be sent!\nPlease check your internet connection\nand try again.","","Email não pôde ser enviado!\nPor favor, verifique sua conexão com a internet\ne tente novamente.","",,
+"ConfirmationPanel_Email_Sent",1184357471932416,"","\nEmail sent!\n","","\nE-mail enviado!\n","",,
+"OnScreenKeyboard_GeologyFileName",1359105834041344,"","Geology File Name","","Nome do arquivo de Geologia","",,
+"OnScreenKeyboard_RenameGeologyFile",1361217506721792,"","Rename Geology File","","Renomear Arquivo de Geologia","",,
+"Water_Color",46101299127861248,"","Color","","Cor","",,
+"Water_Color_Water",46101359462924288,"","Water","","Água","",,
+"Water_Color_Lava",46101361631379456,"","Lava","","Lava","",,
+"Water_Color_Acid",46101362956779520,"","Acid","","Ácido","",,
+"Water_Color_Oil",46101364185710592,"","Oil","","Óleo","",,
+"Water_Color_Ice",46101365251063808,"","Ice","","Gelo","",,
+"Water_Waterfall_Mode",46101366349971456,"","Flow","","Escoamento","",,
+"Water_Add_Waterfall",46101367385964544,"","Point of origin","","Ponto de origem","",,
+"Water_Viscosity",46101368778473472,"","Viscosity","","Viscosidade","",,
+"Water_AbsorptionSpeed",46101369713803264,"","Infiltration","","Infiltração","",,
+"Water_EvaporationTime",46101371261501440,"","Evaporation","","Evaporação","",,
+"SandboxSettings_Gestures_HandSize",189664931479764992,"","Hand Size","","Tamanho da Mão","","Tamaño de la Mano",""
+"SandboxSettings_Gestures_Hand_Height",189664952031854592,"","Hand Height","","Altura da Mão","","Altura de la Mano",""
+"SandboxSettings_Gestures",189665836618956800,"","Gestures","","Gestos","","Gestos",""
+"SandboxSettings_Gestures_Active",196166899144540160,"","Use Gestures","","Usar Gestures","","",""
+"SandboxSettings_Gestures_UseMediaPipe",219770597460361216,"","Use Media Pipe","","Usar Media Pipe","","Usar Media Pipe",""
+"SandboxSettings_Clouds",219770613440659456,"","Clouds","","Nuvem","",,
+"SandboxSettings_Clouds_Active",219804602746486784,"","Use Clouds","","Usar Nuvem","",,
+"SandboxSettings_Clouds_Size_Min",219808992123371520,"","Size","","Tamanho","",,
+"SandboxSettings_Sounds",219809645885341696,"","Sounds","","Som","",,
+"SandboxSettings_Sounds_Active",219809648825548800,"","Active Sound","","Ativar Som","",,
+"SandboxSettings_Sounds_Volume",219810281712467968,"","Volume","","Volume","",,
+"SandboxSettings_Debugs",222524901900369920,"","Debugs","","Debugs","","Debugs",""
+"SandboxSettings_Debugs_ShowDebug",222525628609675264,"","Show Debug","","Debugar","",,
+"SandboxSettings_Debugs_Perfomance",222525631294029824,"","Performance","","Performance","",,
+"SandboxSettings_Debugs_Calibration",222525759719424000,"","Calibration","","Calibração","",,
+"SandboxSettings_Debugs_Gestures",222525761061601280,"","Gestures","","Gestos","",,
+"SandboxSettings_Debugs_Water",222526055342358528,"","Water","","Água","",,
+"SandboxSettings_Gestures_Interaction_Zone_Height",225211907096920064,"","Interaction Zone Height","","Zona de Altura de Interação","",,
+"SandboxSettings_Waterfall_Active",246087295553454080,"","Active Waterfall","","Ativar cachoeira","",,
+"New Entry",246087550483251200,"",,,,,,

@@ -4957,6 +4957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480d4581b44dc2543a9a9c8c66d2e627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WaterfallVisual: {fileID: 0}
 --- !u!198 &-2607213937467151894
 ParticleSystem:
   m_ObjectHideFlags: 0

@@ -1136,7 +1136,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 219808992123371520
-    m_Key: SandboxSettings_Clouds_Size
+    m_Key: SandboxSettings_Clouds_Size_Min
     m_Metadata:
       m_Items: []
   - m_Id: 219809645885341696
@@ -1177,6 +1177,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 225211907096920064
     m_Key: SandboxSettings_Gestures_Interaction_Zone_Height
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246087295553454080
+    m_Key: SandboxSettings_Waterfall_Active
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246087550483251200
+    m_Key: SandboxSettings_Clouds_Size_Max
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246433566231314432
+    m_Key: Water_Add_Waterfall_Max
     m_Metadata:
       m_Items: []
   m_Metadata:

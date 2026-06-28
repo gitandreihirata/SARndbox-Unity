@@ -10,3 +10,12 @@ Legenda:
 OK - Funcionando e testado
 •  - Fazendo
 o  - A Fazer
+
+
+
+05/05/2026 Bug nos slides da água de evaporação, infiltração. Todos eles apontavam para OnViscosityChanged
+
+
+V1.3
+Adicionado 7 gestos com Media Pipe
+Correção de Bugs no botão Limpar que não estava limpando as águas das cascatas de imediato

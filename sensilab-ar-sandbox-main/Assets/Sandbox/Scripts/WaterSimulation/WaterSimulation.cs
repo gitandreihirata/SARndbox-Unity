@@ -58,14 +58,14 @@ namespace ARSandbox.WaterSimulation
 
         // --- CONTROLE DE CASCATA ---
         [Header("Configuração de Cascata")]
-        public Toggle waterfallToggle;
-        public Slider emissionRateSlider;
+        public Toggle waterfallToggle; 
+        public Slider emissionRateSlider; 
         public GameObject WaterfallEmitterPrefab;
-        public int MaxWaterfalls = 3;
-        public float MinWaterfallDistance = 150.0f;
+        public int MaxWaterfalls = 1;
+        public float MinWaterfallDistance = 50.0f;
         
         private List<GameObject> activeWaterfallEmitters = new List<GameObject>();
-        private bool isWaterfallActive = false;
+        public bool isWaterfallActive = false;
         private float emissionRate = 1.0f;
 
         private SandboxDescriptor sandboxDescriptor;
@@ -81,23 +81,37 @@ namespace ARSandbox.WaterSimulation
         private IEnumerator RunSimulationCoroutine;
         private bool initialised;
         private const int MaxMetaballs = 2000;
+        
+        // --- MECÂNICAS DE GESTO ---
+        [Header("Configuração de Gestos (Vento e Pinça)")]
+        public float GrabRadius = 40.0f; // Distância para conseguir pegar o cubo
+        public float WindForceMultiplier = 0.03f; 
+        public float MinimumWindSpeed = 200.0f; 
+        private Vector3 previousHandPos = Vector3.zero; 
+        private float lastGestureTime = 0f; 
+
+        [Header("Objeto Interativo")]
+        public GameObject MovableObjectPrefab;
+        private GameObject currentMovableObject;
+        private bool isHoldingObject = false; // Memória para saber se a mão está agarrando o objeto
 
         void Awake()
         {
-            // CARREGAMENTO SEGURO DA MEMÓRIA
             if (PlayerPrefs.HasKey("EnableSounds")) EnableSounds = PlayerPrefs.GetInt("EnableSounds") == 1;
             if (PlayerPrefs.HasKey("EnableClouds")) EnableClouds = PlayerPrefs.GetInt("EnableClouds") == 1;
             if (PlayerPrefs.HasKey("SoundVolume")) SoundVolume = PlayerPrefs.GetFloat("SoundVolume");
             if (PlayerPrefs.HasKey("MinCloudParticleSize")) MinCloudParticleSize = PlayerPrefs.GetFloat("MinCloudParticleSize");
             if (PlayerPrefs.HasKey("MaxCloudParticleSize")) MaxCloudParticleSize = PlayerPrefs.GetFloat("MaxCloudParticleSize");
 
+            if (PlayerPrefs.HasKey("MaxWaterfalls")) MaxWaterfalls = PlayerPrefs.GetInt("MaxWaterfalls");
+            
             ConfigureDropdown();
             ConfigureViscositySlider();
             ConfigureAbsorptionEvaporationSlider();
             ConfigureWaterfallControls();
             SetupAudio();
         }
-        
+
         void SetupAudio()
         {
             rainAudioSource = gameObject.AddComponent<AudioSource>();
@@ -114,7 +128,7 @@ namespace ARSandbox.WaterSimulation
         }
 
         // =========================================================
-        // FUNÇÕES DA UI (PARA OS CHECKBOXES / SLIDERS NOVOS)
+        // FUNÇÕES DA UI GERAIS E DA CASCATA
         // =========================================================
         public void UI_SetEnableSounds(bool isOn)
         {
@@ -122,12 +136,10 @@ namespace ARSandbox.WaterSimulation
             PlayerPrefs.SetInt("EnableSounds", isOn ? 1 : 0);
             PlayerPrefs.Save();
             
-            // Trava de segurança para evitar NullReference caso o áudio ainda não tenha "nascido"
             if (rainAudioSource != null) rainAudioSource.volume = EnableSounds ? SoundVolume : 0f;
             if (waterfallAudioSource != null) waterfallAudioSource.volume = EnableSounds ? (SoundVolume + 0.2f) : 0f;
         }
 
-        // NOVO: Função para o Slider de Volume
         public void UI_SetSoundVolume(float volume)
         {
             SoundVolume = volume;
@@ -162,6 +174,46 @@ namespace ARSandbox.WaterSimulation
             PlayerPrefs.Save();
         }
         
+        public void UI_SetMaxWaterfalls(float max)
+        {
+            MaxWaterfalls = (int)max;
+            PlayerPrefs.SetInt("MaxWaterfalls", MaxWaterfalls);
+            PlayerPrefs.Save();
+        }
+
+        void ConfigureWaterfallControls()
+        {
+            if(waterfallToggle != null) waterfallToggle.onValueChanged.AddListener(OnWaterfallToggleChanged);
+            if(emissionRateSlider != null)
+            {
+                emissionRateSlider.minValue = 0.5f;
+                emissionRateSlider.maxValue = 5.0f;
+                emissionRateSlider.SetValueWithoutNotify(emissionRate);
+            }
+        }
+
+        public void OnWaterfallToggleChanged(bool isOn) { isWaterfallActive = isOn; }
+
+        private void OnEmissionRateChanged(float value) 
+        { 
+            emissionRate = value; 
+            foreach (GameObject emitter in activeWaterfallEmitters)
+            {
+                if (emitter != null)
+                {
+                    var script = emitter.GetComponent<S_WaterfallEmitter>();
+                    if (script != null) script.SetEmissionRate(emissionRate);
+                }
+            }
+        }
+        
+        public void UI_SetEmissionRate(float value) 
+        { 
+            emissionRate = value; 
+            PlayerPrefs.SetFloat("EmissionRate", value);
+            PlayerPrefs.Save();
+        }
+        
         // =========================================================
         // GERADORES GLOBAIS (NUVENS E CACHOEIRAS)
         // =========================================================
@@ -189,8 +241,11 @@ namespace ARSandbox.WaterSimulation
 
             if (checkDistance && activeWaterfallEmitters.Count > 0)
             {
-                GameObject lastWaterfall = activeWaterfallEmitters[activeWaterfallEmitters.Count - 1];
-                if (Vector3.Distance(position, lastWaterfall.transform.position) < MinWaterfallDistance) return;
+                foreach (GameObject emitter in activeWaterfallEmitters)
+                {
+                    if (Vector3.Distance(position, emitter.transform.position) < MinWaterfallDistance) 
+                        return; 
+                }
             }
 
             GameObject newEmitter = Instantiate(WaterfallEmitterPrefab, new Vector3(position.x, position.y, position.z - 50f), Quaternion.identity);
@@ -204,20 +259,15 @@ namespace ARSandbox.WaterSimulation
 
             if (EnableClouds && CloudPrefab != null)
             {
-                GameObject cloudInstance = Instantiate(CloudPrefab, new Vector3(position.x, position.y, position.z - 150f), Quaternion.identity, newEmitter.transform);
+                GameObject cloudInstance = Instantiate(CloudPrefab, new Vector3(position.x, position.y, position.z - 60f), Quaternion.identity, newEmitter.transform);
                 
                 SimpleCloudBehavior cloudBehavior = cloudInstance.GetComponent<SimpleCloudBehavior>();
                 if (cloudBehavior != null && cloudBehavior.CloudParts != null)
                 {
                     var main = cloudBehavior.CloudParts.main;
-                    // Ao instanciar, ele lê o tamanho ATUAL do slider. A velha nuvem não muda!
                     main.startSize = new ParticleSystem.MinMaxCurve(MinCloudParticleSize, MaxCloudParticleSize);
                     main.startColor = CloudColor;
                 }
-
-                if (cloudBehavior != null) Destroy(cloudBehavior);
-                CloudLifeCycle cloudLifeCycle = cloudInstance.GetComponent<CloudLifeCycle>();
-                if (cloudLifeCycle != null) Destroy(cloudLifeCycle);
             }
 
             activeWaterfallEmitters.Add(newEmitter);
@@ -230,7 +280,7 @@ namespace ARSandbox.WaterSimulation
         }
 
         // =========================================================
-        // CONFIGURAÇÕES PADRÕES
+        // CONFIGURAÇÕES PADRÕES E SIMULAÇÃO
         // =========================================================
         void ConfigureDropdown()
         {
@@ -280,24 +330,6 @@ namespace ARSandbox.WaterSimulation
         public void OnAbsorptionChanged(float value) { absorptionSpeed = value; }
         public void OnEvaporationChanged(float value) { evaporationTime = value; }
 
-        void ConfigureWaterfallControls()
-        {
-            if(waterfallToggle != null) waterfallToggle.onValueChanged.AddListener(OnWaterfallToggleChanged);
-            if(emissionRateSlider != null)
-            {
-                emissionRateSlider.minValue = 0.5f;
-                emissionRateSlider.maxValue = 5.0f;
-                emissionRateSlider.value = emissionRate;
-                emissionRateSlider.onValueChanged.AddListener(OnEmissionRateChanged);
-            }
-        }
-
-        public void OnWaterfallToggleChanged(bool isOn) { isWaterfallActive = isOn; }
-        private void OnEmissionRateChanged(float value) { emissionRate = value; }
-
-        // =========================================================
-        // SIMULAÇÃO CORE
-        // =========================================================
         void InitialiseSimulation()
         {
             if (!initialised)
@@ -558,28 +590,128 @@ namespace ARSandbox.WaterSimulation
 
         private void OnGesturesReady()
         {
+            KinectHandTracker tracker = FindObjectOfType<KinectHandTracker>();
+            string currentGesture = tracker != null ? tracker.CurrentGesture : "Unknown";
+
+            // Se o usuário não está fazendo a pinça, ele "solta" o objeto
+            if (currentGesture != "Lasso_Grab") 
+            {
+                isHoldingObject = false;
+            }
+
             foreach (HandInputGesture gesture in HandInput.GetCurrentGestures())
             {
                 if (!gesture.OutOfBounds)
                 {
-                    if (!Physics.CheckSphere(gesture.WorldPosition + new Vector3(0, 0, -5), 1.0f))
+                    Vector3 handPos = gesture.WorldPosition;
+
+                    // 1. PROTEÇÃO DO MOUSE / TOUCH
+                    if (gesture.IsUIGesture)
                     {
-                        if (isWaterfallActive && gesture.IsUIGesture)
+                        if (!Physics.CheckSphere(handPos + new Vector3(0, 0, -5), 1.0f))
                         {
-                            SpawnWaterfall(gesture.WorldPosition, false); 
+                            if (isWaterfallActive) SpawnWaterfall(handPos, false); 
+                            else SpawnDroplet(handPos);
                         }
-                        else if (!gesture.IsUIGesture || !isWaterfallActive)
+                        continue; 
+                    }
+
+                    // 2. PODERES DA IA
+                    
+                    // GESTO: Limpeza Global (Victory / V)
+                    if (currentGesture == "Victory")
+                    {
+                        UI_DestroyWaterfalls();
+                        DestroyWaterDroplets(); 
+                    }
+
+                    // GESTO: Criar Objeto Interativo (ILoveYou / Homem-Aranha)
+                    else if (currentGesture == "ILoveYou")
+                    {
+                        if (currentMovableObject == null && MovableObjectPrefab != null)
                         {
-                            WaterDroplet waterDroplet = Instantiate(WaterDroplet, gesture.WorldPosition, Quaternion.identity);
-                            waterDroplet.SetShowMesh(showParticles);
-                            waterDroplet.SetViscosity(selectedViscosity); 
-                            waterDroplet.SetAbsorptionSpeed(absorptionSpeed); 
-                            waterDroplet.SetEvaporationTime(evaporationTime); 
-                            waterDroplets.Add(waterDroplet);
+                            // Calcula o meio da areia e a altura física para nascer em cima das montanhas
+                            float centerX = (sandboxDescriptor.MeshStart.x + sandboxDescriptor.MeshEnd.x) / 2f;
+                            float centerY = (sandboxDescriptor.MeshStart.y + sandboxDescriptor.MeshEnd.y) / 2f;
+                            float centerZ = Sandbox.GetDepthFromWorldPos(new Vector3(centerX, centerY, 0f));
+                            
+                            Vector3 centerPos = new Vector3(centerX, centerY, centerZ - 10f);
+                            currentMovableObject = Instantiate(MovableObjectPrefab, centerPos, Quaternion.identity);
                         }
                     }
+
+                    // GESTO: Vento e Chuva (Open_Palm)
+                    else if (currentGesture == "Open_Palm")
+                    {
+                        SpawnDroplet(handPos);
+
+                        float dt = Time.time - lastGestureTime;
+                        if (dt > 0 && dt < 0.1f) 
+                        {
+                            Vector3 deltaP = handPos - previousHandPos;
+                            Vector3 velocity = deltaP / dt;
+
+                            if (velocity.magnitude > MinimumWindSpeed)
+                            {
+                                Vector2 windForce = new Vector2(velocity.x, velocity.y) * (WindForceMultiplier * 0.01f);
+                                foreach (WaterDroplet droplet in waterDroplets)
+                                {
+                                    if (droplet != null) droplet.ApplyWindForce(windForce);
+                                }
+                            }
+                        }
+                    }
+                    
+                    // GESTO: Agarrar e Arrastar (Lasso_Grab / Pinça)
+                    else if (currentGesture == "Lasso_Grab")
+                    {
+                        if (currentMovableObject != null)
+                        {
+                            // Calcula a distância entre a mão e o cubo
+                            float distToHand = Vector2.Distance(new Vector2(handPos.x, handPos.y), new Vector2(currentMovableObject.transform.position.x, currentMovableObject.transform.position.y));
+                            
+                            // Se já estava segurando, OU acabou de chegar perto para "clicar"
+                            if (isHoldingObject || distToHand < GrabRadius)
+                            {
+                                isHoldingObject = true; // Confirma que agarrou
+                                float currentDepth = Sandbox.GetDepthFromWorldPos(handPos);
+                                currentMovableObject.transform.position = new Vector3(handPos.x, handPos.y, currentDepth - 10f);
+                            }
+                        }
+                    }
+                    
+                    // GESTO: Gerador de Cascata (Closed_Fist)
+                    else if (currentGesture == "Closed_Fist")
+                    {
+                        SpawnWaterfall(handPos, true);
+                    }
+                    
+                    else if (currentGesture == "Pointing")
+                    {
+                        // Não faz NADA com a água! 
+                        // Deixa o HandInput.cs cuidar apenas de mostrar o texto de altitude na tela.
+                    }
+                    
+                    // GESTO: Água Padrão
+                    else 
+                    {
+                        SpawnDroplet(handPos);
+                    }
+
+                    previousHandPos = handPos;
+                    lastGestureTime = Time.time;
                 }
             }
+        }
+
+        private void SpawnDroplet(Vector3 pos)
+        {
+            WaterDroplet waterDroplet = Instantiate(WaterDroplet, pos, Quaternion.identity);
+            waterDroplet.SetShowMesh(showParticles);
+            waterDroplet.SetViscosity(selectedViscosity); 
+            waterDroplet.SetAbsorptionSpeed(absorptionSpeed); 
+            waterDroplet.SetEvaporationTime(evaporationTime); 
+            waterDroplets.Add(waterDroplet);
         }
 
         public void UI_DestroyWaterfalls()
@@ -591,8 +723,20 @@ namespace ARSandbox.WaterSimulation
 
         private void DestroyWaterDroplets()
         {
-            foreach (WaterDroplet droplet in waterDroplets) Destroy(droplet);
+            // Mata as águas
+            WaterDroplet[] allDroplets = FindObjectsOfType<WaterDroplet>();
+            foreach (WaterDroplet droplet in allDroplets)
+            {
+                if (droplet != null) Destroy(droplet.gameObject);
+            }
             waterDroplets.Clear();
+
+            // Mata o cubo também, unificando a limpeza do mapa!
+            if (currentMovableObject != null)
+            {
+                Destroy(currentMovableObject);
+                currentMovableObject = null;
+            }
         }
 
         public void UI_DestroyWaterDroplets() { DestroyWaterDroplets(); }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,9 +58,11 @@ namespace ARSandbox
         public Slider UI_HandSizeSlider;
         public Slider UI_HandHeightSlider;
         public Slider UI_InteractionZoneSlider; 
+        public TMP_Dropdown UI_CameraRotationDropdown;
 
         [Header("Clouds Settings")]
-        public Toggle UI_EnableCloudsToggle; 
+        public Toggle UI_EnableCloudsToggle;
+        public Slider UI_MaxWaterfallsSlider;
         public Slider UI_CloudMinSizeSlider; 
         public Slider UI_CloudMaxSizeSlider; 
 
@@ -212,12 +215,33 @@ namespace ARSandbox
                     UI_UseMediaPipeToggle.isOn = HandInput.UseMediaPipe;
                     UI_UseMediaPipeToggle.onValueChanged.AddListener(delegate { HandInput.UI_SetUseMediaPipe(UI_UseMediaPipeToggle.isOn); });
                 }
+                
+                if (UI_CameraRotationDropdown != null && HandInput.MediaPipeTracker != null)
+                {
+                    UI_CameraRotationDropdown.onValueChanged.RemoveAllListeners();
+                    
+                    int currentRot = HandInput.MediaPipeTracker.CameraRotationDegrees;
+                    if (currentRot == 90) UI_CameraRotationDropdown.value = 1;
+                    else if (currentRot == 180) UI_CameraRotationDropdown.value = 2;
+                    else if (currentRot == 270) UI_CameraRotationDropdown.value = 3;
+                    else UI_CameraRotationDropdown.value = 0;
+                    
+                    UI_CameraRotationDropdown.onValueChanged.AddListener(delegate { HandInput.UI_SetCameraRotation(UI_CameraRotationDropdown.value); });
+                }
             }
 
             WaterSimulation.WaterSimulation[] waterSims = Resources.FindObjectsOfTypeAll<WaterSimulation.WaterSimulation>();
             if (waterSims != null && waterSims.Length > 0)
             {
                 WaterSimulation.WaterSimulation waterSim = waterSims[0];
+
+
+                if (PlayerPrefs.HasKey("EnableClouds")) waterSim.EnableClouds = PlayerPrefs.GetInt("EnableClouds") == 1;
+                if (PlayerPrefs.HasKey("MinCloudParticleSize")) waterSim.MinCloudParticleSize = PlayerPrefs.GetFloat("MinCloudParticleSize");
+                if (PlayerPrefs.HasKey("MaxCloudParticleSize")) waterSim.MaxCloudParticleSize = PlayerPrefs.GetFloat("MaxCloudParticleSize");
+                if (PlayerPrefs.HasKey("EnableSounds")) waterSim.EnableSounds = PlayerPrefs.GetInt("EnableSounds") == 1;
+                if (PlayerPrefs.HasKey("SoundVolume")) waterSim.SoundVolume = PlayerPrefs.GetFloat("SoundVolume");
+                if (PlayerPrefs.HasKey("MaxWaterfalls")) waterSim.MaxWaterfalls = PlayerPrefs.GetInt("MaxWaterfalls");
 
                 if (UI_EnableCloudsToggle != null) 
                 {
@@ -236,6 +260,13 @@ namespace ARSandbox
                     UI_CloudMaxSizeSlider.onValueChanged.RemoveAllListeners();
                     UI_CloudMaxSizeSlider.value = waterSim.MaxCloudParticleSize;
                     UI_CloudMaxSizeSlider.onValueChanged.AddListener(delegate { waterSim.UI_SetCloudMaxSize(UI_CloudMaxSizeSlider.value); });
+                }
+                
+                if (UI_MaxWaterfallsSlider != null)
+                {
+                    UI_MaxWaterfallsSlider.onValueChanged.RemoveAllListeners();
+                    UI_MaxWaterfallsSlider.value = waterSim.MaxWaterfalls;
+                    UI_MaxWaterfallsSlider.onValueChanged.AddListener(delegate { waterSim.UI_SetMaxWaterfalls(UI_MaxWaterfallsSlider.value); });
                 }
 
                 if (UI_EnableSoundsToggle != null) 

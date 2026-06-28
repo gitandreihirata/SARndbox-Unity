@@ -1152,7 +1152,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 219808992123371520
-    m_Localized: Tamanho
+    m_Localized: "Tamanho M\xEDnimo"
     m_Metadata:
       m_Items: []
   - m_Id: 219809645885341696
@@ -1193,6 +1193,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 225211907096920064
     m_Localized: "Zona de Altura de Intera\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246087295553454080
+    m_Localized: Ativar cachoeira
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246087550483251200
+    m_Localized: "Tamamho M\xE1ximo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 246433566231314432
+    m_Localized: Quantidade
     m_Metadata:
       m_Items: []
   references:

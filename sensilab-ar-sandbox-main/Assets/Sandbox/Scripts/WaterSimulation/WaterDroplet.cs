@@ -246,7 +246,19 @@ namespace ARSandbox.WaterSimulation
             Destroy(gameObject);
         }
 
-
+        // Recebe o vetor de força do gesto de Swipe (Vento)
+        public void ApplyWindForce(Vector2 forceVector)
+        {
+            if (waterDropletPhysics != null)
+            {
+                Rigidbody rb = waterDropletPhysics.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    // Aplica a força de impulso na horizontal (ignorando o Z vertical para não afundar a água na areia)
+                    rb.AddForce(new Vector3(forceVector.x, forceVector.y, 0f), ForceMode.Impulse);
+                }
+            }
+        }
 
     }
 }
